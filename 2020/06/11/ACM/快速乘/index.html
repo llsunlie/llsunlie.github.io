@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2021/8 
+      快速乘 
       
       
       |
@@ -110,75 +110,109 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2021</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">快速乘</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2020-06-11 15:34:00
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E6%95%B0%E8%AE%BA/" title="数论">
+                    <b>#</b> 数论
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="function">LL <span class="title">qmul</span><span class="params">(LL a,LL b,LL mod)</span></span>&#123;</span><br><span class="line">	LL ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans = (ans+a)%mod;</span><br><span class="line">		a = a*<span class="number">2</span>%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E5%B9%82/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2020-06-11 15:34:00
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E6%95%B0%E8%AE%BA/" title="数论">
+                        <b>#</b> 数论
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2020/06/11/ACM/%E5%BF%AB%E8%AF%BB/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="">
-        <div class="time-m-d">08-06</div>
-        <div class="title">
-          <a href="/2021/08/06/demo/">
-            <span></span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">08-06</div>
-        <div class="title">
-          <a href="/2021/08/06/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
-      </div>
+
     
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2020</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="快读">
-        <div class="time-m-d">06-11</div>
-        <div class="title">
-          <a href="/2020/06/11/ACM/%E5%BF%AB%E8%AF%BB/">
-            <span>快读</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="快速乘">
-        <div class="time-m-d">06-11</div>
-        <div class="title">
-          <a href="/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E4%B9%98/">
-            <span>快速乘</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="快速幂">
-        <div class="time-m-d">06-11</div>
-        <div class="title">
-          <a href="/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E5%B9%82/">
-            <span>快速幂</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
