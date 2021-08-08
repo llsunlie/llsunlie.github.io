@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-06T10:17:11.364Z</updated>
+  <updated>2021-08-08T06:32:59.608Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,139 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>快读</title>
-    <link href="http://example.com/2020/06/11/ACM/%E5%BF%AB%E8%AF%BB/"/>
-    <id>http://example.com/2020/06/11/ACM/%E5%BF%AB%E8%AF%BB/</id>
-    <published>2020-06-11T07:37:00.000Z</published>
-    <updated>2021-08-06T10:17:11.364Z</updated>
+    <title>【主席树维护区间修改】HDU 4348 To the moon</title>
+    <link href="http://example.com/2021/08/08/ACM/%E3%80%90%E4%B8%BB%E5%B8%AD%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E3%80%91HDU%204348%20To%20the%20moon/"/>
+    <id>http://example.com/2021/08/08/ACM/%E3%80%90%E4%B8%BB%E5%B8%AD%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E3%80%91HDU%204348%20To%20the%20moon/</id>
+    <published>2021-08-08T06:23:00.000Z</published>
+    <updated>2021-08-08T06:32:59.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="主席树" scheme="http://example.com/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【树状数组】洛谷 P4062 Yazid的新生舞会</title>
+    <link href="http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/"/>
+    <id>http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/</id>
+    <published>2021-08-04T16:55:00.000Z</published>
+    <updated>2021-08-08T06:12:37.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;题目链接&quot;&gt;&lt;a href=&quot;#题目链接&quot; class=&quot;headerlink&quot; title=&quot;题目链接&quot;&gt;&lt;/a&gt;题目链接&lt;/h1&gt;&lt;p&gt;  &lt;a href=&quot;https://www.luogu.com.cn/problem/P3372&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【树状数组】洛谷 P3372 【模板】线段树 1 【树状数组解法】</title>
+    <link href="http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/"/>
+    <id>http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/</id>
+    <published>2021-08-04T08:18:00.000Z</published>
+    <updated>2021-08-08T06:03:37.092Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P3372&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里用树状数组写法;&lt;/p&gt;
+&lt;p&gt;考虑求[1,x]的区间和</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【整数三分】Codeforces Round</title>
+    <link href="http://example.com/2021/08/01/ACM/%E3%80%90%E6%95%B4%E6%95%B0%E4%B8%89%E5%88%86%E3%80%91Codeforces%20Round%20#643%20(Div.%202)%20E.%20Restorer%20Distance/"/>
+    <id>http://example.com/2021/08/01/ACM/%E3%80%90%E6%95%B4%E6%95%B0%E4%B8%89%E5%88%86%E3%80%91Codeforces%20Round%20#643%20(Div.%202)%20E.%20Restorer%20Distance/</id>
+    <published>2021-08-01T14:03:00.000Z</published>
+    <updated>2021-08-07T13:12:21.206Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://codeforces.com/contest/1355/problem/E&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="三分" scheme="http://example.com/tags/%E4%B8%89%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Codeforces】Educational Codeforces Round 112 (Rated for Div. 2)</title>
+    <link href="http://example.com/2021/08/01/ACM/%E3%80%90Codeforces%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/"/>
+    <id>http://example.com/2021/08/01/ACM/%E3%80%90Codeforces%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/</id>
+    <published>2021-08-01T04:41:00.000Z</published>
+    <updated>2021-08-08T05:56:32.349Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;E-Boring-Segments&quot;&gt;&lt;a href=&quot;#E-Boring-Segments&quot; class=&quot;headerlink&quot; title=&quot;E Boring Segments&quot;&gt;&lt;/a&gt;E Boring</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="Codeforces" scheme="http://example.com/tags/Codeforces/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【计算几何】三点求夹角</title>
+    <link href="http://example.com/2021/08/01/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%A4%B9%E8%A7%92/"/>
+    <id>http://example.com/2021/08/01/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%A4%B9%E8%A7%92/</id>
+    <published>2021-08-01T02:47:00.000Z</published>
+    <updated>2021-08-07T12:54:53.258Z</updated>
     
     
       
@@ -37,16 +165,258 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="时间优化" scheme="http://example.com/tags/%E6%97%B6%E9%97%B4%E4%BC%98%E5%8C%96/"/>
+    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
   </entry>
   
   <entry>
-    <title>快速乘</title>
-    <link href="http://example.com/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E4%B9%98/"/>
-    <id>http://example.com/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E4%B9%98/</id>
-    <published>2020-06-11T07:34:00.000Z</published>
-    <updated>2021-08-06T10:17:13.714Z</updated>
+    <title>【后缀数组】模板 from Kausal</title>
+    <link href="http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/"/>
+    <id>http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/</id>
+    <published>2021-07-30T07:28:00.000Z</published>
+    <updated>2021-08-07T12:54:16.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://b23.tv/BV1S54y1G7P8&quot; target=&quot;_blank&quot;&gt;史上最易懂的后缀自动机讲解！独创理解思路还有例题讲解~&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;O-nlogn&quot;&gt;&lt;a href=&quot;#O-nlogn&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+    <category term="后缀数组" scheme="http://example.com/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【FFT】洛谷 P4173 残缺的字符串</title>
+    <link href="http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P4173%20%E6%AE%8B%E7%BC%BA%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P4173%20%E6%AE%8B%E7%BC%BA%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
+    <published>2021-07-28T08:46:00.000Z</published>
+    <updated>2021-08-07T12:53:22.507Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P4173&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【FFT】洛谷 P3803 【模板】多项式乘法（FFT）</title>
+    <link href="http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P3803%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95%EF%BC%88FFT%EF%BC%89/"/>
+    <id>http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P3803%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95%EF%BC%88FFT%EF%BC%89/</id>
+    <published>2021-07-28T06:10:00.000Z</published>
+    <updated>2021-08-07T13:28:04.896Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P3803&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;套了题解区的板子&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【线段树维护区间异或】codeforces E. XOR on Segment</title>
+    <link href="http://example.com/2021/07/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%BC%82%E6%88%96%E3%80%91codeforces%20E.%20XOR%20on%20Segment/"/>
+    <id>http://example.com/2021/07/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%BC%82%E6%88%96%E3%80%91codeforces%20E.%20XOR%20on%20Segment/</id>
+    <published>2021-07-27T11:19:00.000Z</published>
+    <updated>2021-08-08T06:14:22.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://codeforces.com/contest/242/problem/E&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;对于一个区间有如下数字{5，6，7，8}，他们的二进制表示分别为：&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【线段树维护矩阵】LibreOJ-2980 大魔法师</title>
+    <link href="http://example.com/2021/07/24/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E7%9F%A9%E9%98%B5%E3%80%91LibreOJ-2980%20%E5%A4%A7%E9%AD%94%E6%B3%95%E5%B8%88%20/"/>
+    <id>http://example.com/2021/07/24/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E7%9F%A9%E9%98%B5%E3%80%91LibreOJ-2980%20%E5%A4%A7%E9%AD%94%E6%B3%95%E5%B8%88%20/</id>
+    <published>2021-07-24T12:06:00.000Z</published>
+    <updated>2021-08-08T06:06:25.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/LibreOJ-2980&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;线段树维护矩阵模板题&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【点分治 树状数组】洛谷 P4178 Tree</title>
+    <link href="http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/"/>
+    <id>http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/</id>
+    <published>2021-07-22T03:30:00.000Z</published>
+    <updated>2021-08-08T06:18:57.357Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P4178&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先点分治；&lt;br&gt;由于求解的是小于等于k的个数，于是开一个树状数组维护前缀和即可；&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【点分治】洛谷 P2634 聪聪可可</title>
+    <link href="http://example.com/2021/07/21/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%E3%80%91%E6%B4%9B%E8%B0%B7%20P2634%20%E8%81%AA%E8%81%AA%E5%8F%AF%E5%8F%AF/"/>
+    <id>http://example.com/2021/07/21/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%E3%80%91%E6%B4%9B%E8%B0%B7%20P2634%20%E8%81%AA%E8%81%AA%E5%8F%AF%E5%8F%AF/</id>
+    <published>2021-07-21T06:08:00.000Z</published>
+    <updated>2021-08-08T05:59:43.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P2634&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;点分治模板题&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【单调栈】AcWing 131. 直方图中最大的矩形</title>
+    <link href="http://example.com/2021/07/21/ACM/%E3%80%90%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%91AcWing%20131.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/"/>
+    <id>http://example.com/2021/07/21/ACM/%E3%80%90%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%91AcWing%20131.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</id>
+    <published>2021-07-21T04:27:00.000Z</published>
+    <updated>2021-08-07T13:13:01.186Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.acwing.com/problem/content/133/&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【点分治】洛谷 P3806 【模板】点分治1</title>
+    <link href="http://example.com/2021/07/20/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%E3%80%91%E6%B4%9B%E8%B0%B7%20P3806%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%82%B9%E5%88%86%E6%B2%BB1/"/>
+    <id>http://example.com/2021/07/20/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%E3%80%91%E6%B4%9B%E8%B0%B7%20P3806%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%82%B9%E5%88%86%E6%B2%BB1/</id>
+    <published>2021-07-20T01:47:00.000Z</published>
+    <updated>2021-08-08T05:59:56.687Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P3806&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【计算几何】两球体积并</title>
+    <link href="http://example.com/2021/07/19/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E7%90%83%E4%BD%93%E7%A7%AF%E5%B9%B6/"/>
+    <id>http://example.com/2021/07/19/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E7%90%83%E4%BD%93%E7%A7%AF%E5%B9%B6/</id>
+    <published>2021-07-19T12:51:00.000Z</published>
+    <updated>2021-08-08T06:18:09.554Z</updated>
     
     
       
@@ -62,23 +432,23 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
   </entry>
   
   <entry>
-    <title>快速幂</title>
-    <link href="http://example.com/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
-    <id>http://example.com/2020/06/11/ACM/%E5%BF%AB%E9%80%9F%E5%B9%82/</id>
-    <published>2020-06-11T07:05:00.000Z</published>
-    <updated>2021-08-06T10:17:24.546Z</updated>
+    <title>【计算几何】三点求圆心和半径</title>
+    <link href="http://example.com/2021/07/07/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%9C%86%E5%BF%83%E5%92%8C%E5%8D%8A%E5%BE%84/"/>
+    <id>http://example.com/2021/07/07/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%9C%86%E5%BF%83%E5%92%8C%E5%8D%8A%E5%BE%84/</id>
+    <published>2021-07-07T07:18:00.000Z</published>
+    <updated>2021-08-08T05:54:46.573Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;循环&quot;&gt;&lt;a href=&quot;#循环&quot; class=&quot;headerlink&quot; title=&quot;循环&quot;&gt;&lt;/a&gt;循环&lt;/h1&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -87,7 +457,83 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【虚树DP】 CF613D Kingdom and its Cities</title>
+    <link href="http://example.com/2021/07/07/ACM/%E3%80%90%E8%99%9A%E6%A0%91DP%E3%80%91%20CF613D%20Kingdom%20and%20its%20Cities/"/>
+    <id>http://example.com/2021/07/07/ACM/%E3%80%90%E8%99%9A%E6%A0%91DP%E3%80%91%20CF613D%20Kingdom%20and%20its%20Cities/</id>
+    <published>2021-07-07T02:11:00.000Z</published>
+    <updated>2021-08-08T06:14:47.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/CF613D&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;树形dp&quot;&gt;&lt;a href=&quot;#树形dp&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="DP" scheme="http://example.com/tags/DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【计算几何】两圆面积并</title>
+    <link href="http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E9%9D%A2%E7%A7%AF%E5%B9%B6/"/>
+    <id>http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E9%9D%A2%E7%A7%AF%E5%B9%B6/</id>
+    <published>2021-06-05T10:51:00.000Z</published>
+    <updated>2021-08-08T06:18:22.183Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【计算几何】两圆交点</title>
+    <link href="http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E4%BA%A4%E7%82%B9/"/>
+    <id>http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E4%BA%A4%E7%82%B9/</id>
+    <published>2021-06-05T10:43:00.000Z</published>
+    <updated>2021-08-08T06:18:16.046Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
   </entry>
   

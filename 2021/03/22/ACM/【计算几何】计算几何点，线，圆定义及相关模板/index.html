@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【计算几何】计算几何点，线，圆定义及相关模板 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【计算几何】计算几何点，线，圆定义及相关模板</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-03-22 22:25:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/ACM/" title="ACM">
+                    <b>#</b> ACM
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
+                    <b>#</b> 计算几何
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p><a href="https://linxi99.gitee.io/20190211/ACM%E5%87%A0%E4%BD%95%E5%9F%BA%E7%A1%80%E7%AF%87/" target="_blank">代码来源</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="comment">//#pragma GCC optimize(&quot;O2&quot;)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ULL unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs rt&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> one first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> two second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 200009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1e18</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pair pair<span class="meta-string">&lt;LL,LL&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBINF 1e100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-6</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 99999997</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sgn</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dcmp</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">nround</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">int</span> t)</span></span>; <span class="comment">// 四舍五入保留n位小数 , (保留3位小数)1.2100 =&gt; 1.21; </span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x,y;</span><br><span class="line">	<span class="built_in">Point</span>(<span class="keyword">double</span> x=<span class="number">0</span>,<span class="keyword">double</span> y=<span class="number">0</span>):<span class="built_in">x</span>(x),<span class="built_in">y</span>(y)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> Point Vector; <span class="comment">// 向量 </span></span><br><span class="line">Vector <span class="keyword">operator</span> + (Vector A,Vector B);</span><br><span class="line">Vector <span class="keyword">operator</span> - (Vector A,Vector B);</span><br><span class="line">Vector <span class="keyword">operator</span> * (Vector A,<span class="keyword">double</span> k);</span><br><span class="line">Vector <span class="keyword">operator</span> / (Vector A,<span class="keyword">double</span> k);</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Point&amp; a,<span class="keyword">const</span> Point&amp; b);</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> == (<span class="keyword">const</span> Point&amp; a,<span class="keyword">const</span> Point&amp; b);</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PolarAngleCmp</span><span class="params">(Point a,Point b,Point start)</span></span>; <span class="comment">// 极角排序 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PolarAngleCmp2</span><span class="params">(Point a,Point b,Point start)</span></span>; <span class="comment">// 极角排序另一种方法，速度快</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dot</span><span class="params">(Vector A,Vector B)</span></span>; 		<span class="comment">// 内积  α·β=|α||β|cosθ</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Vector A, Vector B)</span></span>;	<span class="comment">// 外积  α×β=|α||β|sinθ</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Point a,Point b,Point c)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dis</span><span class="params">(Point a,Point b)</span></span>;		<span class="comment">// 两点距离 </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Length</span><span class="params">(Vector A)</span></span>;			<span class="comment">// 向量取模 </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Angle</span><span class="params">(Vector A,Vector B)</span></span>;	<span class="comment">// 计算两向量夹角 返回值为弧度制下的夹角 </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area2</span><span class="params">(Point a,Point b,Point c)</span></span>; 	<span class="comment">// 计算两向量构成的平行四边形有向面积 </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area2</span><span class="params">(Vector A,Vector B)</span></span>;	<span class="comment">// 计算两向量构成的平行四边形有向面积 </span></span><br><span class="line"><span class="function">Vector <span class="title">Rotate</span><span class="params">(Vector A,<span class="keyword">double</span> rad)</span></span>;	<span class="comment">// 计算向量逆时针旋转后的向量 </span></span><br><span class="line"><span class="function">Vector <span class="title">Normal</span><span class="params">(Vector A)</span></span>;	 		<span class="comment">// 计算向量逆时针旋转九十度的单位法向量 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ToLeftTest</span><span class="params">(Point a,Point b,Point c)</span></span>;	<span class="comment">//判断折线bc是不是向ab的逆时针方向（左边）转向</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ClosePoint</span><span class="params">(vector&lt;Point&gt; &amp;vc,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>; <span class="comment">// 平面最近点对 [l,r] </span></span><br><span class="line"><span class="comment">//Andrew算法 计算凸包，输入点数组为 p，个数为 n， 输出点数组为 ch。函数返回凸包顶点数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Andrew_ConvexHull</span><span class="params">(Point* p, <span class="keyword">int</span> n, Point* ch)</span></span>; </span><br><span class="line"><span class="comment">//Graham扫描法 计算凸包 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Graham_ConvexHull</span><span class="params">(Point* p, <span class="keyword">int</span> n, Point* cc)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Line</span>&#123;</span> <span class="comment">// 定义直线 ,参数方程 </span></span><br><span class="line">	Point v, p; <span class="comment">// 直线上两点 ,以 v 为起点 </span></span><br><span class="line">	<span class="built_in">Line</span>(Point v=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;,Point p=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;):<span class="built_in">v</span>(v),<span class="built_in">p</span>(p)&#123;&#125;</span><br><span class="line">	<span class="function">Point <span class="title">point</span><span class="params">(<span class="keyword">double</span> t)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> v + (p-v)*t;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">//计算两直线交点，必须保证直线相交，否则将会出现除以零的情况 </span></span><br><span class="line"><span class="comment">//调用前需保证 Cross(v, w) != 0</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineIntersection</span><span class="params">(Point P,Vector v,Point Q,Vector w)</span></span>;</span><br><span class="line"><span class="comment">//点P到直线AB距离公式(取绝对值) </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToLine</span><span class="params">(Point P,Point A,Point B)</span></span>;</span><br><span class="line"><span class="comment">//计算点到线段的距离</span></span><br><span class="line"><span class="comment">//点P到线段AB距离公式</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToSegment</span><span class="params">(Point P,Point A,Point B)</span></span>;</span><br><span class="line"><span class="comment">//点P在直线AB上的投影点</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineProjection</span><span class="params">(Point P, Point A, Point B)</span></span>;</span><br><span class="line"><span class="comment">//判断点是否在线段上</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">OnSegment</span><span class="params">(Point p, Point a1, Point a2)</span></span>;</span><br><span class="line"><span class="comment">//判断两线段是否相交</span></span><br><span class="line"><span class="comment">//通过两次跨立实验</span></span><br><span class="line"><span class="comment">//不允许在顶点处相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SegmentProperIntersectionNo</span><span class="params">(Point a1, Point a2, Point b1, Point b2)</span></span>;</span><br><span class="line"><span class="comment">//允许在端点处相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SegmentProperIntersectionYes</span><span class="params">(Point a1, Point a2, Point b1, Point b2)</span></span>;</span><br><span class="line"><span class="comment">//求多边形面积  p为端点集合，n为端点个数 [0,n) </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">PolygonArea</span><span class="params">(Point* p, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="comment">//判断点是否在多边形内，若点在多边形内返回1，在多边形外部返回0，在多边形上返回-1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPointInPolygon</span><span class="params">(Point p, vector&lt;Point&gt; poly)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//计算机中储存圆通常记录圆心坐标与半径</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Circle</span>&#123;</span></span><br><span class="line">    Point c;</span><br><span class="line">    <span class="keyword">double</span> r;</span><br><span class="line">    <span class="built_in">Circle</span>(Point c=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;, <span class="keyword">double</span> r=<span class="number">0</span>):<span class="built_in">c</span>(c), <span class="built_in">r</span>(r) &#123;&#125;</span><br><span class="line">    <span class="function">Point <span class="title">point</span><span class="params">(<span class="keyword">double</span> a)</span></span>&#123;<span class="comment">//通过圆心角求坐标</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Point</span>(c.x + <span class="built_in">cos</span>(a)*r, c.y + <span class="built_in">sin</span>(a)*r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 判断点在圆内 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PointInCircle</span><span class="params">(Point A,Circle C)</span></span>;</span><br><span class="line"><span class="comment">//求圆与直线交点 返回t1,t2,存放于sol中 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLineCircleIntersection</span><span class="params">(Line L, Circle C, <span class="keyword">double</span>&amp; t1, <span class="keyword">double</span>&amp; t2, vector&lt;Point&gt;&amp; sol)</span></span>;</span><br><span class="line"><span class="comment">//两圆相交面积 通过计算两个圆相交所构成的两个扇形面积和减去其构成的筝形的面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">AreaOfOverlap</span><span class="params">(Point c1, <span class="keyword">double</span> r1, Point c2, <span class="keyword">double</span> r2)</span></span>;</span><br><span class="line"></span><br><span class="line">LL n,m,k;</span><br><span class="line">Point p[MS];</span><br><span class="line">Point tubao[MS];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		cin &gt;&gt; p[i].x &gt;&gt; p[i].y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;0.00\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="built_in">Graham_ConvexHull</span>(p,n,tubao);</span><br><span class="line">	<span class="keyword">double</span> ans = <span class="built_in">Dis</span>(tubao[<span class="number">0</span>],tubao[cnt<span class="number">-1</span>]);</span><br><span class="line">	<span class="keyword">if</span>(cnt == <span class="number">2</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>,ans);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;cnt;i++)&#123;</span><br><span class="line">		ans += <span class="built_in">Dis</span>(tubao[i<span class="number">-1</span>],tubao[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>,ans);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// floor(x) 向下取整</span></span><br><span class="line"><span class="comment">// ceil(x)  向上取整</span></span><br><span class="line"><span class="comment">// round(x) 四舍五入 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sgn</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">fabs</span>(x) &lt; eps) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(x &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dcmp</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">fabs</span>(x-y) &lt; eps) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(x &gt; y) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 四舍五入保留n位小数 , (保留3位小数)1.2100 =&gt; 1.21; </span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">nround</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">	LL k = <span class="built_in">pow</span>(<span class="number">10</span>,t);</span><br><span class="line">	<span class="keyword">double</span> cc = x*k;</span><br><span class="line">	cc = <span class="built_in">round</span>(cc);</span><br><span class="line">	<span class="keyword">return</span> cc/k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vector <span class="keyword">operator</span> + (Vector A,Vector B)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Point</span>(A.x+B.x,A.y+B.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vector <span class="keyword">operator</span> - (Vector A,Vector B)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Vector</span>(A.x-B.x,A.y-B.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vector <span class="keyword">operator</span> * (Vector A,<span class="keyword">double</span> k)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Vector</span>(A.x*k,A.y*k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vector <span class="keyword">operator</span> / (Vector A,<span class="keyword">double</span> k)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Vector</span>(A.x/k,A.y/k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Point&amp; a,<span class="keyword">const</span> Point&amp; b)&#123; <span class="comment">// 从左下到右 </span></span><br><span class="line">	<span class="keyword">if</span>(a.x == b.x) <span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line">	<span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> == (<span class="keyword">const</span> Point&amp; a,<span class="keyword">const</span> Point&amp; b)&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">sgn</span>(a.x-b.x) == <span class="number">0</span> &amp;&amp; <span class="built_in">sgn</span>(a.y-b.y)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* α·β=|α||β|cosθ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">向量α在向量β的投影α′（带有方向性）与β的长度乘积</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若α与β的夹角为锐角，则其内积为正</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若α与β的夹角为钝角，则其内积为负</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若α与β的夹角为直角，则其内积为0 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dot</span><span class="params">(Vector A,Vector B)</span></span>&#123; <span class="comment">// 内积  α·β=|α||β|cosθ</span></span><br><span class="line">	<span class="keyword">return</span> A.x*B.x+A.y*B.y; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*α×β=|α||β|sinθ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">θ 表示向量α旋转到向量β所经过的夹角 (右手定则)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若β在α的逆时针方向，则为正值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">顺时针则为负值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">两向量共线则为0 */</span> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Vector A, Vector B)</span></span>&#123; <span class="comment">// 外积  α×β=|α||β|sinθ</span></span><br><span class="line">    <span class="keyword">return</span> A.x*B.y-A.y*B.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Point a,Point b,Point c)</span></span>&#123; <span class="comment">// ab x ac</span></span><br><span class="line">	<span class="keyword">return</span> (b.x-a.x)*(c.y-a.y)-(c.x-a.x)*(b.y-a.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dis</span><span class="params">(Point a,Point b)</span></span>&#123;<span class="comment">//计算距离</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)*<span class="number">1.0</span>+(a.y-b.y)*(a.y-b.y));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Length</span><span class="params">(Vector A)</span></span>&#123; <span class="comment">// 向量取模 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>(<span class="built_in">Dot</span>(A,A));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Angle</span><span class="params">(Vector A,Vector B)</span></span>&#123; <span class="comment">//计算两向量夹角 返回值为弧度制下的夹角 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">acos</span>( <span class="built_in">Dot</span>(A,B) / (<span class="built_in">Length</span>(A)*<span class="built_in">Length</span>(B)) );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area2</span><span class="params">(Point a,Point b,Point c)</span></span>&#123; <span class="comment">// 计算两向量构成的平行四边形有向面积 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Cross</span>(b-a,c-a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area2</span><span class="params">(Vector A,Vector B)</span></span>&#123; <span class="comment">// 计算两向量构成的平行四边形有向面积 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Cross</span>(A,B);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Vector <span class="title">Rotate</span><span class="params">(Vector A,<span class="keyword">double</span> rad)</span></span>&#123; <span class="comment">// 计算向量逆时针旋转后的向量 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Vector</span>(A.x*<span class="built_in">cos</span>(rad)-A.y*<span class="built_in">sin</span>(rad), A.x*<span class="built_in">sin</span>(rad)+A.y*<span class="built_in">cos</span>(rad));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Vector <span class="title">Normal</span><span class="params">(Vector A)</span></span>&#123; <span class="comment">// 计算向量逆时针旋转九十度的单位法向量 </span></span><br><span class="line">	<span class="keyword">double</span> len = <span class="built_in">Length</span>(A);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Vector</span>(-A.y/len ,A.x/len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ToLeftTest</span><span class="params">(Point a,Point b,Point c)</span></span>&#123; <span class="comment">//判断折线bc是不是向ab的逆时针方向（左边）转向</span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Cross</span>(b-a,c-b) &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//平面最近点对</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ClosePoint</span><span class="params">(vector&lt;Point&gt; &amp;vc,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(r-l&lt;=<span class="number">5</span>)&#123;</span><br><span class="line">		<span class="keyword">double</span> ans = DBINF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=r;j++)&#123;</span><br><span class="line">				ans = <span class="built_in">min</span>(ans,<span class="built_in">Length</span>(vc[i]-vc[j]));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">int</span> m = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">double</span> ans = <span class="built_in">min</span>(<span class="built_in">ClosePoint</span>(vc,l,m),<span class="built_in">ClosePoint</span>(vc,m+<span class="number">1</span>,r));</span><br><span class="line">	vector&lt;Point&gt; tvc;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">abs</span>(vc[i].x - vc[m].x) &lt;= ans)&#123;</span><br><span class="line">			tvc.<span class="built_in">push_back</span>(vc[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(tvc.<span class="built_in">begin</span>(),tvc.<span class="built_in">end</span>(),[](Point k1,Point k2)&#123;<span class="keyword">return</span> k1.y&lt;k2.y;&#125;);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;tvc.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;tvc.<span class="built_in">size</span>() &amp;&amp; tvc[j].y-tvc[i].y&lt;ans;j++)&#123;</span><br><span class="line">			ans = <span class="built_in">min</span>(ans,<span class="built_in">Length</span>(tvc[i]-tvc[j]));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//计算两直线交点，必须保证直线相交，否则将会出现除以零的情况 </span></span><br><span class="line"><span class="comment">//调用前需保证 Cross(v, w) != 0</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineIntersection</span><span class="params">(Point P,Vector v,Point Q,Vector w)</span></span>&#123;</span><br><span class="line">	Vector u = P-Q;</span><br><span class="line">	<span class="keyword">double</span> t = <span class="built_in">Cross</span>(w,u)/<span class="built_in">Cross</span>(v,w);</span><br><span class="line">	<span class="keyword">return</span> P+v*t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//点P到直线AB距离公式</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToLine</span><span class="params">(Point P,Point A,Point B)</span></span>&#123;</span><br><span class="line">	Vector v1 = B-A, v2 = P-A;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">fabs</span>(<span class="built_in">Cross</span>(v1,v2)/<span class="built_in">Length</span>(v1));</span><br><span class="line">&#125;<span class="comment">//不取绝对值，得到的是有向距离</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//计算点到线段的距离</span></span><br><span class="line"><span class="comment">//点P到线段AB距离公式</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToSegment</span><span class="params">(Point P,Point A,Point B)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(A == B) <span class="keyword">return</span> <span class="built_in">Length</span>(P-A);</span><br><span class="line">	Vector v1 = B-A ,v2 = P-A ,v3 = P-B;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">sgn</span>(<span class="built_in">Dot</span>(v1,v2)) &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">Length</span>(v2);</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">sgn</span>(<span class="built_in">Dot</span>(v1,v3)) &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">Length</span>(v3);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">DistanceToLine</span>(P,A,B);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//点P在直线AB上的投影点</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineProjection</span><span class="params">(Point P, Point A, Point B)</span></span>&#123;</span><br><span class="line">    Vector v = B-A;</span><br><span class="line">    <span class="keyword">return</span> A+v*(<span class="built_in">Dot</span>(v, P-A)/<span class="built_in">Dot</span>(v, v));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断点是否在线段上</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">OnSegment</span><span class="params">(Point p, Point a1, Point a2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sgn</span>(<span class="built_in">Cross</span>(a1-p, a2-p)) == <span class="number">0</span> &amp;&amp; <span class="built_in">sgn</span>(<span class="built_in">Dot</span>(a1-p, a2-p)) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断两线段是否相交</span></span><br><span class="line"><span class="comment">//通过两次跨立实验</span></span><br><span class="line"><span class="comment">//不允许在顶点处相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SegmentProperIntersectionNo</span><span class="params">(Point a1, Point a2, Point b1, Point b2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> c1 = <span class="built_in">Cross</span>(a2 - a1, b1 - a1), c2 = <span class="built_in">Cross</span>(a2 - a1, b2 - a1);</span><br><span class="line">    <span class="keyword">double</span> c3 = <span class="built_in">Cross</span>(b2 - b1, a1 - b1), c4 = <span class="built_in">Cross</span>(b2 - b1, a2 - b1);</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">sgn</span>(c1)*<span class="built_in">sgn</span>(c2) &lt; <span class="number">0</span> &amp;&amp; <span class="built_in">sgn</span>(c3)*<span class="built_in">sgn</span>(c4) &lt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//允许在端点处相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SegmentProperIntersectionYes</span><span class="params">(Point a1, Point a2, Point b1, Point b2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> c1 = <span class="built_in">Cross</span>(a2-a1, b1-a1), c2 = <span class="built_in">Cross</span>(a2-a1, b2-a1);</span><br><span class="line">    <span class="keyword">double</span> c3 = <span class="built_in">Cross</span>(b2-b1, a1-b1), c4 = <span class="built_in">Cross</span>(b2-b1, a2-b1);</span><br><span class="line">    <span class="comment">//if判断控制是否允许线段在端点处相交，根据需要添加</span></span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">sgn</span>(c1) || !<span class="built_in">sgn</span>(c2) || !<span class="built_in">sgn</span>(c3) || !<span class="built_in">sgn</span>(c4))&#123;</span><br><span class="line">        <span class="keyword">bool</span> f1 = <span class="built_in">OnSegment</span>(b1, a1, a2);</span><br><span class="line">        <span class="keyword">bool</span> f2 = <span class="built_in">OnSegment</span>(b2, a1, a2);</span><br><span class="line">        <span class="keyword">bool</span> f3 = <span class="built_in">OnSegment</span>(a1, b1, b2);</span><br><span class="line">        <span class="keyword">bool</span> f4 = <span class="built_in">OnSegment</span>(a2, b1, b2);</span><br><span class="line">        <span class="keyword">bool</span> f = (f1|f2|f3|f4);</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">sgn</span>(c1)*<span class="built_in">sgn</span>(c2) &lt; <span class="number">0</span> &amp;&amp; <span class="built_in">sgn</span>(c3)*<span class="built_in">sgn</span>(c4) &lt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求多边形面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">PolygonArea</span><span class="params">(Point* p, <span class="keyword">int</span> n)</span></span>&#123;<span class="comment">//p为端点集合，n为端点个数</span></span><br><span class="line">    <span class="keyword">double</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n<span class="number">-1</span>; ++i)</span><br><span class="line">        s += <span class="built_in">Cross</span>(p[i]-p[<span class="number">0</span>], p[i+<span class="number">1</span>]-p[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fabs</span>(s/<span class="number">2.0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断点是否在多边形内，若点在多边形内返回1，在多边形外部返回0，在多边形上返回-1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPointInPolygon</span><span class="params">(Point p, vector&lt;Point&gt; poly)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> wn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = poly.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">OnSegment</span>(p, poly[i], poly[(i+<span class="number">1</span>)%n])) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="built_in">sgn</span>(<span class="built_in">Cross</span>(poly[(i+<span class="number">1</span>)%n] - poly[i], p - poly[i]));</span><br><span class="line">        <span class="keyword">int</span> d1 = <span class="built_in">sgn</span>(poly[i].y - p.y);</span><br><span class="line">        <span class="keyword">int</span> d2 = <span class="built_in">sgn</span>(poly[(i+<span class="number">1</span>)%n].y - p.y);</span><br><span class="line">        <span class="keyword">if</span>(k &gt; <span class="number">0</span> &amp;&amp; d1 &lt;= <span class="number">0</span> &amp;&amp; d2 &gt; <span class="number">0</span>) wn++;</span><br><span class="line">        <span class="keyword">if</span>(k &lt; <span class="number">0</span> &amp;&amp; d2 &lt;= <span class="number">0</span> &amp;&amp; d1 &gt; <span class="number">0</span>) wn--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(wn != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断点在圆内 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PointInCircle</span><span class="params">(Point A,Circle C)</span></span>&#123;</span><br><span class="line">	Vector p = A-C.c;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Length</span>(p) &lt; C.r; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求圆与直线交点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLineCircleIntersection</span><span class="params">(Line L, Circle C, <span class="keyword">double</span>&amp; t1, <span class="keyword">double</span>&amp; t2, vector&lt;Point&gt;&amp; sol)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a = L.v.x, b = L.p.x - C.c.x, c = L.v.y, d = L.p.y - C.c.y;</span><br><span class="line">    <span class="keyword">double</span> e = a*a + c*c, f = <span class="number">2</span>*(a*b + c*d), g = b*b + d*d - C.r*C.r;</span><br><span class="line">    <span class="keyword">double</span> delta = f*f - <span class="number">4</span>*e*g;<span class="comment">//判别式</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">sgn</span>(delta) &lt; <span class="number">0</span>)<span class="comment">//相离</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">sgn</span>(delta) == <span class="number">0</span>)&#123;<span class="comment">//相切</span></span><br><span class="line">        t1 = -f /(<span class="number">2</span>*e);</span><br><span class="line">        t2 = -f /(<span class="number">2</span>*e);</span><br><span class="line">        sol.<span class="built_in">push_back</span>(L.<span class="built_in">point</span>(t1));<span class="comment">//sol存放交点本身</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//相交</span></span><br><span class="line">    t1 = (-f - <span class="built_in">sqrt</span>(delta))/(<span class="number">2</span>*e);</span><br><span class="line">    sol.<span class="built_in">push_back</span>(L.<span class="built_in">point</span>(t1));</span><br><span class="line">    t2 = (-f + <span class="built_in">sqrt</span>(delta))/(<span class="number">2</span>*e);</span><br><span class="line">    sol.<span class="built_in">push_back</span>(L.<span class="built_in">point</span>(t2));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//两圆相交面积 通过计算两个圆相交所构成的两个扇形面积和减去其构成的筝形的面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">AreaOfOverlap</span><span class="params">(Point c1, <span class="keyword">double</span> r1, Point c2, <span class="keyword">double</span> r2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> d = <span class="built_in">Length</span>(c1 - c2);</span><br><span class="line">    <span class="keyword">if</span>(r1 + r2 &lt; d + eps)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">if</span>(d &lt; <span class="built_in">fabs</span>(r1 - r2) + eps)&#123;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="built_in">min</span>(r1, r2);</span><br><span class="line">        <span class="keyword">return</span> Pi*r*r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> x = (d*d + r1*r1 - r2*r2)/(<span class="number">2.0</span>*d);</span><br><span class="line">    <span class="keyword">double</span> p = (r1 + r2 + d)/<span class="number">2.0</span>;</span><br><span class="line">    <span class="keyword">double</span> t1 = <span class="built_in">acos</span>(x/r1);</span><br><span class="line">    <span class="keyword">double</span> t2 = <span class="built_in">acos</span>((d - x)/r2);</span><br><span class="line">    <span class="keyword">double</span> s1 = r1*r1*t1;</span><br><span class="line">    <span class="keyword">double</span> s2 = r2*r2*t2;</span><br><span class="line">    <span class="keyword">double</span> s3 = <span class="number">2</span>*<span class="built_in">sqrt</span>(p*(p - r1)*(p - r2)*(p - d));</span><br><span class="line">    <span class="keyword">return</span> s1 + s2 - s3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Andrew算法 计算凸包，输入点数组为 p，个数为 n， 输出点数组为 ch。函数返回凸包顶点数</span></span><br><span class="line"><span class="comment">//如果不希望凸包的边上有输入点，则把两个 &lt;= 改为 &lt;</span></span><br><span class="line"><span class="comment">//在精度要求高时建议用dcmp比较</span></span><br><span class="line"><span class="comment">//输入不能有重复点，函数执行完后输入点的顺序被破坏</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Andrew_ConvexHull</span><span class="params">(Point* p, <span class="keyword">int</span> n, Point* ch)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">sort</span>(p, p+n);</span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">while</span>(m &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">Cross</span>(ch[m<span class="number">-1</span>] - ch[m<span class="number">-2</span>], p[i] - ch[m<span class="number">-2</span>]) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            m--;</span><br><span class="line">        &#125;</span><br><span class="line">        ch[m++] = p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-2</span>; i&gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">while</span>(m &gt; k &amp;&amp; <span class="built_in">Cross</span>(ch[m<span class="number">-1</span>] - ch[m<span class="number">-2</span>], p[i] - ch[m<span class="number">-2</span>]) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            m--;</span><br><span class="line">        &#125;</span><br><span class="line">        ch[m++] = p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">        --m;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Graham扫描法 计算凸包 </span></span><br><span class="line"><span class="keyword">double</span> xx,yy;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Graham_ConvexHull</span><span class="params">(Point* p, <span class="keyword">int</span> n, Point* cc)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">		cc[<span class="number">0</span>] = p[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(p,p+n);</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	cc[cnt++] = p[<span class="number">0</span>];</span><br><span class="line">	xx = p[<span class="number">0</span>].x;</span><br><span class="line">	yy = p[<span class="number">0</span>].y;</span><br><span class="line">	<span class="built_in">sort</span>(p+<span class="number">1</span>,p+n,[](Point a,Point b)&#123; <span class="comment">// 极角排序 2 </span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">atan2</span>(a.y-yy,a.x-xx)!=<span class="built_in">atan2</span>(b.y-yy,b.x-xx))</span><br><span class="line">        	<span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">atan2</span>(a.y-yy,a.x-xx))&lt;(<span class="built_in">atan2</span>(b.y-yy,b.x-xx));</span><br><span class="line">    	<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	&#125;);</span><br><span class="line">	cc[cnt++] = p[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="built_in">Cross</span>(cc[cnt<span class="number">-2</span>],cc[cnt<span class="number">-1</span>],p[i]) &lt; <span class="number">0</span>) cnt--;</span><br><span class="line">		cc[cnt++] = p[i];</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2021/03/21/ACM/%E3%80%90%E5%A4%9A%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E3%80%91%E8%AE%A1%E7%AE%97%E4%BB%BB%E6%84%8F%E5%A4%9A%E8%BE%B9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-03-22 22:25:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/ACM/" title="ACM">
+                        <b>#</b> ACM
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
+                        <b>#</b> 计算几何
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2021/03/24/ACM/%E3%80%90%E5%B7%A6%E5%81%8F%E6%A0%91%E3%80%91%E6%B4%9B%E8%B0%B7%20P3377%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%B7%A6%E5%81%8F%E6%A0%91%EF%BC%88%E5%8F%AF%E5%B9%B6%E5%A0%86%EF%BC%89/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

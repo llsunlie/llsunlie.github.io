@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【Codeforces】Educational Codeforces Round 90 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【Codeforces】Educational Codeforces Round 90</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2020-06-26 17:24:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/ACM/" title="ACM">
+                    <b>#</b> ACM
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/Codeforces/" title="Codeforces">
+                    <b>#</b> Codeforces
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="A-Donut-Shops"><a href="#A-Donut-Shops" class="headerlink" title="A. Donut Shops"></a>A. Donut Shops</h1><p>There are two rival donut shops.</p>
+<p>The first shop sells donuts at retail: each donut costs a dollars.</p>
+<p>The second shop sells donuts only in bulk: box of b donuts costs c dollars. So if you want to buy x donuts from this shop, then you have to buy the smallest number of boxes such that the total number of donuts in them is greater or equal to x.</p>
+<p>You want to determine two positive integer values:</p>
+<p>how many donuts can you buy so that they are strictly cheaper in the first shop than in the second shop?<br>how many donuts can you buy so that they are strictly cheaper in the second shop than in the first shop?<br>If any of these values doesn’t exist then that value should be equal to −1. If there are multiple possible answers, then print any of them.</p>
+<p>The printed values should be less or equal to 109. It can be shown that under the given constraints such values always exist if any values exist at all.</p>
+<p><em>Input</em><br>The first line contains a single integer t (1≤t≤1000) — the number of testcases.</p>
+<p>Each of the next t lines contains three integers a, b and c (1≤a≤109, 2≤b≤109, 1≤c≤109).</p>
+<p><em>Output</em><br>For each testcase print two positive integers. For both shops print such x that buying x donuts in this shop is strictly cheaper than buying x donuts in the other shop. x should be greater than 0 and less or equal to 109.</p>
+<p>If there is no such x, then print −1. If there are multiple answers, then print any of them.</p>
+<p><strong>Example</strong></p>
+<p><strong>input</strong></p>
+<blockquote>
+<p>4<br>5 10 4<br>4 5 20<br>2 2 3<br>1000000000 1000000000 1000000000</p>
+</blockquote>
+<p><strong>output</strong></p>
+<blockquote>
+<p>-1 20<br>8 -1<br>1 2<br>-1 1000000000</p>
+</blockquote>
+<p><strong>Note</strong></p>
+<p>In the first testcase buying any number of donuts will be cheaper in the second shop. For example, for 3 or 5 donuts you’ll have to buy a box of 10 donuts for 4 dollars. 3 or 5 donuts in the first shop would cost you 15 or 25 dollars, respectively, however. For 20 donuts you’ll have to buy two boxes for 8 dollars total. Note that 3 and 5 are also valid answers for the second shop, along with many other answers.</p>
+<p>In the second testcase buying any number of donuts will be either cheaper in the first shop or the same price. 8 donuts cost 32 dollars in the first shop and 40 dollars in the second shop (because you have to buy two boxes). 10 donuts will cost 40 dollars in both shops, so 10 is not a valid answer for any of the shops.</p>
+<p>In the third testcase 1 donut costs 2 and 3 dollars, respectively. 2 donuts cost 4 and 3 dollars. Thus, 1 is a valid answer for the first shop and 2 is a valid answer for the second shop.</p>
+<p>In the fourth testcase 109 donuts cost 1018 dollars in the first shop and 109 dollars in the second shop.</p>
+<p>题意: A 店每个甜甜圈 a 元 ,B 店一盒 b 个甜甜圈 c 元 ,输出 x 表示在该店买 x 个甜甜圈比另一家店便宜 .（B店只能一盒一盒购买）</p>
+<p>每个案例对应 a b c ,若不存在 x 则输出 -1 .</p>
+<p>分类讨论:</p>
+<p>记 ans1 ,ans2 为答案 .</p>
+<p>当 <strong>b == 1</strong> 时 ,比较 a 和 c 的大小即可 .</p>
+<p>当 <strong>b != 1</strong> 时 ,A 店也买 b 个甜甜圈价钱为 a * b;</p>
+<p>若 a * b &lt;= c ,则另 ans1 = 1 ,ans2 = -1;</p>
+<p>若 a * b &gt;  c ,则 ans2 = b; 若 a &lt; c ,则 ans1 = 1; 否则 a &gt;= c 时 ans1 = -1;</p>
+<p>这…和直接贴代码有什么区别…</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483646</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 100009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mss 17</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Notice the data size</span></span><br><span class="line"><span class="comment">// Notice the input and output </span></span><br><span class="line"> </span><br><span class="line">LL n,m,k;</span><br><span class="line">LL p[MS];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin &gt;&gt; k;</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		LL a,b,c;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">		LL ans1,ans2;</span><br><span class="line">		<span class="keyword">if</span>(b == <span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a == c)&#123;</span><br><span class="line">				ans1 = ans2 = <span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(a &gt; c)&#123;</span><br><span class="line">				ans1 = <span class="number">1</span>;</span><br><span class="line">				ans2 = <span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(a &lt; c)&#123;</span><br><span class="line">				ans1 = <span class="number">-1</span>;</span><br><span class="line">				ans2 = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(a*b&lt;=c)&#123;</span><br><span class="line">				ans1 = <span class="number">1</span>;</span><br><span class="line">				ans2 = <span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(a*b&gt;c)&#123;</span><br><span class="line">				ans2 = b;</span><br><span class="line">				<span class="keyword">if</span>(a&lt;c)&#123;</span><br><span class="line">					ans1 = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> ans1 = <span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%lld %lld\n&quot;</span>,ans1,ans2);</span><br><span class="line">	&#125; </span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="B-01-Game"><a href="#B-01-Game" class="headerlink" title="B. 01 Game"></a>B. 01 Game</h1><p>Alica and Bob are playing a game.</p>
+<p>Initially they have a binary string s consisting of only characters 0 and 1.</p>
+<p>Alice and Bob make alternating moves: Alice makes the first move, Bob makes the second move, Alice makes the third one, and so on. During each move, the current player must choose two different adjacent characters of string s and delete them. For example, if s=1011001 then the following moves are possible:</p>
+<p>delete s1 and s2: 1011001→11001;<br>delete s2 and s3: 1011001→11001;<br>delete s4 and s5: 1011001→10101;<br>delete s6 and s7: 1011001→10110.</p>
+<p>If a player can’t make any move, they lose. Both players play optimally. You have to determine if Alice can win.</p>
+<p><em>Input</em><br>First line contains one integer t (1≤t≤1000) — the number of test cases.</p>
+<p>Only line of each test case contains one string s (1≤|s|≤100), consisting of only characters 0 and 1.</p>
+<p><em>Output</em><br>For each test case print answer in the single line.</p>
+<p>If Alice can win print DA (YES in Russian) in any register. Otherwise print NET (NO in Russian) in any register.</p>
+<p><strong>Example</strong></p>
+<p><strong>input</strong></p>
+<blockquote>
+<p>3<br>01<br>1111<br>0011</p>
+</blockquote>
+<p><strong>output</strong></p>
+<blockquote>
+<p>DA<br>NET<br>NET</p>
+</blockquote>
+<p><strong>Note</strong><br>In the first test case after Alice’s move string s become empty and Bob can not make any move.</p>
+<p>In the second test case Alice can not make any move initially.</p>
+<p>In the third test case after Alice’s move string s turn into 01. Then, after Bob’s move string s become empty and Alice can not make any move.</p>
+<p>题意:两玩家 ,Alice先 ,Bob后 ,每次能做的操作为找到相邻的两个’0’、’1’字符并删除 ,最后不能操作的人输 .</p>
+<p>若Alice赢 ,则输出 ‘DA’ ,否则 ‘NET’ . (俄语中分别表示 YES 和 NO ) .</p>
+<p>解: 只要字符串中有 0 有 1 则游戏都可以进行下去 ,而且每次操作必定少一个 0 和 1 ,则得到 0 和 1 中少的个数记为 t ,t 为奇数则赢 .</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483646</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 100009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mss 17</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Notice the data size</span></span><br><span class="line"></span><br><span class="line">LL n,m,k;</span><br><span class="line">LL p[MS];</span><br><span class="line"><span class="keyword">char</span> s[MS];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin &gt;&gt; k;</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		<span class="built_in">memset</span>(s,<span class="number">0</span>,<span class="keyword">sizeof</span> s);</span><br><span class="line">		cin &gt;&gt; s;</span><br><span class="line">		LL t1,t0,h = <span class="built_in">strlen</span>(s);</span><br><span class="line">		t0 = t1 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[i] == <span class="string">&#x27;0&#x27;</span>) t0++;</span><br><span class="line">			<span class="keyword">else</span> t1++;</span><br><span class="line">		&#125;</span><br><span class="line">		LL t = <span class="built_in">min</span>(t0,t1);</span><br><span class="line">		<span class="keyword">if</span>(t&amp;<span class="number">1</span>)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;DA\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;NET\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C-Pluses-and-Minuses"><a href="#C-Pluses-and-Minuses" class="headerlink" title="C. Pluses and Minuses"></a>C. Pluses and Minuses</h1><p>You are given a string s consisting only of characters + and -. You perform some process with this string. This process can be described by the following pseudocode:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> init = <span class="number">0</span> to inf</span><br><span class="line">    cur = init</span><br><span class="line">    ok = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i = <span class="number">1</span> to |s|</span><br><span class="line">        res = res + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> s[i] == <span class="string">&#x27;+&#x27;</span></span><br><span class="line">            cur = cur + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cur = cur - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> cur &lt; <span class="number">0</span></span><br><span class="line">            ok = <span class="literal">false</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> ok</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>Note that the inf denotes infinity, and the characters of the string are numbered from 1 to |s|.</p>
+<p>You have to calculate the value of the res after the process ends.</p>
+<p><em>Input</em><br>The first line contains one integer t (1≤t≤1000) — the number of test cases.</p>
+<p>The only lines of each test case contains string s (1≤|s|≤106) consisting only of characters + and -.</p>
+<p>It’s guaranteed that sum of |s| over all test cases doesn’t exceed 106.</p>
+<p><em>Output</em><br>For each test case print one integer — the value of the res after the process ends.</p>
+<p><strong>Example</strong></p>
+<p><strong>input</strong></p>
+<blockquote>
+<p>3<br>–+-<br>-–<br>++–+-</p>
+</blockquote>
+<p><strong>output</strong></p>
+<blockquote>
+<p>7<br>9<br>6</p>
+</blockquote>
+<p>题意: 就是题中所给代码最后得到 res 的值 . </p>
+<p>翻译一下就比如一个横板2D闯关游戏 ,一开始血量 cur = 0 ,每一格对应一个字符 ,每次碰到 ‘-‘ 则血量– ,’+’ 则血量++ ,若血量cur &lt; 0 则从头再来且初始血量 +1 直至通关,求最后一共走过多少格 .</p>
+<p>解: 求前缀和 ,记 ‘-‘ 为 -1 ,’+’ 为 +1 ,因为前缀和是连续的 ,所以每次记录血量为 0 时找前缀和<strong>第一次</strong>为 -1 的下标 ,记录血量为 1 是<strong>第一次</strong>为 -2 的下标… 最后下标值相加即可 .</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483646</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 1000009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mss 17</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Notice the data size</span></span><br><span class="line"></span><br><span class="line">LL n,m,k;</span><br><span class="line">LL p[MS],a[MS];</span><br><span class="line"><span class="keyword">char</span> s[MS];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin &gt;&gt; k;</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		cin &gt;&gt; s;</span><br><span class="line">		LL h = <span class="built_in">strlen</span>(s);</span><br><span class="line">		LL t = <span class="number">0</span> ,cc = <span class="number">-1</span> ,tot = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[i] == <span class="string">&#x27;-&#x27;</span>)&#123;</span><br><span class="line">				p[i+<span class="number">1</span>] = p[i] - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> p[i+<span class="number">1</span>] = p[i] + <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(p[i+<span class="number">1</span>] == cc)&#123;</span><br><span class="line">				cc--;</span><br><span class="line">				a[++tot] = i+<span class="number">1</span>; <span class="comment">// 记录值为-1 ,-2 ,-3 ...的下标</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		LL ans = <span class="number">0</span>; <span class="comment">// 记录答案</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=tot;i++)&#123;</span><br><span class="line">			ans += a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		ans += h; <span class="comment">// 加上通关的一遍</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="D-Maximum-Sum-on-Even-Positions"><a href="#D-Maximum-Sum-on-Even-Positions" class="headerlink" title="D. Maximum Sum on Even Positions"></a>D. Maximum Sum on Even Positions</h1><p>You are given an array a consisting of n integers. Indices of the array start from zero (i. e. the first element is a0, the second one is a1, and so on).</p>
+<p>You can reverse at most one subarray (continuous subsegment) of this array. Recall that the subarray of a with borders l and r is a[l;r]=al,al+1,…,ar.</p>
+<p>Your task is to reverse such a subarray that the sum of elements on even positions of the resulting array is maximized (i. e. the sum of elements a0,a2,…,a2k for integer k=⌊n−12⌋ should be maximum possible).</p>
+<p>You have to answer t independent test cases.</p>
+<p><em>Input</em><br>The first line of the input contains one integer t (1≤t≤2⋅104) — the number of test cases. Then t test cases follow.</p>
+<p>The first line of the test case contains one integer n (1≤n≤2⋅105) — the length of a. The second line of the test case contains n integers a0,a1,…,an−1 (1≤ai≤109), where ai is the i-th element of a.</p>
+<p>It is guaranteed that the sum of n does not exceed 2⋅105 (∑n≤2⋅105).</p>
+<p><em>Output</em><br>For each test case, print the answer on the separate line — the maximum possible sum of elements on even positions after reversing at most one subarray (continuous subsegment) of a.</p>
+<p><strong>Example</strong></p>
+<p><strong>input</strong></p>
+<blockquote>
+<p>4<br>8<br>1 7 3 4 7 6 2 9<br>5<br>1 2 1 2 1<br>10<br>7 8 4 5 7 6 8 9 7 3<br>4<br>3 1 2 1</p>
+</blockquote>
+<p><strong>output</strong></p>
+<blockquote>
+<p>26<br>5<br>37<br>5</p>
+</blockquote>
+<p>题意: 给一段数组 ,可以翻转一次连续的子序列 ,使得 a0 ,a2 ,a4 … ,a2k 之和最大 ,输出最大值 .</p>
+<p>解: 显然翻转长度为奇数的序列没有任何用处 ,所以翻转偶数长度的片段 .</p>
+<p>例如 7 8 4 5 7 6 本来是 7 + 4 + 7 翻转后为 8 + 5 + 6,也就是相当于 7 8 换位 ,4 5 换位 ,7 6 换位</p>
+<p>则 记录两两换位后的差值存储与数组 a ,原数组 p 是 7 8 4 5 7 6 则 a 为 1 1 -1 ,显然此时交换 7 8 4 5 比交换整体更赚 ,所以求数组 a 的连续一段 <strong>和最大</strong> 的区间值 ta 即可 ,可记录 a 的前缀和求解 .</p>
+<p>当然在 7 8 4 5 7 6 中 ,8 不仅可以和 7 交换 ,也可与 4 交换 ,则新建数组 b 记录 8 4 差值 ,5 7 差值 … 也求数组 b 的连续一段 <strong>和最大</strong> 的区间值 tb ,取 ta ,tb 大者 .</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483646</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 200009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mss 17</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Notice the data size</span></span><br><span class="line"></span><br><span class="line">LL n,m,k;</span><br><span class="line">LL p[MS],a[MS],b[MS];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin &gt;&gt; k;</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		a[<span class="number">0</span>] = b[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">		LL h,ans = <span class="number">0</span>;</span><br><span class="line">		cin &gt;&gt; h;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">			cin &gt;&gt; p[i];</span><br><span class="line">			<span class="keyword">if</span>(!(i&amp;<span class="number">1</span>)) ans += p[i]; <span class="comment">// 记录不进行任何翻转操作的答案</span></span><br><span class="line">		&#125;</span><br><span class="line">		LL maxx = <span class="number">0</span>,tot = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;h;i+=<span class="number">2</span>)&#123;</span><br><span class="line">			a[tot] = p[i] - p[i<span class="number">-1</span>]; <span class="comment">// a 差值</span></span><br><span class="line">			b[tot] = p[i] - p[i+<span class="number">1</span>]; <span class="comment">// b 差值</span></span><br><span class="line">			<span class="keyword">if</span>(i == h<span class="number">-1</span>) b[tot] = -INF;</span><br><span class="line">			tot++;</span><br><span class="line">		&#125;</span><br><span class="line">		maxx = <span class="built_in">max</span>(maxx,<span class="built_in">max</span>(a[<span class="number">0</span>],b[<span class="number">0</span>]));</span><br><span class="line">		LL ta = a[<span class="number">0</span>];</span><br><span class="line">		LL tb = b[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;tot;i++)&#123; <span class="comment">// 求前缀和</span></span><br><span class="line">			a[i] += a[i<span class="number">-1</span>]; </span><br><span class="line">			b[i] += b[i<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;tot;i++)&#123; <span class="comment">// 求连续一段 和最大 的区间值 maxx</span></span><br><span class="line">			 ta = <span class="built_in">min</span>(ta,a[i]);</span><br><span class="line">			 tb = <span class="built_in">min</span>(tb,b[i]);</span><br><span class="line">			 a[i] = <span class="built_in">max</span>(a[i],a[i]-ta);</span><br><span class="line">			 b[i] = <span class="built_in">max</span>(b[i],b[i]-tb);</span><br><span class="line">			 maxx = <span class="built_in">max</span>(maxx,<span class="built_in">max</span>(a[i],b[i]));</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans+maxx);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="E-Sum-of-Digits"><a href="#E-Sum-of-Digits" class="headerlink" title="E. Sum of Digits"></a>E. Sum of Digits</h1><p>Let f(x) be the sum of digits of a decimal number x.</p>
+<p>Find the smallest non-negative integer x such that f(x)+f(x+1)+⋯+f(x+k)=n.</p>
+<p><em>Input</em><br>The first line contains one integer t (1≤t≤150) — the number of test cases.</p>
+<p>Each test case consists of one line containing two integers n and k (1≤n≤150, 0≤k≤9).</p>
+<p><em>Output</em><br>For each test case, print one integer without leading zeroes. If there is no such x that f(x)+f(x+1)+⋯+f(x+k)=n, print −1; otherwise, print the minimum x meeting that constraint.</p>
+<p><strong>Example</strong></p>
+<p><strong>input</strong></p>
+<blockquote>
+<p>7<br>1 0<br>1 1<br>42 7<br>13 7<br>99 1<br>99 0<br>99 2</p>
+</blockquote>
+<p><strong>output</strong></p>
+<blockquote>
+<p>1<br>0<br>4<br>-1<br>599998<br>99999999999<br>7997</p>
+</blockquote>
+<p>题意: 设 <strong>f(x)</strong> 为十进制数 <strong>x</strong> 的位数之和 ,找出最小的非负整数 <strong>x</strong>，使 <strong>f(x) + f(x+1) + ⋯ + f(x+k) = n</strong></p>
+<p>解: </p>
+<p><strong>0</strong>. 当我发现 <strong>k</strong> 等于 <strong>9</strong> 时 ,</p>
+<p>若 <strong>x = 0</strong> 时 ==&gt; <strong>0 1 2 3 4 5 6 7 8  9</strong>  位数和为 <strong>45</strong><br>若 <strong>x = 1</strong> 时 ==&gt; <strong>1 2 3 4 5 6 7 8 9  10</strong> 位数和为 <strong>46</strong><br>若 <strong>x = 2</strong> 时 ==&gt; <strong>2 3 4 5 6 7 8 9 10 11</strong> 位数和为 <strong>47</strong></p>
+<p>嗯 … 想着如果说 <strong>n = 55 ,k == 9</strong> 的话 ,我好像可以把个位数定下来 ,这样的话 <strong>10</strong> 个数 每个个位数就可以定为 <strong>0 1 2 3 4 5 6 7 8 9</strong> 和为 <strong>45</strong>.</p>
+<p>为什么这么定呢?  因为 <strong>n - 45 = 10</strong> ,欸! 这不是每个十位数加上一个 <strong>1</strong> 就好了 ,那么答案就是 <strong>10</strong> !</p>
+<p>当然这是非常理想的情况下 ,但是定下了后面的想法框架 .</p>
+<p><strong>1</strong>. 也就是现在想法先是定下个位数数字 ,再减去个位数之和 ,最后确定十位百位千位万位… (比赛时时间有限只能想到这儿了 ,果然是我tcl) .</p>
+<p>个位数怎么确定呢? </p>
+<p>因为有 <strong>k+1</strong> 个数 ,<strong>0 ~ k</strong> 分别表示每一个数 ,既然要确定个位数 ,那就先打表吧 .</p>
+<p>比如说 个位数为 <strong>0</strong> 时 ,<strong>k</strong> = <strong>0,1,2,3…</strong> 令 <strong>p[i][j]</strong> 表示个位数为 <strong>i</strong> 长度为 <strong>j+1</strong> 的各个个位数之和 (毕竟 <strong>k</strong> 为 <strong>1</strong> 时 ,有两个数)</p>
+<p>那么 <strong>p[7][5]</strong> 会出现 <strong>7 8 9 10 11</strong> 这样子 ,<strong>10</strong> 为 <strong>1</strong> ,<strong>11</strong> 为 <strong>2</strong> .</p>
+<p>最大的就是 <strong>p[9][9]</strong> ,<strong>9 10 11 12 13 14 15 16 17 18</strong> 最大就是 <strong>18</strong> 也就是位数和为 <strong>9</strong> .</p>
+<p>这样表就打完了 ,接下来怎么选个位数 .</p>
+<p>现在假设选完了个位数 <strong>p[i][j]</strong> ,毕竟数字都是连续的所以 <strong>n - p[i][j]</strong> 这个值要平均分配到每个数的十位以上 .</p>
+<p>所以 <strong>n - p[i][j]</strong> 要能整除 <strong>k + 1</strong> . </p>
+<p>记 <strong>cc = (n - p[i][j])/(k+1)</strong> ,既然个位数确定下来了 ,<strong>cc</strong> 又是十位数以上的位数之和 ,那么贪心即可 .</p>
+<p><strong>2</strong>. 十位数以上的需要注意当 <strong>p[i][j]</strong> 中 <strong>i + j &gt; 9</strong> 时 ,这样每次数字 <strong>+1</strong> 时会进位 这个时候十位数最多到 <strong>8</strong> 即可 .</p>
+<p>感觉写的挺认真 ,但是第三视角看我写的内容好像也不是特别清楚 …</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pi acos(-1.0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483646</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 100009</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mss 17</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Notice the data size</span></span><br><span class="line"><span class="comment">// Notice the input and output </span></span><br><span class="line"> </span><br><span class="line">LL n,m,k;</span><br><span class="line">LL p[<span class="number">11</span>][<span class="number">11</span>],a[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++) a[i] = i;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">10</span>;i&lt;<span class="number">19</span>;i++) a[i] = i<span class="number">-9</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123; <span class="comment">// 打表 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> u=i;u&lt;=i+j;u++)&#123;</span><br><span class="line">				p[i][j] += a[u];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">init</span>();</span><br><span class="line">	cin &gt;&gt; m;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">		LL t = <span class="number">-1</span> ,cc = INF,flag = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">9</span>;i&gt;=<span class="number">0</span>;i--)&#123; <span class="comment">// 寻找一个个位数 </span></span><br><span class="line">			<span class="keyword">if</span>(p[i][k]&gt;n) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">if</span>((n-p[i][k])%(k+<span class="number">1</span>) == <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">if</span>((n-p[i][k])/(k+<span class="number">1</span>)&lt;=cc)&#123;</span><br><span class="line">					t = i; <span class="comment">// 记录个位数 </span></span><br><span class="line">					cc = (n-p[i][k])/(k+<span class="number">1</span>);	<span class="comment">// 记录十位以上位数之和 </span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(t == <span class="number">-1</span>)&#123; <span class="comment">// 未能整除 </span></span><br><span class="line">			cout &lt;&lt; t &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		LL t9;</span><br><span class="line">		<span class="keyword">if</span>(t+k &lt;= <span class="number">9</span>)&#123; <span class="comment">// 不用担心进位 </span></span><br><span class="line">			t9 = cc / <span class="number">9</span>;</span><br><span class="line">			cc -= t9*<span class="number">9</span>;</span><br><span class="line">			<span class="keyword">if</span>(cc != <span class="number">0</span>) cout &lt;&lt; cc;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t9;i++) cout &lt;&lt; <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">			cout &lt;&lt; t;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123; <span class="comment">// 需要进位 </span></span><br><span class="line">			<span class="keyword">if</span>(cc&lt;<span class="number">9</span>)&#123; <span class="comment">// 十位数不超过 9 </span></span><br><span class="line">				<span class="keyword">if</span>(cc!=<span class="number">0</span>) cout &lt;&lt; cc;</span><br><span class="line">				cout &lt;&lt; t;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123; <span class="comment">// 超过 9 则十位数为 8  </span></span><br><span class="line">				cc -= <span class="number">8</span>;</span><br><span class="line">				t9 = cc / <span class="number">9</span>;</span><br><span class="line">				cc -= t9 * <span class="number">9</span>;</span><br><span class="line">				<span class="keyword">if</span>(cc!=<span class="number">0</span>) cout &lt;&lt; cc;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t9;i++) cout &lt;&lt; <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">				cout &lt;&lt; <span class="number">8</span>;</span><br><span class="line">				cout &lt;&lt; t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2020/06/22/ACM/%E3%80%90KMP%E3%80%91%E6%A8%A1%E5%BC%8F%E4%B8%B2%E5%8C%B9%E9%85%8D/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2020-06-26 17:24:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/ACM/" title="ACM">
+                        <b>#</b> ACM
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/Codeforces/" title="Codeforces">
+                        <b>#</b> Codeforces
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2020/07/08/ACM/%E5%86%85%E6%8E%92%E5%BA%8F/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Donut-Shops"><span class="toc-text">A. Donut Shops</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-01-Game"><span class="toc-text">B. 01 Game</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-Pluses-and-Minuses"><span class="toc-text">C. Pluses and Minuses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#D-Maximum-Sum-on-Even-Positions"><span class="toc-text">D. Maximum Sum on Even Positions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-Sum-of-Digits"><span class="toc-text">E. Sum of Digits</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
