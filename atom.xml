@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-09T09:29:43.856Z</updated>
+  <updated>2021-08-09T09:48:39.121Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【线段树合并】洛谷 P4556 雨天的尾巴【模板】线段树合并</title>
+    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/"/>
+    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/</id>
+    <published>2021-08-09T09:41:00.000Z</published>
+    <updated>2021-08-09T09:48:39.121Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;线段树合并；&lt;/p&gt;
+&lt;p&gt;对于每一个点开一颗权值线段树，采用树上差分的形式维护；&lt;/p&gt;
+&lt;p&gt;例如在x,y之间的路径加上一个z的救济粮，那么就在x的权值线段树z的位置++，在y的权值线段树z的位置++，在lca(x,y)的权值线段树z的位置–，在fa[lca(x,y)]</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>【线段树分裂合并】洛谷 P5494 【模板】线段树分裂</title>
@@ -511,31 +538,6 @@
     
     
     <category term="DP" scheme="http://example.com/tags/DP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【计算几何】两圆面积并</title>
-    <link href="http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E9%9D%A2%E7%A7%AF%E5%B9%B6/"/>
-    <id>http://example.com/2021/06/05/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E5%9C%86%E9%9D%A2%E7%A7%AF%E5%B9%B6/</id>
-    <published>2021-06-05T10:51:00.000Z</published>
-    <updated>2021-08-08T06:18:22.183Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
   </entry>
   
