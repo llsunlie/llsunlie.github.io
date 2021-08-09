@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-09T09:48:39.121Z</updated>
+  <updated>2021-08-09T12:14:59.123Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,94 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【二分】Codeforces Round 279 (Div. 2) F. Treeland Tour (树上最长上升子序列)</title>
+    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91Codeforces%20Round%20279%20(Div.%202)%20F.%20Treeland%20Tour%20(%E6%A0%91%E4%B8%8A%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97)/"/>
+    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91Codeforces%20Round%20279%20(Div.%202)%20F.%20Treeland%20Tour%20(%E6%A0%91%E4%B8%8A%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97)/</id>
+    <published>2021-08-09T12:14:00.000Z</published>
+    <updated>2021-08-09T12:14:59.123Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;题意如题&lt;/p&gt;
+&lt;p&gt;首先得知道最长上升子序列如何在O(nlogn)内求出；&lt;/p&gt;
+&lt;p&gt;参考&lt;a href=&quot;&quot;&gt;【二分】AcWing 2978.</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="二分" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【树状数组维护最值】AcWing 2978. 最长上升子序列</title>
+    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E6%9C%80%E5%80%BC%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/"/>
+    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E6%9C%80%E5%80%BC%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/</id>
+    <published>2021-08-09T11:01:00.000Z</published>
+    <updated>2021-08-09T11:22:05.764Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;回顾DP方式求解过程：&lt;/p&gt;
+&lt;p&gt;$p[i]$：原序列&lt;/p&gt;
+&lt;p&gt;$dp[i]$：以位置 $i$ 为结尾的最长上升子序列；&lt;/p&gt;
+&lt;p&gt;$dp_i = \max_{j=1}^{i-1}dp_j+1(p_j&amp;lt;p_i)$&lt;/p&gt;
+&lt;p&gt;也就是说只要知道 $i$</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【二分】AcWing 2978. 最长上升子序列</title>
+    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/"/>
+    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/</id>
+    <published>2021-08-09T10:51:00.000Z</published>
+    <updated>2021-08-09T11:42:45.724Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;DP&quot;&gt;&lt;a href=&quot;#DP&quot; class=&quot;headerlink&quot; title=&quot;DP&quot;&gt;&lt;/a&gt;DP&lt;/h1&gt;&lt;p&gt;回顾DP方式求解过程：&lt;/p&gt;
+&lt;p&gt;$p[i]$：原序列&lt;/p&gt;
+&lt;p&gt;$dp[i]$：以位置 $i$</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="二分" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【线段树合并】洛谷 P4556 雨天的尾巴【模板】线段树合并</title>
     <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/"/>
     <id>http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/</id>
     <published>2021-08-09T09:41:00.000Z</published>
-    <updated>2021-08-09T09:48:39.121Z</updated>
+    <updated>2021-08-09T09:58:46.903Z</updated>
     
     
       
@@ -30,7 +113,7 @@
         
     <summary type="html">&lt;p&gt;线段树合并；&lt;/p&gt;
 &lt;p&gt;对于每一个点开一颗权值线段树，采用树上差分的形式维护；&lt;/p&gt;
-&lt;p&gt;例如在x,y之间的路径加上一个z的救济粮，那么就在x的权值线段树z的位置++，在y的权值线段树z的位置++，在lca(x,y)的权值线段树z的位置–，在fa[lca(x,y)]</summary>
+&lt;p&gt;例如在x,y之间的路径加上一个z的救济粮，那么就在x的权值线段树z的位置+1，在y的权值线段树z的位置+1，在lca(x,y)的权值线段树z的位置-1，在fa[lca(x,y)</summary>
         
       
     
@@ -96,11 +179,11 @@
   </entry>
   
   <entry>
-    <title>【树状数组】洛谷 P4062 Yazid的新生舞会</title>
-    <link href="http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/"/>
-    <id>http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/</id>
+    <title>【树状数组维护三阶前缀和】洛谷 P4062 Yazid的新生舞会</title>
+    <link href="http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E4%B8%89%E9%98%B6%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/"/>
+    <id>http://example.com/2021/08/05/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E4%B8%89%E9%98%B6%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P4062%20Yazid%E7%9A%84%E6%96%B0%E7%94%9F%E8%88%9E%E4%BC%9A/</id>
     <published>2021-08-04T16:55:00.000Z</published>
-    <updated>2021-08-08T06:12:37.807Z</updated>
+    <updated>2021-08-09T11:23:34.365Z</updated>
     
     
       
@@ -121,11 +204,11 @@
   </entry>
   
   <entry>
-    <title>【树状数组】洛谷 P3372 【模板】线段树 1 【树状数组解法】</title>
-    <link href="http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/"/>
-    <id>http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/</id>
+    <title>【树状数组维护区间和】洛谷 P3372 【模板】线段树 1 【树状数组解法】</title>
+    <link href="http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/"/>
+    <id>http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/</id>
     <published>2021-08-04T08:18:00.000Z</published>
-    <updated>2021-08-08T06:03:37.092Z</updated>
+    <updated>2021-08-09T11:24:18.063Z</updated>
     
     
       
@@ -462,82 +545,6 @@
     
     
     <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【计算几何】两球体积并</title>
-    <link href="http://example.com/2021/07/19/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E7%90%83%E4%BD%93%E7%A7%AF%E5%B9%B6/"/>
-    <id>http://example.com/2021/07/19/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%A4%E7%90%83%E4%BD%93%E7%A7%AF%E5%B9%B6/</id>
-    <published>2021-07-19T12:51:00.000Z</published>
-    <updated>2021-08-08T06:18:09.554Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【计算几何】三点求圆心和半径</title>
-    <link href="http://example.com/2021/07/07/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%9C%86%E5%BF%83%E5%92%8C%E5%8D%8A%E5%BE%84/"/>
-    <id>http://example.com/2021/07/07/ACM/%E3%80%90%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%91%E4%B8%89%E7%82%B9%E6%B1%82%E5%9C%86%E5%BF%83%E5%92%8C%E5%8D%8A%E5%BE%84/</id>
-    <published>2021-07-07T07:18:00.000Z</published>
-    <updated>2021-08-08T05:54:46.573Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【虚树DP】 CF613D Kingdom and its Cities</title>
-    <link href="http://example.com/2021/07/07/ACM/%E3%80%90%E8%99%9A%E6%A0%91DP%E3%80%91%20CF613D%20Kingdom%20and%20its%20Cities/"/>
-    <id>http://example.com/2021/07/07/ACM/%E3%80%90%E8%99%9A%E6%A0%91DP%E3%80%91%20CF613D%20Kingdom%20and%20its%20Cities/</id>
-    <published>2021-07-07T02:11:00.000Z</published>
-    <updated>2021-08-08T06:14:47.265Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/CF613D&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;树形dp&quot;&gt;&lt;a href=&quot;#树形dp&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="DP" scheme="http://example.com/tags/DP/"/>
     
   </entry>
   
