@@ -132,7 +132,7 @@
     <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/"/>
     <id>http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/</id>
     <published>2021-08-09T09:41:00.000Z</published>
-    <updated>2021-08-09T09:58:46.903Z</updated>
+    <updated>2021-08-15T07:59:55.834Z</updated>
     
     
       
@@ -141,7 +141,7 @@
         
     <summary type="html">&lt;p&gt;线段树合并；&lt;/p&gt;
 &lt;p&gt;对于每一个点开一颗权值线段树，采用树上差分的形式维护；&lt;/p&gt;
-&lt;p&gt;例如在x,y之间的路径加上一个z的救济粮，那么就在x的权值线段树z的位置+1，在y的权值线段树z的位置+1，在lca(x,y)的权值线段树z的位置-1，在fa[lca(x,y)</summary>
+&lt;p&gt;例如在$x,y$之间的路径加上一个$z$的救济粮，那么就在$x$的权值线段树$z$的位置$+1$，在$y$的权值线段树$z$的位置$+1$，在$lca(x,y)$的权值线段树$</summary>
         
       
     
@@ -159,7 +159,7 @@
     <link href="http://example.com/2021/08/08/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%86%E8%A3%82%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P5494%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%86%E8%A3%82/"/>
     <id>http://example.com/2021/08/08/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%86%E8%A3%82%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P5494%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%88%86%E8%A3%82/</id>
     <published>2021-08-08T12:25:00.000Z</published>
-    <updated>2021-08-09T09:29:43.856Z</updated>
+    <updated>2021-08-15T07:59:27.937Z</updated>
     
     
       
@@ -186,7 +186,7 @@
     <link href="http://example.com/2021/08/08/ACM/%E3%80%90%E4%B8%BB%E5%B8%AD%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E3%80%91HDU%204348%20To%20the%20moon/"/>
     <id>http://example.com/2021/08/08/ACM/%E3%80%90%E4%B8%BB%E5%B8%AD%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E3%80%91HDU%204348%20To%20the%20moon/</id>
     <published>2021-08-08T06:23:00.000Z</published>
-    <updated>2021-08-08T06:32:59.608Z</updated>
+    <updated>2021-08-15T08:08:29.478Z</updated>
     
     
       
@@ -236,7 +236,7 @@
     <link href="http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/"/>
     <id>http://example.com/2021/08/04/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%92%8C%E3%80%91%E6%B4%9B%E8%B0%B7%20P3372%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%201%20%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E8%A7%A3%E6%B3%95%E3%80%91/</id>
     <published>2021-08-04T08:18:00.000Z</published>
-    <updated>2021-08-09T11:24:18.063Z</updated>
+    <updated>2021-08-15T07:49:38.870Z</updated>
     
     
       
@@ -245,7 +245,7 @@
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P3372&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这里用树状数组写法;&lt;/p&gt;
-&lt;p&gt;考虑求[1,x]的区间和</summary>
+&lt;p&gt;考虑求$[1,x]$的区间和</summary>
         
       
     
@@ -285,11 +285,11 @@
   </entry>
   
   <entry>
-    <title>【Codeforces】Educational Codeforces Round 112 (Rated for Div. 2)</title>
-    <link href="http://example.com/2021/08/01/ACM/%E3%80%90Codeforces%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/"/>
-    <id>http://example.com/2021/08/01/ACM/%E3%80%90Codeforces%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/</id>
+    <title>【线段树维护区间覆盖】Educational Codeforces Round 112 (Rated for Div. 2)</title>
+    <link href="http://example.com/2021/08/01/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/"/>
+    <id>http://example.com/2021/08/01/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96%E3%80%91Educational%20Codeforces%20Round%20112%20(Rated%20for%20Div.%202)/</id>
     <published>2021-08-01T04:41:00.000Z</published>
-    <updated>2021-08-08T05:56:32.349Z</updated>
+    <updated>2021-08-15T08:12:20.125Z</updated>
     
     
       
@@ -305,7 +305,7 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="Codeforces" scheme="http://example.com/tags/Codeforces/"/>
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
@@ -339,7 +339,7 @@
     <link href="http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/"/>
     <id>http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/</id>
     <published>2021-07-30T07:28:00.000Z</published>
-    <updated>2021-08-07T12:54:16.808Z</updated>
+    <updated>2021-08-15T07:30:26.921Z</updated>
     
     
       
@@ -367,7 +367,7 @@
     <link href="http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P4173%20%E6%AE%8B%E7%BC%BA%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://example.com/2021/07/28/ACM/%E3%80%90FFT%E3%80%91%E6%B4%9B%E8%B0%B7%20P4173%20%E6%AE%8B%E7%BC%BA%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
     <published>2021-07-28T08:46:00.000Z</published>
-    <updated>2021-08-07T12:53:22.507Z</updated>
+    <updated>2021-08-15T08:12:47.182Z</updated>
     
     
       
@@ -420,16 +420,14 @@
     <link href="http://example.com/2021/07/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%BC%82%E6%88%96%E3%80%91codeforces%20E.%20XOR%20on%20Segment/"/>
     <id>http://example.com/2021/07/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%BC%82%E6%88%96%E3%80%91codeforces%20E.%20XOR%20on%20Segment/</id>
     <published>2021-07-27T11:19:00.000Z</published>
-    <updated>2021-08-08T06:14:22.906Z</updated>
+    <updated>2021-08-15T08:01:31.626Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://codeforces.com/contest/242/problem/E&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;对于一个区间有如下数字{5，6，7，8}，他们的二进制表示分别为：&lt;/p&gt;
-&lt;figure</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://codeforces.com/contest/242/problem/E&quot;</summary>
         
       
     
@@ -474,7 +472,7 @@
     <link href="http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/"/>
     <id>http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/</id>
     <published>2021-07-22T03:30:00.000Z</published>
-    <updated>2021-08-08T06:18:57.357Z</updated>
+    <updated>2021-08-15T07:27:39.734Z</updated>
     
     
       
@@ -482,7 +480,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P4178&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;首先点分治；&lt;br&gt;由于求解的是小于等于k的个数，于是开一个树状数组维护前缀和即可；&lt;/p&gt;
+&lt;p&gt;首先点分治；&lt;br&gt;由于求解的是小于等于$k$的个数，于是开一个树状数组维护前缀和即可；&lt;/p&gt;
 &lt;figure</summary>
         
       
@@ -530,7 +528,7 @@
     <link href="http://example.com/2021/07/21/ACM/%E3%80%90%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%91AcWing%20131.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/"/>
     <id>http://example.com/2021/07/21/ACM/%E3%80%90%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%91AcWing%20131.%20%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/</id>
     <published>2021-07-21T04:27:00.000Z</published>
-    <updated>2021-08-07T13:13:01.186Z</updated>
+    <updated>2021-08-15T07:27:33.066Z</updated>
     
     
       

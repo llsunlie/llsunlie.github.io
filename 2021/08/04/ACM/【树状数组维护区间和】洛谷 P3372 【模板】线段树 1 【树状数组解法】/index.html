@@ -152,7 +152,7 @@ MathJax = {
       <div class="markdown-body">
         <p><a href="https://www.luogu.com.cn/problem/P3372" target="_blank">题链</a></p>
 <p>这里用树状数组写法;</p>
-<p>考虑求[1,x]的区间和 $sum_x$，于是将原数组差分后，相当于求一个二阶前缀和；</p>
+<p>考虑求$[1,x]$的区间和 $sum_x$，于是将原数组差分后，相当于求一个二阶前缀和；</p>
 <p>设原数组为 $a_i$, 差分后的数组为 $b_i = a_i - a_{i-1}$；</p>
 <p>于是 $a_i = \sum_{j=1}^{i}{b_j}$；</p>
 <p>那么[1,x]的区间和为 $sum_x = \sum_{i=1}^{x}a_i = \sum_{i=1}^{x} \sum_{j=1}^{i}b_j$</p>
