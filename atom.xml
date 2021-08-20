@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-18T13:21:11.567Z</updated>
+  <updated>2021-08-20T11:40:38.350Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【二分 树状数组】North America Championship 2020 G.ICPC Camp</title>
+    <link href="http://example.com/2021/08/20/ACM/%E3%80%90%E4%BA%8C%E5%88%86%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91North%20America%20Championship%202020%20G.ICPC%20Camp/"/>
+    <id>http://example.com/2021/08/20/ACM/%E3%80%90%E4%BA%8C%E5%88%86%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91North%20America%20Championship%202020%20G.ICPC%20Camp/</id>
+    <published>2021-08-20T11:14:00.000Z</published>
+    <updated>2021-08-20T11:40:38.350Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/Kattis-icpccamp&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="二分" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>【线段树维护区间两两乘积和】2021 杭电多校第九场 1006 Guess the weight</title>
@@ -516,35 +544,6 @@
     
     
     <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【点分治 树状数组】洛谷 P4178 Tree</title>
-    <link href="http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/"/>
-    <id>http://example.com/2021/07/22/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P4178%20Tree/</id>
-    <published>2021-07-22T03:30:00.000Z</published>
-    <updated>2021-08-15T07:27:39.734Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P4178&quot; target=&quot;_blank&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;首先点分治；&lt;br&gt;由于求解的是小于等于$k$的个数，于是开一个树状数组维护前缀和即可；&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-    <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
     
   </entry>
   
