@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-08-24T13:37:47.657Z</updated>
+  <updated>2021-08-25T13:42:50.140Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【树状数组】2018 ICPC Asia Jakarta Regional Contest H. Lexical Sign Sequence</title>
+    <link href="http://example.com/2021/08/25/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%912018%20ICPC%20Asia%20Jakarta%20Regional%20Contest%20H.%20Lexical%20Sign%20Sequence/"/>
+    <id>http://example.com/2021/08/25/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%912018%20ICPC%20Asia%20Jakarta%20Regional%20Contest%20H.%20Lexical%20Sign%20Sequence/</id>
+    <published>2021-08-25T13:36:00.000Z</published>
+    <updated>2021-08-25T13:42:50.140Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://codeforces.com/gym/102001/problem/H&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>【双端队列】2018-2019 ICPC Northwestern European Regional Programming Contest (NWERC 2018) A. Access Points</title>
@@ -515,34 +541,6 @@
     
     
     <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【后缀数组】模板 from Kausal</title>
-    <link href="http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/"/>
-    <id>http://example.com/2021/07/30/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%A8%A1%E6%9D%BF%20from%20Kausal/</id>
-    <published>2021-07-30T07:28:00.000Z</published>
-    <updated>2021-08-15T07:30:26.921Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://b23.tv/BV1S54y1G7P8&quot; target=&quot;_blank&quot;&gt;史上最易懂的后缀自动机讲解！独创理解思路还有例题讲解~&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;O-nlogn&quot;&gt;&lt;a href=&quot;#O-nlogn&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    <category term="后缀数组" scheme="http://example.com/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
