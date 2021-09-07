@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-03T11:18:46.949Z</updated>
+  <updated>2021-09-07T12:52:44.634Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【线段树】HDU 7116 Lowbit</title>
+    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%207116%20Lowbit/"/>
+    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%207116%20Lowbit/</id>
+    <published>2021-09-07T12:41:00.000Z</published>
+    <updated>2021-09-07T12:52:44.634Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://acm.hdu.edu.cn/showproblem.php?pid=7116&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【线段树】HDU 5818 Joint Stacks</title>
+    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%205818%20Joint%20Stacks/"/>
+    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%205818%20Joint%20Stacks/</id>
+    <published>2021-09-07T09:05:00.000Z</published>
+    <updated>2021-09-07T12:31:36.664Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://acm.hdu.edu.cn/showproblem.php?pid=5818&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>【Manacher 主席树】2017中国大学生程序设计竞赛 哈尔滨站 A Palindrome</title>
@@ -492,60 +544,6 @@
     
     
     <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【二分】AcWing 2978. 最长上升子序列</title>
-    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/"/>
-    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/</id>
-    <published>2021-08-09T10:51:00.000Z</published>
-    <updated>2021-08-09T11:42:45.724Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;DP&quot;&gt;&lt;a href=&quot;#DP&quot; class=&quot;headerlink&quot; title=&quot;DP&quot;&gt;&lt;/a&gt;DP&lt;/h1&gt;&lt;p&gt;回顾DP方式求解过程：&lt;/p&gt;
-&lt;p&gt;$p[i]$：原序列&lt;/p&gt;
-&lt;p&gt;$dp[i]$：以位置 $i$</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="二分" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树合并】洛谷 P4556 雨天的尾巴【模板】线段树合并</title>
-    <link href="http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/"/>
-    <id>http://example.com/2021/08/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91%E6%B4%9B%E8%B0%B7%20P4556%20%E9%9B%A8%E5%A4%A9%E7%9A%84%E5%B0%BE%E5%B7%B4%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/</id>
-    <published>2021-08-09T09:41:00.000Z</published>
-    <updated>2021-08-15T07:59:55.834Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;线段树合并；&lt;/p&gt;
-&lt;p&gt;对于每一个点开一颗权值线段树，采用树上差分的形式维护；&lt;/p&gt;
-&lt;p&gt;例如在$x,y$之间的路径加上一个$z$的救济粮，那么就在$x$的权值线段树$z$的位置$+1$，在$y$的权值线段树$z$的位置$+1$，在$lca(x,y)$的权值线段树$</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
