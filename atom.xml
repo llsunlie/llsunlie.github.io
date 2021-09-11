@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-11T06:42:18.228Z</updated>
+  <updated>2021-09-11T08:21:22.402Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【DP bitset优化】2021牛客暑期多校训练营8 F Robots</title>
+    <link href="http://example.com/2021/09/11/ACM/%E3%80%90DP%20bitset%E4%BC%98%E5%8C%96%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A58%20F%20Robots/"/>
+    <id>http://example.com/2021/09/11/ACM/%E3%80%90DP%20bitset%E4%BC%98%E5%8C%96%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A58%20F%20Robots/</id>
+    <published>2021-09-11T08:04:00.000Z</published>
+    <updated>2021-09-11T08:21:22.402Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11259&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="DP" scheme="http://example.com/tags/DP/"/>
+    
+    <category term="bitset优化" scheme="http://example.com/tags/bitset%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>【线段树】2021牛客暑期多校训练营7 B xay loves monotonicity</title>
@@ -512,34 +540,6 @@
     
     
     <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【二分 树状数组】North America Championship 2020 G.ICPC Camp</title>
-    <link href="http://example.com/2021/08/20/ACM/%E3%80%90%E4%BA%8C%E5%88%86%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91North%20America%20Championship%202020%20G.ICPC%20Camp/"/>
-    <id>http://example.com/2021/08/20/ACM/%E3%80%90%E4%BA%8C%E5%88%86%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91North%20America%20Championship%202020%20G.ICPC%20Camp/</id>
-    <published>2021-08-20T11:14:00.000Z</published>
-    <updated>2021-08-20T11:40:38.350Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/Kattis-icpccamp&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-    <category term="二分" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
