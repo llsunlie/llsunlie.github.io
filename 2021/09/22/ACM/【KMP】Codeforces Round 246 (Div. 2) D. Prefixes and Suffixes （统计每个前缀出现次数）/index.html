@@ -8,10 +8,13 @@
   <meta name="author" content="John Doe" />
   <meta name="description" content="" />
   
-    <meta name="robots" content="noindex" />
-  
   
   <title>
+    
+      【KMP】Codeforces Round 246 (Div. 2) D. Prefixes and Suffixes （统计每个前缀出现次数） 
+      
+      
+      |
     
      棉被sunlie
   </title>
@@ -99,151 +102,124 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="【线段树维护区间加等比数列】Codeforces Round FF (Div. 2) E. DZY Loves Fibonacci Numbers">
-        <div class="time-m-d">2021-08-22</div>
-        <div class="title">
-          <a href="/2021/08/22/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%8A%A0%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E3%80%91/">
-            
-              
-                <span>【线段树维护区间加等比数列】Codeforces Round FF (Div. 2) E. DZY Loves Fibonacci Numbers</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【KMP】Codeforces Round 246 (Div. 2) D. Prefixes and Suffixes （统计每个前缀出现次数）</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2021-09-22 16:59:00
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/KMP/" title="KMP">
+                    <b>#</b> KMP
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="【线段树维护区间P次方和】HDU 2578 Transformation">
-        <div class="time-m-d">2021-08-22</div>
-        <div class="title">
-          <a href="/2021/08/22/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4P%E6%AC%A1%E6%96%B9%E5%92%8C%E3%80%91HDU%202578%20Transformation/">
-            
-              
-                <span>【线段树维护区间P次方和】HDU 2578 Transformation</span>
-              
-            
-          </a>
-        </div>
+      <div class="markdown-body">
+        <p><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/432/problem/D">题链</a></p>
+<h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><p>题意给定一个字符串 $s$，对于 $s$ 的任何与后缀匹配的前缀，输出该前缀在字符串中出现次数；  </p>
+<p>如果统计完每个前缀出现次数，那么与后缀匹配的前缀可以通过跳最后一个字符对应的 $next$ 数组的值来得到；  </p>
+<p>统计每个前缀出现次数则是 $OI-wiki$ 上的模板算法；</p>
+<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/string/kmp/">$OI-wiki/string/kmp$</a></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> ULL unsigned long long</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> ls rt&lt;&lt;1</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> rs rt&lt;&lt;1|1</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> B1 131</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> B2 13331</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> M1 1000000007</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> M2 1000000009</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> eps 1e-8</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> MAXN 9e18</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> MS 1000009</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"><span class="keyword">char</span> s[MS];</span><br><span class="line"><span class="keyword">int</span> skmp[MS];</span><br><span class="line"><span class="keyword">int</span> cnt[MS];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> len, val;</span><br><span class="line">&#125;ac[MS];</span><br><span class="line"><span class="keyword">int</span> tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_skmp</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>,j=<span class="number">0</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(j &amp;&amp; s[i] != s[j+<span class="number">1</span>]) j = skmp[j];</span><br><span class="line">		<span class="keyword">if</span>(s[i] ==  s[j+<span class="number">1</span>]) j++;</span><br><span class="line">		skmp[i] = j;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; s+<span class="number">1</span>;</span><br><span class="line">	n = <span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">get_skmp</span>();</span><br><span class="line">	<span class="comment">// 求出 cnt[i] 表示与前缀 i 相同的字串个数 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++) cnt[i] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--) cnt[skmp[i]] += cnt[i];</span><br><span class="line">	<span class="comment">//for(int i=0;i&lt;=n;i++) cout &lt;&lt; cnt[i] &lt;&lt; &quot; &quot;;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=n;j;j=skmp[j])&#123;</span><br><span class="line">		ac[++tot] = &#123;j,cnt[j]&#125;;</span><br><span class="line">	&#125; </span><br><span class="line">	cout &lt;&lt; tot &lt;&lt; <span class="string">&quot;\n&quot;</span>; </span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=tot;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">		cout &lt;&lt; ac[i].len &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ac[i].val &lt;&lt; <span class="string">&quot;\n&quot;</span>; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">int</span> ce = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//cin &gt;&gt; ce;</span></span><br><span class="line">	<span class="keyword">while</span>(ce--)&#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
-    
-      <div class="post-item" title="【线段树维护区间加等差数列】洛谷 P1438 无聊的数列">
-        <div class="time-m-d">2021-08-21</div>
-        <div class="title">
-          <a href="/2021/08/21/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%8A%A0%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E3%80%91%E6%B4%9B%E8%B0%B7%20P1438%20%E6%97%A0%E8%81%8A%E7%9A%84%E6%95%B0%E5%88%97/">
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>【线段树维护区间加等差数列】洛谷 P1438 无聊的数列</span>
-              
+              <a href="/2021/09/17/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%912016%20Benelux%20Algorithm%20Programming%20Contest%20(BAPC%2016)%20G%20Manhattan%20Positioning%20System/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
             
-          </a>
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2021-09-22 16:59:00
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/KMP/" title="KMP">
+                        <b>#</b> KMP
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
-      </div>
+      
+    </div>
     
-      <div class="post-item" title="【二分 树状数组】North America Championship 2020 G.ICPC Camp">
-        <div class="time-m-d">2021-08-20</div>
-        <div class="title">
-          <a href="/2021/08/20/ACM/%E3%80%90%E4%BA%8C%E5%88%86%20%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E3%80%91North%20America%20Championship%202020%20G.ICPC%20Camp/">
-            
-              
-                <span>【二分 树状数组】North America Championship 2020 G.ICPC Camp</span>
-              
-            
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="【线段树维护区间两两乘积和】2021 杭电多校第九场 1006 Guess the weight">
-        <div class="time-m-d">2021-08-18</div>
-        <div class="title">
-          <a href="/2021/08/18/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%B8%A4%E4%B8%A4%E4%B9%98%E7%A7%AF%E5%92%8C%E3%80%912021%20%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B9%9D%E5%9C%BA%201006%20Guess%20the%20weight/">
-            
-              
-                <span>【线段树维护区间两两乘积和】2021 杭电多校第九场 1006 Guess the weight</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="【并查集】Codeforces Round 738 (Div. 2) D2. Mocha and Diana">
-        <div class="time-m-d">2021-08-18</div>
-        <div class="title">
-          <a href="/2021/08/18/ACM/%E3%80%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%91Codeforces%20Round%20738%20(Div.%202)%20D2.%20Mocha%20and%20Diana/">
-            
-              
-                <span>【并查集】Codeforces Round 738 (Div. 2) D2. Mocha and Diana</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="【线段树合并】Codeforces Round 279 (Div. 2) F. Treeland Tour (树上最长上升子序列)">
-        <div class="time-m-d">2021-08-15</div>
-        <div class="title">
-          <a href="/2021/08/15/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6%E3%80%91Codeforces%20Round%20279%20(Div.%202)%20F.%20Treeland%20Tour%20(%E6%A0%91%E4%B8%8A%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97)/">
-            
-              
-                <span>【线段树合并】Codeforces Round 279 (Div. 2) F. Treeland Tour (树上最长上升子序列)</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="【二分】Codeforces Round 279 (Div. 2) F. Treeland Tour (树上最长上升子序列)">
-        <div class="time-m-d">2021-08-09</div>
-        <div class="title">
-          <a href="/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91Codeforces%20Round%20279%20(Div.%202)%20F.%20Treeland%20Tour%20(%E6%A0%91%E4%B8%8A%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97)/">
-            
-              
-                <span>【二分】Codeforces Round 279 (Div. 2) F. Treeland Tour (树上最长上升子序列)</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="【树状数组维护最值】AcWing 2978. 最长上升子序列">
-        <div class="time-m-d">2021-08-09</div>
-        <div class="title">
-          <a href="/2021/08/09/ACM/%E3%80%90%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E6%9C%80%E5%80%BC%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/">
-            
-              
-                <span>【树状数组维护最值】AcWing 2978. 最长上升子序列</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="【二分】AcWing 2978. 最长上升子序列">
-        <div class="time-m-d">2021-08-09</div>
-        <div class="title">
-          <a href="/2021/08/09/ACM/%E3%80%90%E4%BA%8C%E5%88%86%E3%80%91AcWing%202978.%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/">
-            
-              
-                <span>【二分】AcWing 2978. 最长上升子序列</span>
-              
-            
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-      <a href="/page/2/"><i class="iconfont icon-angleleft"></i></a>
-    
-    <span class="page-num">3 / 16</span>
-    
-      <a href="/page/4/"><i class="iconfont icon-angleright"></i></a>
-    
-  </nav>
-</div>
+
 
         <div class="footer">
   <div class="social">
