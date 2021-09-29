@@ -22,6 +22,8 @@
             
             <tag> 线段树 </tag>
             
+            <tag> bitset优化 </tag>
+            
         </tags>
       
     </entry>
@@ -45,7 +47,7 @@
       
         <tags>
             
-            <tag> 线段树 扫描线 </tag>
+            <tag> 线段树 </tag>
             
         </tags>
       
@@ -70,7 +72,34 @@
       
         <tags>
             
+            <tag> 字符串 </tag>
+            
             <tag> AC自动机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【线段树 扫描线】HDU 1255 覆盖的面积</title>
+      <link href="/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91/"/>
+      <url>/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://acm.hdu.edu.cn/showproblem.php?pid=1255">题链</a></p><h1 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h1><p>扫描线模板题，求被覆盖两次及以上的区域面积；  </p><p>线段树维护区间覆盖次数，被覆盖一次的总长度 $len1$ ，被覆盖两次的总长度 $len2$；  </p><p>对区间覆盖次数 $cnt$ 分类讨论：<br>&emsp; $1.$ $cnt &gt;= 2$，那么 $len1,len2$ 覆盖完全；<br>&emsp; $2.$ $cnt == 1$，那么 $len1$ 覆盖完全，$len2$ 为左右孩子的 $len1$ 之和；<br>&emsp; $3.$ $cnt == 0$，那么 $lem1,len2$ 分别为为左右孩子的 $len1,len2$ 之和；  </p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs rt&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 200000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MS 1009</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line"><span class="keyword">double</span> l,r,h;</span><br><span class="line"><span class="keyword">int</span> w;</span><br><span class="line">&#125;li[MS&lt;&lt;<span class="number">1</span>]; <span class="keyword">int</span> tot;</span><br><span class="line"><span class="keyword">double</span> dx[MS&lt;&lt;<span class="number">1</span>]; <span class="keyword">int</span> totx;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">nod</span>&#123;</span></span><br><span class="line"><span class="keyword">double</span> len1;</span><br><span class="line"><span class="keyword">double</span> len2;</span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line">&#125;p[MS&lt;&lt;<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node t1, node t2)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (t1.h == t2.h) <span class="keyword">return</span> t1.w &gt; t2.w;</span><br><span class="line"><span class="keyword">return</span> t1.h &lt; t2.h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> rt)</span></span>&#123;</span><br><span class="line">p[rt] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">if</span> (l == r) <span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">int</span> m = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="built_in">build</span>(l,m,ls); <span class="built_in">build</span>(m+<span class="number">1</span>,r,rs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_up</span><span class="params">(<span class="keyword">int</span> rt,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (p[rt].cnt &gt; <span class="number">1</span>) p[rt].len1 = p[rt].len2 = dx[r+<span class="number">1</span>] - dx[l];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (p[rt].cnt == <span class="number">1</span>)&#123;</span><br><span class="line">p[rt].len1 = dx[r+<span class="number">1</span>] - dx[l];</span><br><span class="line"><span class="keyword">if</span> (l == r) p[rt].len2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span> p[rt].len2 = p[ls].len1 + p[rs].len1;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">if</span> (l == r) p[rt].len1 = p[rt].len2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">p[rt].len1 = p[ls].len1 + p[rs].len1;</span><br><span class="line">p[rt].len2 = p[ls].len2 + p[rs].len2;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> rt,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R)&#123;</span><br><span class="line">p[rt].cnt += w;</span><br><span class="line"><span class="built_in">push_up</span>(rt,l,r);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> m = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (m &gt;= L) <span class="built_in">modify</span>(L,R,l,m,ls,w);</span><br><span class="line"><span class="keyword">if</span> (m &lt;  R) <span class="built_in">modify</span>(L,R,m+<span class="number">1</span>,r,rs,w);</span><br><span class="line"><span class="built_in">push_up</span>(rt,l,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n); tot = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="keyword">double</span> x1,y1,x2,y2; <span class="built_in">scanf</span>(<span class="string">&quot;%lf %lf %lf %lf&quot;</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2);</span><br><span class="line">li[++tot] = &#123;x1,x2,y1, <span class="number">1</span>&#125;; dx[tot] = x1;</span><br><span class="line">li[++tot] = &#123;x1,x2,y2,<span class="number">-1</span>&#125;; dx[tot] = x2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">sort</span>(dx+<span class="number">1</span>,dx+tot+<span class="number">1</span>); totx = <span class="number">1</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=tot;i++) <span class="keyword">if</span> (dx[i] != dx[i<span class="number">-1</span>]) dx[++totx] = dx[i];</span><br><span class="line"><span class="built_in">sort</span>(li+<span class="number">1</span>,li+tot+<span class="number">1</span>,cmp);</span><br><span class="line"><span class="built_in">build</span>(<span class="number">1</span>,totx<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//for (int i=1;i&lt;=tot;i++)&#123;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; li[i].l &lt;&lt; &quot; &quot; &lt;&lt; li[i].r &lt;&lt; &quot; &quot; &lt;&lt; li[i].h &lt;&lt; &quot; &quot; &lt;&lt; li[i].w &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;tot;i++)&#123;</span><br><span class="line"><span class="keyword">double</span> now = p[<span class="number">1</span>].len2;</span><br><span class="line"><span class="keyword">int</span> L = <span class="built_in">lower_bound</span>(dx+<span class="number">1</span>,dx+totx+<span class="number">1</span>,li[i].l) - dx;</span><br><span class="line"><span class="keyword">int</span> R = <span class="built_in">lower_bound</span>(dx+<span class="number">1</span>,dx+totx+<span class="number">1</span>,li[i].r) - dx;</span><br><span class="line"><span class="built_in">modify</span>(L,R<span class="number">-1</span>,<span class="number">1</span>,totx<span class="number">-1</span>,<span class="number">1</span>,li[i].w);</span><br><span class="line">ans += p[<span class="number">1</span>].len2*(li[i+<span class="number">1</span>].h-li[i].h);</span><br><span class="line"><span class="comment">//cout &lt;&lt; i &lt;&lt; &quot;: &quot; &lt;&lt; p[1].len2 &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.2f\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//ios::sync_with_stdio(false);</span></span><br><span class="line"><span class="keyword">int</span> ce = <span class="number">1</span>;</span><br><span class="line">cin &gt;&gt; ce;</span><br><span class="line"><span class="keyword">while</span> (ce--)&#123;</span><br><span class="line"><span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 线段树 </tag>
             
         </tags>
       
@@ -94,6 +123,8 @@
       
       
         <tags>
+            
+            <tag> 字符串 </tag>
             
             <tag> AC自动机 </tag>
             
@@ -120,6 +151,8 @@
       
         <tags>
             
+            <tag> 字符串 </tag>
+            
             <tag> 后缀数组 </tag>
             
         </tags>
@@ -144,6 +177,8 @@
       
       
         <tags>
+            
+            <tag> 字符串 </tag>
             
             <tag> KMP </tag>
             
@@ -424,9 +459,9 @@
       
         <tags>
             
-            <tag> 主席树 </tag>
+            <tag> 字符串 </tag>
             
-            <tag> Manacher </tag>
+            <tag> 主席树 </tag>
             
         </tags>
       
@@ -2050,6 +2085,8 @@
       
         <tags>
             
+            <tag> 字符串 </tag>
+            
             <tag> 字典树 </tag>
             
         </tags>
@@ -2074,6 +2111,8 @@
       
       
         <tags>
+            
+            <tag> 字符串 </tag>
             
             <tag> 字典树 </tag>
             
@@ -3084,8 +3123,6 @@
             
             <tag> 字符串 </tag>
             
-            <tag> 哈希 </tag>
-            
         </tags>
       
     </entry>
@@ -3875,12 +3912,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> DFS </tag>
-            
-        </tags>
       
     </entry>
     

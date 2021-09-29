@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-26T13:09:57.374Z</updated>
+  <updated>2021-09-29T11:15:57.393Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91The%202021%20ICPC%20Asia%20Regionals%20Online%20Contest%20(II)/"/>
     <id>http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91The%202021%20ICPC%20Asia%20Regionals%20Online%20Contest%20(II)/</id>
     <published>2021-09-26T12:40:00.000Z</published>
-    <updated>2021-09-26T13:09:57.374Z</updated>
+    <updated>2021-09-29T11:15:57.393Z</updated>
     
     
       
@@ -40,6 +40,8 @@
     
     <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
+    <category term="bitset优化" scheme="http://example.com/tags/bitset%E4%BC%98%E5%8C%96/"/>
+    
   </entry>
   
   <entry>
@@ -47,7 +49,7 @@
     <link href="http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91%E6%B4%9B%E8%B0%B7%20P1856%20[USACO5.5]%E7%9F%A9%E5%BD%A2%E5%91%A8%E9%95%BFPicture/"/>
     <id>http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91%E6%B4%9B%E8%B0%B7%20P1856%20[USACO5.5]%E7%9F%A9%E5%BD%A2%E5%91%A8%E9%95%BFPicture/</id>
     <published>2021-09-26T03:04:00.000Z</published>
-    <updated>2021-09-26T03:10:30.508Z</updated>
+    <updated>2021-09-29T11:19:05.400Z</updated>
     
     
       
@@ -64,7 +66,7 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="线段树 扫描线" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91-%E6%89%AB%E6%8F%8F%E7%BA%BF/"/>
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
@@ -73,7 +75,7 @@
     <link href="http://example.com/2021/09/26/ACM/%E3%80%90AC%E8%87%AA%E5%8A%A8%E6%9C%BA%E3%80%91%E6%B4%9B%E8%B0%B7%20P3796%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88%E5%8A%A0%E5%BC%BA%E7%89%88%EF%BC%89/"/>
     <id>http://example.com/2021/09/26/ACM/%E3%80%90AC%E8%87%AA%E5%8A%A8%E6%9C%BA%E3%80%91%E6%B4%9B%E8%B0%B7%20P3796%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88%E5%8A%A0%E5%BC%BA%E7%89%88%EF%BC%89/</id>
     <published>2021-09-26T02:59:00.000Z</published>
-    <updated>2021-09-26T03:10:21.642Z</updated>
+    <updated>2021-09-29T11:11:50.322Z</updated>
     
     
       
@@ -90,7 +92,35 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
     <category term="AC自动机" scheme="http://example.com/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【线段树 扫描线】HDU 1255 覆盖的面积</title>
+    <link href="http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91/"/>
+    <id>http://example.com/2021/09/26/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%91/</id>
+    <published>2021-09-26T02:59:00.000Z</published>
+    <updated>2021-09-29T11:10:37.758Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://acm.hdu.edu.cn/showproblem.php?pid=1255&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
@@ -99,7 +129,7 @@
     <link href="http://example.com/2021/09/26/ACM/%E3%80%90AC%E8%87%AA%E5%8A%A8%E6%9C%BA%E3%80%91%E6%B4%9B%E8%B0%B7%20P3808%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/"/>
     <id>http://example.com/2021/09/26/ACM/%E3%80%90AC%E8%87%AA%E5%8A%A8%E6%9C%BA%E3%80%91%E6%B4%9B%E8%B0%B7%20P3808%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/</id>
     <published>2021-09-26T02:54:00.000Z</published>
-    <updated>2021-09-26T02:58:27.603Z</updated>
+    <updated>2021-09-29T11:11:54.946Z</updated>
     
     
       
@@ -116,6 +146,8 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
     <category term="AC自动机" scheme="http://example.com/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
     
   </entry>
@@ -125,7 +157,7 @@
     <link href="http://example.com/2021/09/23/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P2408%20%E4%B8%8D%E5%90%8C%E5%AD%90%E4%B8%B2%E4%B8%AA%E6%95%B0/"/>
     <id>http://example.com/2021/09/23/ACM/%E3%80%90%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E3%80%91%E6%B4%9B%E8%B0%B7%20P2408%20%E4%B8%8D%E5%90%8C%E5%AD%90%E4%B8%B2%E4%B8%AA%E6%95%B0/</id>
     <published>2021-09-23T06:02:00.000Z</published>
-    <updated>2021-09-23T06:19:23.063Z</updated>
+    <updated>2021-09-29T11:17:56.934Z</updated>
     
     
       
@@ -142,6 +174,8 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
     <category term="后缀数组" scheme="http://example.com/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/"/>
     
   </entry>
@@ -151,7 +185,7 @@
     <link href="http://example.com/2021/09/22/ACM/%E3%80%90KMP%E3%80%91Codeforces%20Round%20246%20(Div.%202)%20D.%20Prefixes%20and%20Suffixes%20%EF%BC%88%E7%BB%9F%E8%AE%A1%E6%AF%8F%E4%B8%AA%E5%89%8D%E7%BC%80%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%EF%BC%89/"/>
     <id>http://example.com/2021/09/22/ACM/%E3%80%90KMP%E3%80%91Codeforces%20Round%20246%20(Div.%202)%20D.%20Prefixes%20and%20Suffixes%20%EF%BC%88%E7%BB%9F%E8%AE%A1%E6%AF%8F%E4%B8%AA%E5%89%8D%E7%BC%80%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%EF%BC%89/</id>
     <published>2021-09-22T08:59:00.000Z</published>
-    <updated>2021-09-22T09:06:46.001Z</updated>
+    <updated>2021-09-29T11:12:08.868Z</updated>
     
     
       
@@ -167,6 +201,8 @@
     
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
+    
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
     <category term="KMP" scheme="http://example.com/tags/KMP/"/>
     
@@ -440,7 +476,7 @@
     <link href="http://example.com/2021/09/03/ACM/%E3%80%90Manacher%20%E4%B8%BB%E5%B8%AD%E6%A0%91%E3%80%912017%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%20%E5%93%88%E5%B0%94%E6%BB%A8%E7%AB%99%20A%20Palindrome/"/>
     <id>http://example.com/2021/09/03/ACM/%E3%80%90Manacher%20%E4%B8%BB%E5%B8%AD%E6%A0%91%E3%80%912017%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B%20%E5%93%88%E5%B0%94%E6%BB%A8%E7%AB%99%20A%20Palindrome/</id>
     <published>2021-09-03T11:10:00.000Z</published>
-    <updated>2021-09-03T11:18:46.949Z</updated>
+    <updated>2021-09-29T11:13:12.249Z</updated>
     
     
       
@@ -457,9 +493,9 @@
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
     
-    <category term="主席树" scheme="http://example.com/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
+    <category term="字符串" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
-    <category term="Manacher" scheme="http://example.com/tags/Manacher/"/>
+    <category term="主席树" scheme="http://example.com/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
   </entry>
   
@@ -509,34 +545,6 @@
     
     <category term="ACM" scheme="http://example.com/categories/ACM/"/>
     
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树 单调栈】2021牛客暑期多校训练营2 A Arithmetic Progression</title>
-    <link href="http://example.com/2021/08/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A52%20A%20Arithmetic%20Progression/"/>
-    <id>http://example.com/2021/08/27/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A52%20A%20Arithmetic%20Progression/</id>
-    <published>2021-08-27T07:02:00.000Z</published>
-    <updated>2021-09-03T11:30:28.713Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11253&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="单调栈" scheme="http://example.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
     <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
