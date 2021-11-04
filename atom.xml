@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-30T11:48:12.114Z</updated>
+  <updated>2021-11-04T13:04:31.286Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【DSU 线段树】2019 ICPC 南昌 K-Tree</title>
+    <link href="http://example.com/2021/11/04/ACM/%E3%80%90DSU%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912019%20ICPC%20%E5%8D%97%E6%98%8C%20K-Tree/"/>
+    <id>http://example.com/2021/11/04/ACM/%E3%80%90DSU%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912019%20ICPC%20%E5%8D%97%E6%98%8C%20K-Tree/</id>
+    <published>2021-11-04T13:00:00.000Z</published>
+    <updated>2021-11-04T13:04:31.286Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/contest/425655#problem/K&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+    <category term="DSU" scheme="http://example.com/tags/DSU/"/>
+    
+  </entry>
   
   <entry>
     <title>【思维】2019 ICPC 徐州 M. Kill the tree</title>
@@ -528,32 +556,6 @@
     <category term="DP" scheme="http://example.com/tags/DP/"/>
     
     <category term="bitset优化" scheme="http://example.com/tags/bitset%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树】2021牛客暑期多校训练营7 B xay loves monotonicity</title>
-    <link href="http://example.com/2021/09/11/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A57%20B%20xay%20loves%20monotonicity/"/>
-    <id>http://example.com/2021/09/11/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A57%20B%20xay%20loves%20monotonicity/</id>
-    <published>2021-09-11T05:54:00.000Z</published>
-    <updated>2021-09-11T06:42:18.228Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11258&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
