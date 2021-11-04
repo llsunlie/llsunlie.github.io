@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-16T10:23:55.709Z</updated>
+  <updated>2021-10-30T11:48:12.114Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,138 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【思维】2019 ICPC 徐州 M. Kill the tree</title>
+    <link href="http://example.com/2021/10/30/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%912019%20ICPC%20%E5%BE%90%E5%B7%9E%20M.%20Kill%20the%20tree/"/>
+    <id>http://example.com/2021/10/30/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%912019%20ICPC%20%E5%BE%90%E5%B7%9E%20M.%20Kill%20the%20tree/</id>
+    <published>2021-10-30T12:00:00.000Z</published>
+    <updated>2021-10-30T11:48:12.114Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42552&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="思维" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【莫队】洛谷 P5268 一个简单的询问</title>
+    <link href="http://example.com/2021/10/25/ACM/%E3%80%90%E8%8E%AB%E9%98%9F%E3%80%91%E6%B4%9B%E8%B0%B7%20P5268%20%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%A2%E9%97%AE/"/>
+    <id>http://example.com/2021/10/25/ACM/%E3%80%90%E8%8E%AB%E9%98%9F%E3%80%91%E6%B4%9B%E8%B0%B7%20P5268%20%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%A2%E9%97%AE/</id>
+    <published>2021-10-25T12:15:00.000Z</published>
+    <updated>2021-10-25T12:25:55.226Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/P5268&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="莫队" scheme="http://example.com/tags/%E8%8E%AB%E9%98%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【点分治 DP】2017 CCPC Hangzhou E. Master of Subgraph</title>
+    <link href="http://example.com/2021/10/25/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20DP%E3%80%912017%20CCPC%20Hangzhou%20E.%20Master%20of%20Subgraph/"/>
+    <id>http://example.com/2021/10/25/ACM/%E3%80%90%E7%82%B9%E5%88%86%E6%B2%BB%20DP%E3%80%912017%20CCPC%20Hangzhou%20E.%20Master%20of%20Subgraph/</id>
+    <published>2021-10-25T12:00:00.000Z</published>
+    <updated>2021-10-25T12:09:29.422Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/HDU-6268&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="DP" scheme="http://example.com/tags/DP/"/>
+    
+    <category term="点分治" scheme="http://example.com/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【思维】Codeforces Round 750 (Div. 2) F2. Korney Korneevich and XOR (hard version)</title>
+    <link href="http://example.com/2021/10/25/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%91Codeforces%20Round%20750%20(Div.%202)%20F2.%20Korney%20Korneevich%20and%20XOR%20(hard%20version)/"/>
+    <id>http://example.com/2021/10/25/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%91Codeforces%20Round%20750%20(Div.%202)%20F2.%20Korney%20Korneevich%20and%20XOR%20(hard%20version)/</id>
+    <published>2021-10-25T11:54:00.000Z</published>
+    <updated>2021-10-25T11:54:19.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://codeforces.ml/contest/1582&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot; title=&quot;题目解析&quot;&gt;&lt;/a&gt;题目解析&lt;/h1&gt;&lt;p&gt;这是</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="思维" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【思维】Codeforces Round 750 (Div. 2) F1. Korney Korneevich and XOR (easy version)</title>
+    <link href="http://example.com/2021/10/25/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%91Codeforces%20Round%20750%20(Div.%202)%20F1.%20Korney%20Korneevich%20and%20XOR%20(easy%20version)/"/>
+    <id>http://example.com/2021/10/25/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%91Codeforces%20Round%20750%20(Div.%202)%20F1.%20Korney%20Korneevich%20and%20XOR%20(easy%20version)/</id>
+    <published>2021-10-25T11:50:00.000Z</published>
+    <updated>2021-10-25T11:54:29.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://codeforces.ml/contest/1582&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="思维" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>【AC自动机 DP】The 16th Heilongjiang Provincial Collegiate Programming Contest E. Elastic Search</title>
@@ -412,138 +544,6 @@
         
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11258&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树维护矩阵】The 2021 Shanghai Collegiate Programming Contest I. 对线</title>
-    <link href="http://example.com/2021/09/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E7%9F%A9%E9%98%B5%E3%80%91The%202021%20Shanghai%20Collegiate%20Programming%20Contest%20I.%20%E5%AF%B9%E7%BA%BF/"/>
-    <id>http://example.com/2021/09/09/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E7%9F%A9%E9%98%B5%E3%80%91The%202021%20Shanghai%20Collegiate%20Programming%20Contest%20I.%20%E5%AF%B9%E7%BA%BF/</id>
-    <published>2021-09-09T06:18:00.000Z</published>
-    <updated>2021-09-09T06:34:01.431Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://codeforces.com/gym/103186/problem/I&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目分析&quot;&gt;&lt;a href=&quot;#题目分析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树 扫描线】2021牛客暑期多校训练营6 H Hopping Rabbit</title>
-    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A56%20H%20Hopping%20Rabbit/"/>
-    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E6%89%AB%E6%8F%8F%E7%BA%BF%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A56%20H%20Hopping%20Rabbit/</id>
-    <published>2021-09-07T13:37:00.000Z</published>
-    <updated>2021-09-07T13:49:02.134Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11257&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【三分 计算几何】2021牛客暑期多校训练营5 F Finding Points</title>
-    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E4%B8%89%E5%88%86%20%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A55%20F%20Finding%20Points/"/>
-    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E4%B8%89%E5%88%86%20%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A55%20F%20Finding%20Points/</id>
-    <published>2021-09-07T13:26:00.000Z</published>
-    <updated>2021-09-07T13:29:09.367Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11256&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="计算几何" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
-    
-    <category term="三分" scheme="http://example.com/tags/%E4%B8%89%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【思维】2021牛客暑期多校训练营5 C Cheating and Stealing</title>
-    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A55%20C%20Cheating%20and%20Stealing/"/>
-    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E6%80%9D%E7%BB%B4%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A55%20C%20Cheating%20and%20Stealing/</id>
-    <published>2021-09-07T13:06:00.000Z</published>
-    <updated>2021-09-07T13:21:59.543Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11256&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="思维" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【线段树】HDU 7116 Lowbit</title>
-    <link href="http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%207116%20Lowbit/"/>
-    <id>http://example.com/2021/09/07/ACM/%E3%80%90%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%91HDU%207116%20Lowbit/</id>
-    <published>2021-09-07T12:41:00.000Z</published>
-    <updated>2021-09-07T12:52:44.634Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://acm.hdu.edu.cn/showproblem.php?pid=7116&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
         
       
