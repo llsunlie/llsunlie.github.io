@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-04T13:04:31.286Z</updated>
+  <updated>2021-11-04T13:08:08.839Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【DSU】洛谷 U41492 树上数颜色</title>
+    <link href="http://example.com/2021/11/04/ACM/%E3%80%90DSU%E3%80%91%E6%B4%9B%E8%B0%B7%20U41492%20%E6%A0%91%E4%B8%8A%E6%95%B0%E9%A2%9C%E8%89%B2/"/>
+    <id>http://example.com/2021/11/04/ACM/%E3%80%90DSU%E3%80%91%E6%B4%9B%E8%B0%B7%20U41492%20%E6%A0%91%E4%B8%8A%E6%95%B0%E9%A2%9C%E8%89%B2/</id>
+    <published>2021-11-04T13:07:00.000Z</published>
+    <updated>2021-11-04T13:08:08.839Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/U41492&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
+    
+    
+    <category term="DSU" scheme="http://example.com/tags/DSU/"/>
+    
+  </entry>
   
   <entry>
     <title>【DSU 线段树】2019 ICPC 南昌 K-Tree</title>
@@ -528,34 +554,6 @@
     
     
     <category term="思维" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【DP bitset优化】2021牛客暑期多校训练营8 F Robots</title>
-    <link href="http://example.com/2021/09/11/ACM/%E3%80%90DP%20bitset%E4%BC%98%E5%8C%96%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A58%20F%20Robots/"/>
-    <id>http://example.com/2021/09/11/ACM/%E3%80%90DP%20bitset%E4%BC%98%E5%8C%96%E3%80%912021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A58%20F%20Robots/</id>
-    <published>2021-09-11T08:04:00.000Z</published>
-    <updated>2021-09-11T08:59:09.021Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11259&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="DP" scheme="http://example.com/tags/DP/"/>
-    
-    <category term="bitset优化" scheme="http://example.com/tags/bitset%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
