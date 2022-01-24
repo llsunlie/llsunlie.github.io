@@ -157,6 +157,11 @@ MathJax = {
         <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><ol>
 <li>String 属于引用类型，不属于基本类型  </li>
 <li>用双引号括起来的字符串，例如“abs”,”def”都是存储在“方法区”的“字符串常量池”中  </li>
+<li>使用“+”进行字符串拼接，如String s = “a”+“b”，会在方法去产生两个字符串对象，在堆内存中产生一个String s对象，频繁使用导致内存空间的浪费    </li>
+<li>面试题:String为什么是不可变的?<br> 我看过源代码，String类中有一个byte[ ]数组，这个byte[ ]数组采用了final修饰，因为数组一旦创建长度不可变。并且被final修饰的引用一旦指向某个对象之后，不可再指向其它对象，所以String是不可变的!  <pre><code> &quot;abc”无法变成&quot;abcd&quot;  
+</code></pre>
+</li>
+<li>StringBuiLder/StringBuffer为什么是可变的呢?<br> 我看过源代码，StringBuffer/StringBuiLder内部实际上是一个byte[ ]数组，这个byte[ ]数组没有披final修饰，StringBuffer/StringBuilder的初始化容量我记得应该是16，当存满之后会进行扩容，底层调用了数组拷贝的方法System.arraycopy()…是这样扩容的。所以stringBuilder/StringBuffer适合于使用字符串的频繁拼接操作。  </li>
 </ol>
 <h1 id="String字符串的存储原理"><a href="#String字符串的存储原理" class="headerlink" title="String字符串的存储原理"></a>String字符串的存储原理</h1><h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2><p>这里本该有一张图   </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">_425_String</span>字符串的存储原理 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 以下两行在底层创建了三个字符串对象, 都存储在字符串常量池中</span></span><br><span class="line">        String s1 = <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">        String s2 = <span class="string">&quot;abcdef&quot;</span> + <span class="string">&quot;xy&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// new对象的时候一定在堆内存中开辟空间</span></span><br><span class="line">        <span class="comment">// “xy” 一定在字符串常量池中有一份</span></span><br><span class="line">        String s3 = <span class="keyword">new</span> String(<span class="string">&quot;xy&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -261,6 +266,11 @@ MathJax = {
               
           </div>
           <div class="post-foot-prev">
+            
+              <a href="/2022/01/24/JavaSE/%E3%80%90447-459%E3%80%91%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%AF%B9%E5%BA%94%E7%9A%848%E4%B8%AA%E5%8C%85%E8%A3%85%E7%B1%BB/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
