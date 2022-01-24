@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-20T16:49:32.210Z</updated>
+  <updated>2022-01-24T06:22:09.303Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,11 +18,20 @@
   
   <entry>
     <title>【425-446】String</title>
-    <link href="http://example.com/2022/01/21/JavaSE/%E3%80%90425-446%E3%80%91String/"/>
-    <id>http://example.com/2022/01/21/JavaSE/%E3%80%90425-446%E3%80%91String/</id>
-    <published>2022-01-20T16:49:00.000Z</published>
-    <updated>2022-01-20T16:49:32.210Z</updated>
+    <link href="http://example.com/2022/01/23/JavaSE/%E3%80%90425-446%E3%80%91String/"/>
+    <id>http://example.com/2022/01/23/JavaSE/%E3%80%90425-446%E3%80%91String/</id>
+    <published>2022-01-23T05:57:00.000Z</published>
+    <updated>2022-01-24T06:22:09.303Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;String 属于引用类型，不属于基本类型 </summary>
+        
+      
     
     
     
