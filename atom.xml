@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-09T14:25:10.754Z</updated>
+  <updated>2022-02-10T14:41:43.231Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,152 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【20-27】分组函数</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%9020-27%E3%80%91%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%9020-27%E3%80%91%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/</id>
+    <published>2022-02-10T13:32:00.000Z</published>
+    <updated>2022-02-10T14:41:43.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;count 计数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sum 求和&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;avg</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【19-19】数据排序</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%9019-19%E3%80%91%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%9019-19%E3%80%91%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/</id>
+    <published>2022-02-10T13:16:00.000Z</published>
+    <updated>2022-02-10T13:31:55.453Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;语法格式&quot;&gt;&lt;a href=&quot;#语法格式&quot; class=&quot;headerlink&quot; title=&quot;语法格式&quot;&gt;&lt;/a&gt;语法格式&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【13-18】条件查询</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%9013-18%E3%80%91%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%9013-18%E3%80%91%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/</id>
+    <published>2022-02-10T12:36:00.000Z</published>
+    <updated>2022-02-10T13:15:45.432Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;语法格式&quot;&gt;&lt;a href=&quot;#语法格式&quot; class=&quot;headerlink&quot; title=&quot;语法格式&quot;&gt;&lt;/a&gt;语法格式&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【12-12】简单查询</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%9012-12%E3%80%91%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%9012-12%E3%80%91%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/</id>
+    <published>2022-02-10T12:22:00.000Z</published>
+    <updated>2022-02-10T12:36:14.562Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;语法格式&quot;&gt;&lt;a href=&quot;#语法格式&quot; class=&quot;headerlink&quot; title=&quot;语法格式&quot;&gt;&lt;/a&gt;语法格式&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【10-11】MySQL常用命令</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%9010-11%E3%80%91MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%9010-11%E3%80%91MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2022-02-10T12:11:00.000Z</published>
+    <updated>2022-02-10T12:36:01.736Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;查看-mysql-版本&quot;&gt;&lt;a href=&quot;#查看-mysql-版本&quot; class=&quot;headerlink&quot; title=&quot;查看 mysql 版本&quot;&gt;&lt;/a&gt;查看 mysql 版本&lt;/h1&gt;&lt;p&gt;dos下    &lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【1-9】数据库概述</title>
+    <link href="http://example.com/2022/02/10/MySQL/%E3%80%901-9%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/"/>
+    <id>http://example.com/2022/02/10/MySQL/%E3%80%901-9%E3%80%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-02-10T12:09:00.000Z</published>
+    <updated>2022-02-10T12:26:08.815Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;常见的数据库管理系统&quot;&gt;&lt;a href=&quot;#常见的数据库管理系统&quot; class=&quot;headerlink&quot; title=&quot;常见的数据库管理系统&quot;&gt;&lt;/a&gt;常见的数据库管理系统&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Oracle &lt;/li&gt;
+&lt;li&gt;MySQL</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>【651-685】反射机制</title>
@@ -341,152 +487,6 @@
     
     <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【365-366】访问控制权限</title>
-    <link href="http://example.com/2022/01/02/JavaSE/%E3%80%90365-366%E3%80%91%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%9D%83%E9%99%90/"/>
-    <id>http://example.com/2022/01/02/JavaSE/%E3%80%90365-366%E3%80%91%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%9D%83%E9%99%90/</id>
-    <published>2022-01-01T16:12:00.000Z</published>
-    <updated>2022-01-01T16:13:20.224Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【358-364】包和import</title>
-    <link href="http://example.com/2022/01/01/JavaSE/%E3%80%90358-364%E3%80%91%E5%8C%85%E5%92%8Cimport/"/>
-    <id>http://example.com/2022/01/01/JavaSE/%E3%80%90358-364%E3%80%91%E5%8C%85%E5%92%8Cimport/</id>
-    <published>2022-01-01T15:01:00.000Z</published>
-    <updated>2022-01-01T15:44:29.443Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【334-357】抽象类和接口</title>
-    <link href="http://example.com/2021/12/31/JavaSE/%E3%80%90334-357%E3%80%91%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/"/>
-    <id>http://example.com/2021/12/31/JavaSE/%E3%80%90334-357%E3%80%91%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</id>
-    <published>2021-12-31T09:14:00.000Z</published>
-    <updated>2022-01-02T09:30:55.235Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;抽象类&quot;&gt;&lt;a href=&quot;#抽象类&quot; class=&quot;headerlink&quot; title=&quot;抽象类&quot;&gt;&lt;/a&gt;抽象类&lt;/h1&gt;&lt;h2 id=&quot;抽象类的理解&quot;&gt;&lt;a href=&quot;#抽象类的理解&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【327-333】Final修饰词</title>
-    <link href="http://example.com/2021/12/31/JavaSE/%E3%80%90327-333%E3%80%91Final%E4%BF%AE%E9%A5%B0%E8%AF%8D/"/>
-    <id>http://example.com/2021/12/31/JavaSE/%E3%80%90327-333%E3%80%91Final%E4%BF%AE%E9%A5%B0%E8%AF%8D/</id>
-    <published>2021-12-31T08:00:00.000Z</published>
-    <updated>2021-12-31T09:09:34.761Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【DSU】洛谷 U41492 树上数颜色</title>
-    <link href="http://example.com/2021/11/04/ACM/%E3%80%90DSU%E3%80%91%E6%B4%9B%E8%B0%B7%20U41492%20%E6%A0%91%E4%B8%8A%E6%95%B0%E9%A2%9C%E8%89%B2/"/>
-    <id>http://example.com/2021/11/04/ACM/%E3%80%90DSU%E3%80%91%E6%B4%9B%E8%B0%B7%20U41492%20%E6%A0%91%E4%B8%8A%E6%95%B0%E9%A2%9C%E8%89%B2/</id>
-    <published>2021-11-04T13:07:00.000Z</published>
-    <updated>2021-11-04T13:08:08.839Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.luogu.com.cn/problem/U41492&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="DSU" scheme="http://example.com/tags/DSU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【DSU 线段树】2019 ICPC 南昌 K-Tree</title>
-    <link href="http://example.com/2021/11/04/ACM/%E3%80%90DSU%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912019%20ICPC%20%E5%8D%97%E6%98%8C%20K-Tree/"/>
-    <id>http://example.com/2021/11/04/ACM/%E3%80%90DSU%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%912019%20ICPC%20%E5%8D%97%E6%98%8C%20K-Tree/</id>
-    <published>2021-11-04T13:00:00.000Z</published>
-    <updated>2021-11-04T13:04:31.286Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://vjudge.net/contest/425655#problem/K&quot;&gt;题链&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;题目解析&quot;&gt;&lt;a href=&quot;#题目解析&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="ACM" scheme="http://example.com/categories/ACM/"/>
-    
-    
-    <category term="线段树" scheme="http://example.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-    <category term="DSU" scheme="http://example.com/tags/DSU/"/>
     
   </entry>
   

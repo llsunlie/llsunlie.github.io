@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【13-18】条件查询 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【13-18】条件查询</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-02-10 20:36:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySQL/" title="MySQL">
+                    <b>#</b> MySQL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    字段,字段...</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    表名</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    条件;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询工资等于5000的员工姓名"><a href="#查询工资等于5000的员工姓名" class="headerlink" title="查询工资等于5000的员工姓名"></a>查询工资等于5000的员工姓名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">=</span> <span class="number">5000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查询SMITH的工资"><a href="#查询SMITH的工资" class="headerlink" title="查询SMITH的工资"></a>查询SMITH的工资</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> sal <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="operator">=</span> <span class="string">&#x27;SMITH&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> sal    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查找工资高于3000的员工"><a href="#查找工资高于3000的员工" class="headerlink" title="查找工资高于3000的员工"></a>查找工资高于3000的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&gt;</span> <span class="number">3000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&gt;=</span> <span class="number">3000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查找工资不等于3000的员工"><a href="#查找工资不等于3000的员工" class="headerlink" title="查找工资不等于3000的员工"></a>查找工资不等于3000的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&lt;&gt;</span> <span class="number">3000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查找工资在-1100-3000-的员工"><a href="#查找工资在-1100-3000-的员工" class="headerlink" title="查找工资在[1100,3000]的员工"></a>查找工资在[1100,3000]的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="number">1100</span> <span class="operator">&lt;=</span> sal <span class="keyword">and</span> sal <span class="operator">&lt;=</span> <span class="number">3000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="number">11</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">between</span> <span class="number">1100</span> <span class="keyword">and</span> <span class="number">3000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="between…and…"><a href="#between…and…" class="headerlink" title="between…and…"></a>between…and…</h1><h2 id="查找首字母在-‘A’-’B’-的员工姓名"><a href="#查找首字母在-‘A’-’B’-的员工姓名" class="headerlink" title="查找首字母在[‘A’,’B’)的员工姓名"></a>查找首字母在[‘A’,’B’)的员工姓名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">between</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">between</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="is-null-和-is-not-null"><a href="#is-null-和-is-not-null" class="headerlink" title="is null 和 is not null"></a>is null 和 is not null</h1><p>null 不是一个值，不能用’=’衡量  </p>
+<h2 id="查找哪些员工无津贴"><a href="#查找哪些员工无津贴" class="headerlink" title="查找哪些员工无津贴"></a>查找哪些员工无津贴</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,comm <span class="keyword">from</span> emp <span class="keyword">where</span> comm <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> comm <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------+</span></span><br><span class="line"><span class="number">10</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,comm <span class="keyword">from</span> emp <span class="keyword">where</span> comm <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> comm    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span>  <span class="number">300.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span>  <span class="number">500.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">1400.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span>    <span class="number">0.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="and-和-or-的优先级"><a href="#and-和-or-的优先级" class="headerlink" title="and 和 or 的优先级"></a>and 和 or 的优先级</h1><p>and 优先级比 or 高  </p>
+<h2 id="找出工作岗位是MANAGER或SALESMAN的员工"><a href="#找出工作岗位是MANAGER或SALESMAN的员工" class="headerlink" title="找出工作岗位是MANAGER或SALESMAN的员工"></a>找出工作岗位是MANAGER或SALESMAN的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,job <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">or</span> job <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> job      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="number">7</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="找出薪资大于1000的并且部门编号是20或30部门的员工"><a href="#找出薪资大于1000的并且部门编号是20或30部门的员工" class="headerlink" title="找出薪资大于1000的并且部门编号是20或30部门的员工"></a>找出薪资大于1000的并且部门编号是20或30部门的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&gt;</span> <span class="number">1000</span> <span class="keyword">and</span> (deptno <span class="operator">=</span> <span class="number">20</span> <span class="keyword">or</span> deptno <span class="operator">=</span> <span class="number">30</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+--------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> sal     <span class="operator">|</span> deptno <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+--------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> <span class="number">1600.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> <span class="number">1500.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> <span class="number">1100.00</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+--------+</span></span><br><span class="line"><span class="number">9</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="in-和-not-in"><a href="#in-和-not-in" class="headerlink" title="in 和 not in"></a>in 和 not in</h1><p>等同于 ‘or’  </p>
+<h2 id="查询工作岗位是MANAGER或者SALESMAN的员工"><a href="#查询工作岗位是MANAGER或者SALESMAN的员工" class="headerlink" title="查询工作岗位是MANAGER或者SALESMAN的员工"></a>查询工作岗位是MANAGER或者SALESMAN的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,job <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="keyword">in</span>(<span class="string">&#x27;SALESMAN&#x27;</span>,<span class="string">&#x27;MANAGER&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> job      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> MANAGER  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> SALESMAN <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查询工资是3000或者5000的员工"><a href="#查询工资是3000或者5000的员工" class="headerlink" title="查询工资是3000或者5000的员工"></a>查询工资是3000或者5000的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">in</span>(<span class="number">3000</span>,<span class="number">5000</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span> sal     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="operator">|</span> SCOTT <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING  <span class="operator">|</span> <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD  <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询工资不是3000也不是5000的员工"><a href="#查询工资不是3000也不是5000的员工" class="headerlink" title="查询工资不是3000也不是5000的员工"></a>查询工资不是3000也不是5000的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">not</span> <span class="keyword">in</span>(<span class="number">3000</span>,<span class="number">5000</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> sal     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span>  <span class="number">800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> <span class="number">1600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> <span class="number">2450.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> <span class="number">1500.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> <span class="number">1100.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span>  <span class="number">950.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> <span class="number">1300.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+</span></span><br><span class="line"><span class="number">11</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="like"><a href="#like" class="headerlink" title="like"></a>like</h1><ol>
+<li>‘%’：任意多个字符  </li>
+<li>‘_’：任意一个字符  </li>
+</ol>
+<h2 id="查询名字之中含有’O’的员工"><a href="#查询名字之中含有’O’的员工" class="headerlink" title="查询名字之中含有’O’的员工"></a>查询名字之中含有’O’的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;%O%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询第二个字母是’A’的员工"><a href="#查询第二个字母是’A’的员工" class="headerlink" title="查询第二个字母是’A’的员工"></a>查询第二个字母是’A’的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;_A%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找名字中有下划线的员工"><a href="#查找名字中有下划线的员工" class="headerlink" title="查找名字中有下划线的员工"></a>查找名字中有下划线的员工</h2><p>使用转义字符’&#39;  </p>
+<p>先创建一下表和插入数据  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> t_user(</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  id <span class="type">int</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  name <span class="type">varchar</span>(<span class="number">255</span>)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> );</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_user(id,name) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">&#x27;zhangsan&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_user(id,name) <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">&#x27;lisi&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_user(id,name) <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">&#x27;wangwu&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_user(id,name) <span class="keyword">values</span>(<span class="number">4</span>,<span class="string">&#x27;xx_xx&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_user;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+</span></span><br><span class="line"><span class="operator">|</span> id   <span class="operator">|</span> name     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> zhangsan <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> lisi     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> wangwu   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">4</span> <span class="operator">|</span> xx_xx    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>查询  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> name <span class="keyword">from</span> t_user <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%\_%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> name  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> xx_xx <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询名字最后一个字母是’T’的员工"><a href="#查询名字最后一个字母是’T’的员工" class="headerlink" title="查询名字最后一个字母是’T’的员工"></a>查询名字最后一个字母是’T’的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;%T&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/10/MySQL/%E3%80%9012-12%E3%80%91%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-02-10 20:36:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySQL/" title="MySQL">
+                        <b>#</b> MySQL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/02/10/MySQL/%E3%80%9019-19%E3%80%91%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="toc-text">语法格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%A5%E8%B5%84%E7%AD%89%E4%BA%8E5000%E7%9A%84%E5%91%98%E5%B7%A5%E5%A7%93%E5%90%8D"><span class="toc-text">查询工资等于5000的员工姓名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2SMITH%E7%9A%84%E5%B7%A5%E8%B5%84"><span class="toc-text">查询SMITH的工资</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%B7%A5%E8%B5%84%E9%AB%98%E4%BA%8E3000%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查找工资高于3000的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%B7%A5%E8%B5%84%E4%B8%8D%E7%AD%89%E4%BA%8E3000%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查找工资不等于3000的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%B7%A5%E8%B5%84%E5%9C%A8-1100-3000-%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查找工资在[1100,3000]的员工</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#between%E2%80%A6and%E2%80%A6"><span class="toc-text">between…and…</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E9%A6%96%E5%AD%97%E6%AF%8D%E5%9C%A8-%E2%80%98A%E2%80%99-%E2%80%99B%E2%80%99-%E7%9A%84%E5%91%98%E5%B7%A5%E5%A7%93%E5%90%8D"><span class="toc-text">查找首字母在[‘A’,’B’)的员工姓名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#is-null-%E5%92%8C-is-not-null"><span class="toc-text">is null 和 is not null</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%93%AA%E4%BA%9B%E5%91%98%E5%B7%A5%E6%97%A0%E6%B4%A5%E8%B4%B4"><span class="toc-text">查找哪些员工无津贴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#and-%E5%92%8C-or-%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">and 和 or 的优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D%E6%98%AFMANAGER%E6%88%96SALESMAN%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">找出工作岗位是MANAGER或SALESMAN的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E8%96%AA%E8%B5%84%E5%A4%A7%E4%BA%8E1000%E7%9A%84%E5%B9%B6%E4%B8%94%E9%83%A8%E9%97%A8%E7%BC%96%E5%8F%B7%E6%98%AF20%E6%88%9630%E9%83%A8%E9%97%A8%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">找出薪资大于1000的并且部门编号是20或30部门的员工</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#in-%E5%92%8C-not-in"><span class="toc-text">in 和 not in</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D%E6%98%AFMANAGER%E6%88%96%E8%80%85SALESMAN%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询工作岗位是MANAGER或者SALESMAN的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%A5%E8%B5%84%E6%98%AF3000%E6%88%96%E8%80%855000%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询工资是3000或者5000的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%A5%E8%B5%84%E4%B8%8D%E6%98%AF3000%E4%B9%9F%E4%B8%8D%E6%98%AF5000%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询工资不是3000也不是5000的员工</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#like"><span class="toc-text">like</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8D%E5%AD%97%E4%B9%8B%E4%B8%AD%E5%90%AB%E6%9C%89%E2%80%99O%E2%80%99%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询名字之中含有’O’的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AD%97%E6%AF%8D%E6%98%AF%E2%80%99A%E2%80%99%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询第二个字母是’A’的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%90%8D%E5%AD%97%E4%B8%AD%E6%9C%89%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查找名字中有下划线的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8D%E5%AD%97%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AF%8D%E6%98%AF%E2%80%99T%E2%80%99%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">查询名字最后一个字母是’T’的员工</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

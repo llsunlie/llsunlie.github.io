@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【1-9】数据库概述 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【1-9】数据库概述</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-02-10 20:09:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySQL/" title="MySQL">
+                    <b>#</b> MySQL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="常见的数据库管理系统"><a href="#常见的数据库管理系统" class="headerlink" title="常见的数据库管理系统"></a>常见的数据库管理系统</h1><ol>
+<li>Oracle </li>
+<li>MySQL </li>
+<li>DB2 </li>
+<li>Sybase </li>
+<li>“MS SqlServe 支持标准sql的数据库管理系统”</li>
+</ol>
+<h1 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h1><h2 id="sql、DB、DBMS关系"><a href="#sql、DB、DBMS关系" class="headerlink" title="sql、DB、DBMS关系"></a>sql、DB、DBMS关系</h2><ol>
+<li>DB：DataBase（数据库，实际上在硬盘上以文件的形式存在）  </li>
+<li>DBMS：DataBase Management System（数据库管理系统）  </li>
+<li>SQL：结构化查询语言，标准通用的语言，适合于所有的数据库产品<br>SQL为高级语言，SQL语句在执行的时候，会先编译再执行（编译由DBMS完成）   </li>
+<li>DBMS通过执行SQL语句操作DB中的数据  </li>
+</ol>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><ol>
+<li>table  </li>
+<li>是数据库的基本组成单元，所有数据都以表格的形式呈现   </li>
+</ol>
+<h3 id="表的组成"><a href="#表的组成" class="headerlink" title="表的组成"></a>表的组成</h3><ol>
+<li>行：被称为数据/记录（data）  </li>
+<li>列：被称为字段（column）  </li>
+<li>字段：包括字段名、数据类型、相关约束   </li>
+</ol>
+<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><ol>
+<li>DQL：（数据查询语言）查询语句，select语句  </li>
+<li>DML：（数据操作语言）insert delete update，对表中的数据增删改  </li>
+<li>DDL：（数据定义语言）create drop alter，对表结构的增删改  </li>
+<li>TCL：（事务控制语言）commit提交事务，rollback回滚事务  </li>
+<li>DCL：（数据控制语言）grant授权、revoke撤销权限等  </li>
+</ol>
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><ol>
+<li><p>登录mysql数据库管理系统<br>dos命令窗口下  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
+<li><p>查看有哪些数据库<br>这个属于MySQL的命令  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases; </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br></pre></td></tr></table></figure></li>
+<li><p>创建数据库<br>创建名为”xxx”的数据库  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database xxx;</span><br><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sunlie             |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br></pre></td></tr></table></figure></li>
+<li><p>使用数据库<br>使用”xxx”数据库  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use xxx</span><br></pre></td></tr></table></figure></li>
+<li><p>查看当前数据库中的表<br>属于MySQL命令  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure></li>
+<li><p>初始化数据<br>PATH是文件路径  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source PATH</span><br></pre></td></tr></table></figure></li>
+<li><p>删除数据库<br>xxx 表示要删除的库名   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database xxx</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="sql脚本"><a href="#sql脚本" class="headerlink" title="sql脚本"></a>sql脚本</h2><p>文件扩展名为.sql，并且该文件中编写了大量的sql语句  </p>
+<h2 id="查看表结构和表中的数据"><a href="#查看表结构和表中的数据" class="headerlink" title="查看表结构和表中的数据"></a>查看表结构和表中的数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+------------------+</span><br><span class="line">| Tables_in_sunlie |</span><br><span class="line">+------------------+</span><br><span class="line">| dept             | // 部门表</span><br><span class="line">| emp              | // 员工表</span><br><span class="line">| salgrade         | // 工资等级表</span><br><span class="line">+------------------+</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><p>查看 “xxx” 的表结构</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> xxx;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; desc dept;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| DEPTNO | int         | NO   | PRI | NULL    |       | // 部门编号</span><br><span class="line">| DNAME  | varchar(14) | YES  |     | NULL    |       | // 部门名称</span><br><span class="line">| LOC    | varchar(13) | YES  |     | NULL    |       | // 部门位置</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">mysql&gt; desc emp;</span><br><span class="line">+----------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field    | Type        | Null | Key | Default | Extra |</span><br><span class="line">+----------+-------------+------+-----+---------+-------+</span><br><span class="line">| EMPNO    | int         | NO   | PRI | NULL    |       | // 员工编号</span><br><span class="line">| ENAME    | varchar(10) | YES  |     | NULL    |       | // 员工姓名</span><br><span class="line">| JOB      | varchar(9)  | YES  |     | NULL    |       | // 工作岗位</span><br><span class="line">| MGR      | int         | YES  |     | NULL    |       | // 领导编号</span><br><span class="line">| HIREDATE | date        | YES  |     | NULL    |       | // 入职日期</span><br><span class="line">| SAL      | double(7,2) | YES  |     | NULL    |       | // 月薪</span><br><span class="line">| COMM     | double(7,2) | YES  |     | NULL    |       | // 补助</span><br><span class="line">| DEPTNO   | int         | YES  |     | NULL    |       | // 部门编号</span><br><span class="line">+----------+-------------+------+-----+---------+-------+</span><br><span class="line">mysql&gt; desc salgrade;</span><br><span class="line">+-------+------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+-------+------+------+-----+---------+-------+</span><br><span class="line">| GRADE | int  | YES  |     | NULL    |       | // 薪水等级</span><br><span class="line">| LOSAL | int  | YES  |     | NULL    |       | // 最低薪资</span><br><span class="line">| HISAL | int  | YES  |     | NULL    |       | // 最高薪资</span><br><span class="line">+-------+------+------+-----+---------+-------+</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表中数据"><a href="#查看表中数据" class="headerlink" title="查看表中数据"></a>查看表中数据</h3><p>查看 “xxx” 表中的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> xxx;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------+-----------+------+------------+---------+---------+--------+</span></span><br><span class="line"><span class="operator">|</span> EMPNO <span class="operator">|</span> ENAME  <span class="operator">|</span> JOB       <span class="operator">|</span> MGR  <span class="operator">|</span> HIREDATE   <span class="operator">|</span> SAL     <span class="operator">|</span> COMM    <span class="operator">|</span> DEPTNO <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------+-----------+------+------------+---------+---------+--------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7369</span> <span class="operator">|</span> SMITH  <span class="operator">|</span> CLERK     <span class="operator">|</span> <span class="number">7902</span> <span class="operator">|</span> <span class="number">1980</span><span class="number">-12</span><span class="number">-17</span> <span class="operator">|</span>  <span class="number">800.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7499</span> <span class="operator">|</span> ALLEN  <span class="operator">|</span> SALESMAN  <span class="operator">|</span> <span class="number">7698</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-02</span><span class="number">-20</span> <span class="operator">|</span> <span class="number">1600.00</span> <span class="operator">|</span>  <span class="number">300.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7521</span> <span class="operator">|</span> WARD   <span class="operator">|</span> SALESMAN  <span class="operator">|</span> <span class="number">7698</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-02</span><span class="number">-22</span> <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span>  <span class="number">500.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7566</span> <span class="operator">|</span> JONES  <span class="operator">|</span> MANAGER   <span class="operator">|</span> <span class="number">7839</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-04</span><span class="number">-02</span> <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7654</span> <span class="operator">|</span> MARTIN <span class="operator">|</span> SALESMAN  <span class="operator">|</span> <span class="number">7698</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-09</span><span class="number">-28</span> <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span> <span class="number">1400.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7698</span> <span class="operator">|</span> BLAKE  <span class="operator">|</span> MANAGER   <span class="operator">|</span> <span class="number">7839</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-05</span><span class="number">-01</span> <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7782</span> <span class="operator">|</span> CLARK  <span class="operator">|</span> MANAGER   <span class="operator">|</span> <span class="number">7839</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-06</span><span class="number">-09</span> <span class="operator">|</span> <span class="number">2450.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7788</span> <span class="operator">|</span> SCOTT  <span class="operator">|</span> ANALYST   <span class="operator">|</span> <span class="number">7566</span> <span class="operator">|</span> <span class="number">1987</span><span class="number">-04</span><span class="number">-19</span> <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7839</span> <span class="operator">|</span> KING   <span class="operator">|</span> PRESIDENT <span class="operator">|</span> <span class="keyword">NULL</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-11</span><span class="number">-17</span> <span class="operator">|</span> <span class="number">5000.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7844</span> <span class="operator">|</span> TURNER <span class="operator">|</span> SALESMAN  <span class="operator">|</span> <span class="number">7698</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-09</span><span class="number">-08</span> <span class="operator">|</span> <span class="number">1500.00</span> <span class="operator">|</span>    <span class="number">0.00</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7876</span> <span class="operator">|</span> ADAMS  <span class="operator">|</span> CLERK     <span class="operator">|</span> <span class="number">7788</span> <span class="operator">|</span> <span class="number">1987</span><span class="number">-05</span><span class="number">-23</span> <span class="operator">|</span> <span class="number">1100.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7900</span> <span class="operator">|</span> JAMES  <span class="operator">|</span> CLERK     <span class="operator">|</span> <span class="number">7698</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-12</span><span class="number">-03</span> <span class="operator">|</span>  <span class="number">950.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7902</span> <span class="operator">|</span> FORD   <span class="operator">|</span> ANALYST   <span class="operator">|</span> <span class="number">7566</span> <span class="operator">|</span> <span class="number">1981</span><span class="number">-12</span><span class="number">-03</span> <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">7934</span> <span class="operator">|</span> MILLER <span class="operator">|</span> CLERK     <span class="operator">|</span> <span class="number">7782</span> <span class="operator">|</span> <span class="number">1982</span><span class="number">-01</span><span class="number">-23</span> <span class="operator">|</span> <span class="number">1300.00</span> <span class="operator">|</span>    <span class="keyword">NULL</span> <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------+-----------+------+------------+---------+---------+--------+</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/07/JavaSE/%E3%80%90651-685%E3%80%91%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-02-10 20:09:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySQL/" title="MySQL">
+                        <b>#</b> MySQL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/02/10/MySQL/%E3%80%9010-11%E3%80%91MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-text">常见的数据库管理系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E6%A6%82%E8%BF%B0"><span class="toc-text">MySQL概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql%E3%80%81DB%E3%80%81DBMS%E5%85%B3%E7%B3%BB"><span class="toc-text">sql、DB、DBMS关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8"><span class="toc-text">表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">表的组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E8%AF%AD%E5%8F%A5"><span class="toc-text">SQL语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">导入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sql%E8%84%9A%E6%9C%AC"><span class="toc-text">sql脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">查看表结构和表中的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-text">查看表结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E6%95%B0%E6%8D%AE"><span class="toc-text">查看表中数据</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【20-27】分组函数 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【20-27】分组函数</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-02-10 21:32:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySQL/" title="MySQL">
+                    <b>#</b> MySQL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol>
+<li><p>count 计数</p>
+</li>
+<li><p>sum 求和</p>
+</li>
+<li><p>avg 平均</p>
+</li>
+<li><p>max 最大值</p>
+</li>
+<li><p>min 最小值</p>
+</li>
+<li><p>分组函数：多行处理函数，输入多行输出一行  </p>
+</li>
+</ol>
+<h2 id="求总和-最高-最低-平均工资"><a href="#求总和-最高-最低-平均工资" class="headerlink" title="求总和/最高/最低/平均工资"></a>求总和/最高/最低/平均工资</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">sum</span>(sal) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">sum</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">29025.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">min</span>(sal) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">min</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span>   <span class="number">800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">max</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">avg</span>(sal)    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2073.214286</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="求总人数"><a href="#求总人数" class="headerlink" title="求总人数"></a>求总人数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="operator">|</span>       <span class="number">14</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">count</span>(ename) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">count</span>(ename) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="operator">|</span>           <span class="number">14</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="多行处理函数自动忽略NULL"><a href="#多行处理函数自动忽略NULL" class="headerlink" title="多行处理函数自动忽略NULL"></a>多行处理函数自动忽略NULL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">count</span>(comm) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">count</span>(comm) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span>           <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="数学表达式中有NULL出现结果为NULL"><a href="#数学表达式中有NULL出现结果为NULL" class="headerlink" title="数学表达式中有NULL出现结果为NULL"></a>数学表达式中有NULL出现结果为NULL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename, (sal<span class="operator">+</span>comm)<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> yearsal <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> yearsal  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> <span class="number">22800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> <span class="number">21000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">31800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> <span class="number">18000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span>     <span class="keyword">NULL</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="ifnull-空处理函数"><a href="#ifnull-空处理函数" class="headerlink" title="ifnull()空处理函数"></a>ifnull()空处理函数</h1><p>将 null 做为 0 处理  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifnull(<span class="keyword">null</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename, (sal<span class="operator">+</span>ifnull(comm,<span class="number">0</span>))<span class="operator">*</span><span class="number">12</span> <span class="keyword">as</span> yearsal <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> yearsal  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span>  <span class="number">9600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> <span class="number">22800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> <span class="number">21000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> <span class="number">35700.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">31800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> <span class="number">34200.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> <span class="number">29400.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> <span class="number">36000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> <span class="number">60000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> <span class="number">18000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> <span class="number">13200.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> <span class="number">11400.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> <span class="number">36000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> <span class="number">15600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="count-和count-某个字段-的区别"><a href="#count-和count-某个字段-的区别" class="headerlink" title="count(*)和count(某个字段)的区别"></a>count(*)和count(某个字段)的区别</h1><ol>
+<li>count(*) 计算总记录条数  </li>
+<li>count(某个字段) 计算该字段不为NULL的个数  </li>
+</ol>
+<h1 id="group-by-和-having"><a href="#group-by-和-having" class="headerlink" title="group by 和 having"></a>group by 和 having</h1><ol>
+<li>group by: 按照某些字段进行分组  </li>
+<li>having: 对分组后的数据进行再次过滤  </li>
+<li>当sql语句无group by那么整张表自成一组  </li>
+<li>group by在where之后执行  </li>
+</ol>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>      <span class="number">5</span></span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">from</span>        <span class="number">1</span></span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">where</span>       <span class="number">2</span></span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span>    <span class="number">3</span></span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">having</span>      <span class="number">4</span></span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>    <span class="number">6</span></span><br><span class="line">    xxx </span><br></pre></td></tr></table></figure>
+
+<h2 id="找出每个工作岗位最高薪资"><a href="#找出每个工作岗位最高薪资" class="headerlink" title="找出每个工作岗位最高薪资"></a>找出每个工作岗位最高薪资</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> job, <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+----------+</span></span><br><span class="line"><span class="operator">|</span> job       <span class="operator">|</span> <span class="built_in">max</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+----------+</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span>  <span class="number">1300.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SALESMAN  <span class="operator">|</span>  <span class="number">1600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span>  <span class="number">2975.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ANALYST   <span class="operator">|</span>  <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> PRESIDENT <span class="operator">|</span>  <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+----------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="找出高于平均工资的员工"><a href="#找出高于平均工资的员工" class="headerlink" title="找出高于平均工资的员工"></a>找出高于平均工资的员工</h2><p>运用子查询  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&gt;</span> (<span class="keyword">select</span> <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp);</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="operator">|</span> ename <span class="operator">|</span> sal     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="operator">|</span> JONES <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK <span class="operator">|</span> <span class="number">2450.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING  <span class="operator">|</span> <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD  <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+---------+</span></span><br><span class="line"><span class="number">6</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="找出每个部门不同工作岗位的最高薪资"><a href="#找出每个部门不同工作岗位的最高薪资" class="headerlink" title="找出每个部门不同工作岗位的最高薪资"></a>找出每个部门不同工作岗位的最高薪资</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, job, <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno,job <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">asc</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-----------+----------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> job       <span class="operator">|</span> <span class="built_in">max</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-----------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> CLERK     <span class="operator">|</span>  <span class="number">1300.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> MANAGER   <span class="operator">|</span>  <span class="number">2450.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> PRESIDENT <span class="operator">|</span>  <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> ANALYST   <span class="operator">|</span>  <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> CLERK     <span class="operator">|</span>  <span class="number">1100.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> MANAGER   <span class="operator">|</span>  <span class="number">2975.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> CLERK     <span class="operator">|</span>   <span class="number">950.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> MANAGER   <span class="operator">|</span>  <span class="number">2850.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALESMAN  <span class="operator">|</span>  <span class="number">1600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-----------+----------+</span></span><br><span class="line"><span class="number">9</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="找出每个部门的最高薪资，要求显示薪资大于2900的数据"><a href="#找出每个部门的最高薪资，要求显示薪资大于2900的数据" class="headerlink" title="找出每个部门的最高薪资，要求显示薪资大于2900的数据"></a>找出每个部门的最高薪资，要求显示薪资大于2900的数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">max</span>(sal) <span class="operator">&gt;</span> <span class="number">2900</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> <span class="built_in">max</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span>  <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span>  <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 建议使用<span class="keyword">where</span>，因为参加分组的数据变少，提高效率</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="operator">&gt;</span> <span class="number">2900</span> <span class="keyword">group</span> <span class="keyword">by</span> deptno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> <span class="built_in">max</span>(sal) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span>  <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span>  <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+----------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="找出每个部门的平均薪资，要求显示薪资大于2000的数据"><a href="#找出每个部门的平均薪资，要求显示薪资大于2000的数据" class="headerlink" title="找出每个部门的平均薪资，要求显示薪资大于2000的数据"></a>找出每个部门的平均薪资，要求显示薪资大于2000的数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> <span class="built_in">avg</span>(sal)    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">2175.000000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">1566.666667</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> <span class="number">2916.666667</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">avg</span>(sal) <span class="operator">&gt;</span> <span class="number">2000</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> <span class="built_in">avg</span>(sal)    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">2175.000000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> <span class="number">2916.666667</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结DQL执行顺序"><a href="#总结DQL执行顺序" class="headerlink" title="总结DQL执行顺序"></a>总结DQL执行顺序</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> xxx      <span class="number">5</span></span><br><span class="line"><span class="keyword">from</span> xxx        <span class="number">1</span></span><br><span class="line"><span class="keyword">where</span> xxx       <span class="number">2</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> xxx    <span class="number">3</span></span><br><span class="line"><span class="keyword">having</span> xxx      <span class="number">4</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> xxx    <span class="number">6</span></span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关于查询结果去重"><a href="#关于查询结果去重" class="headerlink" title="关于查询结果去重"></a>关于查询结果去重</h1><p>distinct 关键字  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">distinct</span> job <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> job       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SALESMAN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ANALYST   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> PRESIDENT <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="distinct-关键字必须在所有字段最前面"><a href="#distinct-关键字必须在所有字段最前面" class="headerlink" title="distinct 关键字必须在所有字段最前面"></a>distinct 关键字必须在所有字段最前面</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">distinct</span> job,deptno <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">asc</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+--------+</span></span><br><span class="line"><span class="operator">|</span> job       <span class="operator">|</span> deptno <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+--------+</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> PRESIDENT <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ANALYST   <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SALESMAN  <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+--------+</span></span><br><span class="line"><span class="number">9</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="统计岗位数量"><a href="#统计岗位数量" class="headerlink" title="统计岗位数量"></a>统计岗位数量</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> job) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> job) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="operator">|</span>                   <span class="number">5</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/10/MySQL/%E3%80%9019-19%E3%80%91%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-02-10 21:32:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySQL/" title="MySQL">
+                        <b>#</b> MySQL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E6%80%BB%E5%92%8C-%E6%9C%80%E9%AB%98-%E6%9C%80%E4%BD%8E-%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84"><span class="toc-text">求总和&#x2F;最高&#x2F;最低&#x2F;平均工资</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E6%80%BB%E4%BA%BA%E6%95%B0"><span class="toc-text">求总人数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E8%87%AA%E5%8A%A8%E5%BF%BD%E7%95%A5NULL"><span class="toc-text">多行处理函数自动忽略NULL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%9C%89NULL%E5%87%BA%E7%8E%B0%E7%BB%93%E6%9E%9C%E4%B8%BANULL"><span class="toc-text">数学表达式中有NULL出现结果为NULL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ifnull-%E7%A9%BA%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">ifnull()空处理函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#count-%E5%92%8Ccount-%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">count(*)和count(某个字段)的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#group-by-%E5%92%8C-having"><span class="toc-text">group by 和 having</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F"><span class="toc-text">格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D%E6%9C%80%E9%AB%98%E8%96%AA%E8%B5%84"><span class="toc-text">找出每个工作岗位最高薪资</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E9%AB%98%E4%BA%8E%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-text">找出高于平均工资的员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E9%83%A8%E9%97%A8%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D%E7%9A%84%E6%9C%80%E9%AB%98%E8%96%AA%E8%B5%84"><span class="toc-text">找出每个部门不同工作岗位的最高薪资</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E9%83%A8%E9%97%A8%E7%9A%84%E6%9C%80%E9%AB%98%E8%96%AA%E8%B5%84%EF%BC%8C%E8%A6%81%E6%B1%82%E6%98%BE%E7%A4%BA%E8%96%AA%E8%B5%84%E5%A4%A7%E4%BA%8E2900%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">找出每个部门的最高薪资，要求显示薪资大于2900的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E9%83%A8%E9%97%A8%E7%9A%84%E5%B9%B3%E5%9D%87%E8%96%AA%E8%B5%84%EF%BC%8C%E8%A6%81%E6%B1%82%E6%98%BE%E7%A4%BA%E8%96%AA%E8%B5%84%E5%A4%A7%E4%BA%8E2000%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">找出每个部门的平均薪资，要求显示薪资大于2000的数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93DQL%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">总结DQL执行顺序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%8E%BB%E9%87%8D"><span class="toc-text">关于查询结果去重</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#distinct-%E5%85%B3%E9%94%AE%E5%AD%97%E5%BF%85%E9%A1%BB%E5%9C%A8%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-text">distinct 关键字必须在所有字段最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E5%B2%97%E4%BD%8D%E6%95%B0%E9%87%8F"><span class="toc-text">统计岗位数量</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
