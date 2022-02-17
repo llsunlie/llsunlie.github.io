@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【28-35】连接查询 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【28-35】连接查询</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-02-11 10:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySQL/" title="MySQL">
+                    <b>#</b> MySQL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="什么是连接查询"><a href="#什么是连接查询" class="headerlink" title="什么是连接查询"></a>什么是连接查询</h2><p>在实际开发中，大部分的情况都不是从单表查询数据，一般都是多张表联合查询取出最终结果  </p>
+<h2 id="连接查询的分类"><a href="#连接查询的分类" class="headerlink" title="连接查询的分类"></a>连接查询的分类</h2><h3 id="根据语法出现的年代来划分"><a href="#根据语法出现的年代来划分" class="headerlink" title="根据语法出现的年代来划分"></a>根据语法出现的年代来划分</h3><ol>
+<li>SQL92（一些老的DBA可能还在使用，DBA数据库管理员）   </li>
+<li>SQL99  </li>
+</ol>
+<h3 id="根据表的连接方式来划分"><a href="#根据表的连接方式来划分" class="headerlink" title="根据表的连接方式来划分"></a>根据表的连接方式来划分</h3><ol>
+<li>内连接<br>等值连接<br>非等值连接<br>自连接  </li>
+<li>外连接<br>左外连接（左连接）<br>右外连接（右连接）    </li>
+<li>全连接（较少用）  </li>
+</ol>
+<h1 id="笛卡尔积现象"><a href="#笛卡尔积现象" class="headerlink" title="笛卡尔积现象"></a>笛卡尔积现象</h1><ol>
+<li>避免了笛卡尔积现象，不会减少记录的匹配次数</li>
+</ol>
+<h2 id="查询每个员工的部门名称，显示员工名和部门名"><a href="#查询每个员工的部门名称，显示员工名和部门名" class="headerlink" title="查询每个员工的部门名称，显示员工名和部门名"></a>查询每个员工的部门名称，显示员工名和部门名</h2><h3 id="mysql-gt-select-from-emp"><a href="#mysql-gt-select-from-emp" class="headerlink" title="mysql&gt; select * from emp;"></a>mysql&gt; select * from emp;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">+-------+--------+-----------+------+------------+---------+---------+--------+</span><br><span class="line">| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |</span><br><span class="line">+-------+--------+-----------+------+------------+---------+---------+--------+</span><br><span class="line">|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |</span><br><span class="line">|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |</span><br><span class="line">|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |</span><br><span class="line">|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |</span><br><span class="line">|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |</span><br><span class="line">|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |</span><br><span class="line">|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |</span><br><span class="line">|  7788 | SCOTT  | ANALYST   | 7566 | 1987-04-19 | 3000.00 |    NULL |     20 |</span><br><span class="line">|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |</span><br><span class="line">|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |</span><br><span class="line">|  7876 | ADAMS  | CLERK     | 7788 | 1987-05-23 | 1100.00 |    NULL |     20 |</span><br><span class="line">|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |</span><br><span class="line">|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |</span><br><span class="line">|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |</span><br><span class="line">+-------+--------+-----------+------+------------+---------+---------+--------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysql-gt-select-from-dept"><a href="#mysql-gt-select-from-dept" class="headerlink" title="mysql&gt; select * from dept;"></a>mysql&gt; select * from dept;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+----------+</span><br><span class="line">| DEPTNO | DNAME      | LOC      |</span><br><span class="line">+--------+------------+----------+</span><br><span class="line">|     10 | ACCOUNTING | NEW YORK |</span><br><span class="line">|     20 | RESEARCH   | DALLAS   |</span><br><span class="line">|     30 | SALES      | CHICAGO  |</span><br><span class="line">|     40 | OPERATIONS | BOSTON   |</span><br><span class="line">+--------+------------+----------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysql-gt-select-ename-dname-from-emp-dept"><a href="#mysql-gt-select-ename-dname-from-emp-dept" class="headerlink" title="mysql&gt; select ename, dname from emp, dept;"></a>mysql&gt; select ename, dname from emp, dept;</h3><p>记录数量是两张表的乘积  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+</span><br><span class="line">| ename  | dname      |</span><br><span class="line">+--------+------------+</span><br><span class="line">| SMITH  | OPERATIONS |</span><br><span class="line">| SMITH  | SALES      |</span><br><span class="line">| SMITH  | RESEARCH   |</span><br><span class="line">| SMITH  | ACCOUNTING |</span><br><span class="line">| ALLEN  | OPERATIONS |</span><br><span class="line">| ALLEN  | SALES      |</span><br><span class="line">| ALLEN  | RESEARCH   |</span><br><span class="line">| ALLEN  | ACCOUNTING |</span><br><span class="line">| WARD   | OPERATIONS |</span><br><span class="line">| WARD   | SALES      |</span><br><span class="line">| WARD   | RESEARCH   |</span><br><span class="line">| WARD   | ACCOUNTING |</span><br><span class="line">| JONES  | OPERATIONS |</span><br><span class="line">| JONES  | SALES      |</span><br><span class="line">| JONES  | RESEARCH   |</span><br><span class="line">| JONES  | ACCOUNTING |</span><br><span class="line">| MARTIN | OPERATIONS |</span><br><span class="line">| MARTIN | SALES      |</span><br><span class="line">| MARTIN | RESEARCH   |</span><br><span class="line">| MARTIN | ACCOUNTING |</span><br><span class="line">| BLAKE  | OPERATIONS |</span><br><span class="line">| BLAKE  | SALES      |</span><br><span class="line">| BLAKE  | RESEARCH   |</span><br><span class="line">| BLAKE  | ACCOUNTING |</span><br><span class="line">| CLARK  | OPERATIONS |</span><br><span class="line">| CLARK  | SALES      |</span><br><span class="line">| CLARK  | RESEARCH   |</span><br><span class="line">| CLARK  | ACCOUNTING |</span><br><span class="line">| SCOTT  | OPERATIONS |</span><br><span class="line">| SCOTT  | SALES      |</span><br><span class="line">| SCOTT  | RESEARCH   |</span><br><span class="line">| SCOTT  | ACCOUNTING |</span><br><span class="line">| KING   | OPERATIONS |</span><br><span class="line">| KING   | SALES      |</span><br><span class="line">| KING   | RESEARCH   |</span><br><span class="line">| KING   | ACCOUNTING |</span><br><span class="line">| TURNER | OPERATIONS |</span><br><span class="line">| TURNER | SALES      |</span><br><span class="line">| TURNER | RESEARCH   |</span><br><span class="line">| TURNER | ACCOUNTING |</span><br><span class="line">| ADAMS  | OPERATIONS |</span><br><span class="line">| ADAMS  | SALES      |</span><br><span class="line">| ADAMS  | RESEARCH   |</span><br><span class="line">| ADAMS  | ACCOUNTING |</span><br><span class="line">| JAMES  | OPERATIONS |</span><br><span class="line">| JAMES  | SALES      |</span><br><span class="line">| JAMES  | RESEARCH   |</span><br><span class="line">| JAMES  | ACCOUNTING |</span><br><span class="line">| FORD   | OPERATIONS |</span><br><span class="line">| FORD   | SALES      |</span><br><span class="line">| FORD   | RESEARCH   |</span><br><span class="line">| FORD   | ACCOUNTING |</span><br><span class="line">| MILLER | OPERATIONS |</span><br><span class="line">| MILLER | SALES      |</span><br><span class="line">| MILLER | RESEARCH   |</span><br><span class="line">| MILLER | ACCOUNTING |</span><br><span class="line">+--------+------------+</span><br><span class="line">56 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d-where-e-deptno-d-deptno"><a href="#mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d-where-e-deptno-d-deptno" class="headerlink" title="mysql&gt; select e.ename, d.dname from emp e, dept d where e.deptno = d.deptno;"></a>mysql&gt; select e.ename, d.dname from emp e, dept d where e.deptno = d.deptno;</h3><p>这是SQL92…   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+</span><br><span class="line">| ename  | dname      |</span><br><span class="line">+--------+------------+</span><br><span class="line">| SMITH  | RESEARCH   |</span><br><span class="line">| ALLEN  | SALES      |</span><br><span class="line">| WARD   | SALES      |</span><br><span class="line">| JONES  | RESEARCH   |</span><br><span class="line">| MARTIN | SALES      |</span><br><span class="line">| BLAKE  | SALES      |</span><br><span class="line">| CLARK  | ACCOUNTING |</span><br><span class="line">| SCOTT  | RESEARCH   |</span><br><span class="line">| KING   | ACCOUNTING |</span><br><span class="line">| TURNER | SALES      |</span><br><span class="line">| ADAMS  | RESEARCH   |</span><br><span class="line">| JAMES  | SALES      |</span><br><span class="line">| FORD   | RESEARCH   |</span><br><span class="line">| MILLER | ACCOUNTING |</span><br><span class="line">+--------+------------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysql-gt-select-e-ename-d-dname-from-emp-e-inner-join-dept-d-on-e-deptno-d-deptno"><a href="#mysql-gt-select-e-ename-d-dname-from-emp-e-inner-join-dept-d-on-e-deptno-d-deptno" class="headerlink" title="mysql&gt; select e.ename, d.dname from emp e inner join dept d on e.deptno = d.deptno;"></a>mysql&gt; select e.ename, d.dname from emp e inner join dept d on e.deptno = d.deptno;</h3><p>这是SQL99…<br>这里inner可以省略，内连接，inner增加了可读性<br>SQL99结构更清晰，将表的连接条件和where语句分离  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+</span><br><span class="line">| ename  | dname      |</span><br><span class="line">+--------+------------+</span><br><span class="line">| SMITH  | RESEARCH   |</span><br><span class="line">| ALLEN  | SALES      |</span><br><span class="line">| WARD   | SALES      |</span><br><span class="line">| JONES  | RESEARCH   |</span><br><span class="line">| MARTIN | SALES      |</span><br><span class="line">| BLAKE  | SALES      |</span><br><span class="line">| CLARK  | ACCOUNTING |</span><br><span class="line">| SCOTT  | RESEARCH   |</span><br><span class="line">| KING   | ACCOUNTING |</span><br><span class="line">| TURNER | SALES      |</span><br><span class="line">| ADAMS  | RESEARCH   |</span><br><span class="line">| JAMES  | SALES      |</span><br><span class="line">| FORD   | RESEARCH   |</span><br><span class="line">| MILLER | ACCOUNTING |</span><br><span class="line">+--------+------------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="关于表的别名"><a href="#关于表的别名" class="headerlink" title="关于表的别名"></a>关于表的别名</h1><h2 id="mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d"><a href="#mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d" class="headerlink" title="mysql&gt; select e.ename, d.dname from emp e, dept d;"></a>mysql&gt; select e.ename, d.dname from emp e, dept d;</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+</span><br><span class="line">| ename  | dname      |</span><br><span class="line">+--------+------------+</span><br><span class="line">| SMITH  | OPERATIONS |</span><br><span class="line">| SMITH  | SALES      |</span><br><span class="line">| SMITH  | RESEARCH   |</span><br><span class="line">| SMITH  | ACCOUNTING |</span><br><span class="line">| ALLEN  | OPERATIONS |</span><br><span class="line">| ALLEN  | SALES      |</span><br><span class="line">| ALLEN  | RESEARCH   |</span><br><span class="line">| ALLEN  | ACCOUNTING |</span><br><span class="line">| WARD   | OPERATIONS |</span><br><span class="line">| WARD   | SALES      |</span><br><span class="line">| WARD   | RESEARCH   |</span><br><span class="line">| WARD   | ACCOUNTING |</span><br><span class="line">| JONES  | OPERATIONS |</span><br><span class="line">| JONES  | SALES      |</span><br><span class="line">| JONES  | RESEARCH   |</span><br><span class="line">| JONES  | ACCOUNTING |</span><br><span class="line">| MARTIN | OPERATIONS |</span><br><span class="line">| MARTIN | SALES      |</span><br><span class="line">| MARTIN | RESEARCH   |</span><br><span class="line">| MARTIN | ACCOUNTING |</span><br><span class="line">| BLAKE  | OPERATIONS |</span><br><span class="line">| BLAKE  | SALES      |</span><br><span class="line">| BLAKE  | RESEARCH   |</span><br><span class="line">| BLAKE  | ACCOUNTING |</span><br><span class="line">| CLARK  | OPERATIONS |</span><br><span class="line">| CLARK  | SALES      |</span><br><span class="line">| CLARK  | RESEARCH   |</span><br><span class="line">| CLARK  | ACCOUNTING |</span><br><span class="line">| SCOTT  | OPERATIONS |</span><br><span class="line">| SCOTT  | SALES      |</span><br><span class="line">| SCOTT  | RESEARCH   |</span><br><span class="line">| SCOTT  | ACCOUNTING |</span><br><span class="line">| KING   | OPERATIONS |</span><br><span class="line">| KING   | SALES      |</span><br><span class="line">| KING   | RESEARCH   |</span><br><span class="line">| KING   | ACCOUNTING |</span><br><span class="line">| TURNER | OPERATIONS |</span><br><span class="line">| TURNER | SALES      |</span><br><span class="line">| TURNER | RESEARCH   |</span><br><span class="line">| TURNER | ACCOUNTING |</span><br><span class="line">| ADAMS  | OPERATIONS |</span><br><span class="line">| ADAMS  | SALES      |</span><br><span class="line">| ADAMS  | RESEARCH   |</span><br><span class="line">| ADAMS  | ACCOUNTING |</span><br><span class="line">| JAMES  | OPERATIONS |</span><br><span class="line">| JAMES  | SALES      |</span><br><span class="line">| JAMES  | RESEARCH   |</span><br><span class="line">| JAMES  | ACCOUNTING |</span><br><span class="line">| FORD   | OPERATIONS |</span><br><span class="line">| FORD   | SALES      |</span><br><span class="line">| FORD   | RESEARCH   |</span><br><span class="line">| FORD   | ACCOUNTING |</span><br><span class="line">| MILLER | OPERATIONS |</span><br><span class="line">| MILLER | SALES      |</span><br><span class="line">| MILLER | RESEARCH   |</span><br><span class="line">| MILLER | ACCOUNTING |</span><br><span class="line">+--------+------------+</span><br><span class="line">56 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>执行效率高（两个表可能会出现同一字段名）      </li>
+<li>可读性高  </li>
+</ol>
+<h1 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h1><h2 id="等值连接"><a href="#等值连接" class="headerlink" title="等值连接"></a>等值连接</h2><h3 id="查询每个员工的部门名称，显示员工名和部门名-1"><a href="#查询每个员工的部门名称，显示员工名和部门名-1" class="headerlink" title="查询每个员工的部门名称，显示员工名和部门名"></a>查询每个员工的部门名称，显示员工名和部门名</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename, d.dname <span class="keyword">from</span> emp e <span class="keyword">inner</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> e.deptno <span class="operator">=</span> d.deptno;</span><br></pre></td></tr></table></figure>
+<p>这是SQL99…<br>这里inner可以省略，内连接，inner增加了可读性<br>SQL99结构更清晰，将表的连接条件和where语句分离  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">+--------+------------+</span><br><span class="line">| ename  | dname      |</span><br><span class="line">+--------+------------+</span><br><span class="line">| SMITH  | RESEARCH   |</span><br><span class="line">| ALLEN  | SALES      |</span><br><span class="line">| WARD   | SALES      |</span><br><span class="line">| JONES  | RESEARCH   |</span><br><span class="line">| MARTIN | SALES      |</span><br><span class="line">| BLAKE  | SALES      |</span><br><span class="line">| CLARK  | ACCOUNTING |</span><br><span class="line">| SCOTT  | RESEARCH   |</span><br><span class="line">| KING   | ACCOUNTING |</span><br><span class="line">| TURNER | SALES      |</span><br><span class="line">| ADAMS  | RESEARCH   |</span><br><span class="line">| JAMES  | SALES      |</span><br><span class="line">| FORD   | RESEARCH   |</span><br><span class="line">| MILLER | ACCOUNTING |</span><br><span class="line">+--------+------------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="非等值连接"><a href="#非等值连接" class="headerlink" title="非等值连接"></a>非等值连接</h2><h3 id="找出每个员工的工资等级，显示员工名、工资、工资等级"><a href="#找出每个员工的工资等级，显示员工名、工资、工资等级" class="headerlink" title="找出每个员工的工资等级，显示员工名、工资、工资等级"></a>找出每个员工的工资等级，显示员工名、工资、工资等级</h3><p>省略了inner  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> e.ename, e.sal, s.grade</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp e <span class="keyword">join</span> salgrade s</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e.sal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> sal     <span class="operator">|</span> grade <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span>  <span class="number">800.00</span> <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> <span class="number">1600.00</span> <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> <span class="number">2450.00</span> <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> <span class="number">5000.00</span> <span class="operator">|</span>     <span class="number">5</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> <span class="number">1500.00</span> <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> <span class="number">1100.00</span> <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span>  <span class="number">950.00</span> <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> <span class="number">1300.00</span> <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+---------+-------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><p>最大的特点是：一张表看作两张表  </p>
+<h3 id="找出每个员工的杀那个及领导，显示员工名和领导名"><a href="#找出每个员工的杀那个及领导，显示员工名和领导名" class="headerlink" title="找出每个员工的杀那个及领导，显示员工名和领导名"></a>找出每个员工的杀那个及领导，显示员工名和领导名</h3><p>查出来’king’没有领导，’king’就是领导  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> a.ename <span class="keyword">as</span> <span class="string">&#x27;员工&#x27;</span>, b.ename <span class="keyword">as</span> <span class="string">&#x27;领导&#x27;</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp a <span class="keyword">join</span> emp b</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> a.mgr <span class="operator">=</span> b.empno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> 员工   <span class="operator">|</span> 领导  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> CLARK <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="number">13</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1><h2 id="外连接和内连接的区别"><a href="#外连接和内连接的区别" class="headerlink" title="外连接和内连接的区别"></a>外连接和内连接的区别</h2><ol>
+<li>内连接:<br>假设A和s表进行连接，使用内连接的话，凡是A表和s表能够匹配上的记录查询出来，这就是内连接。AB两张表没有主副之分，两张表是平等的。  </li>
+<li>外连接:<br>假设a和B表进行连接，使用外连接的话，AB两张表中有一张表是主表，一张表是副表，主要查询主表中的数据，捎带着查询副表，当副表中的数据没有和主表中的数据匹配上，副表自动模拟出NULL与之匹配  </li>
+</ol>
+<h2 id="外连接的分类"><a href="#外连接的分类" class="headerlink" title="外连接的分类"></a>外连接的分类</h2><ol>
+<li>左外连接（左连接）表示左边的表是主表      </li>
+<li>右外连接（右连接）表示右边的表是主表    </li>
+<li>两个写法能相互转换  </li>
+</ol>
+<h2 id="找出每个员工上级领导"><a href="#找出每个员工上级领导" class="headerlink" title="找出每个员工上级领导"></a>找出每个员工上级领导</h2><p>‘KING’的领导是NULL  </p>
+<h3 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h3><p>outer 可以省略  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> a.ename <span class="string">&#x27;员工&#x27;</span>, b.ename <span class="string">&#x27;领导&#x27;</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp a <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> emp b</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> a.mgr <span class="operator">=</span> b.empno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> 员工   <span class="operator">|</span> 领导  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> <span class="keyword">NULL</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> CLARK <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h3><p>省略了 outer     </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> a.ename <span class="string">&#x27;员工&#x27;</span>, b.ename <span class="string">&#x27;领导&#x27;</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp b <span class="keyword">right</span> <span class="keyword">join</span> emp a</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> a.mgr <span class="operator">=</span> b.empno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> 员工   <span class="operator">|</span> 领导  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> <span class="keyword">NULL</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> CLARK <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+-------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="找出哪个部门没有员工"><a href="#找出哪个部门没有员工" class="headerlink" title="找出哪个部门没有员工"></a>找出哪个部门没有员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> d.<span class="operator">*</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp e <span class="keyword">right</span> <span class="keyword">join</span> dept d</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e.deptno <span class="operator">=</span> d.deptno</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">where</span> e.empno <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+--------+</span></span><br><span class="line"><span class="operator">|</span> DEPTNO <span class="operator">|</span> DNAME      <span class="operator">|</span> LOC    <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+--------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+--------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h1><p>FULL JOIN </p>
+<h1 id="三张表的连接查询"><a href="#三张表的连接查询" class="headerlink" title="三张表的连接查询"></a>三张表的连接查询</h1><h2 id="查找每个员工部门名称和工资等级"><a href="#查找每个员工部门名称和工资等级" class="headerlink" title="查找每个员工部门名称和工资等级"></a>查找每个员工部门名称和工资等级</h2><h3 id="1-员工的名字，部门编号，工资"><a href="#1-员工的名字，部门编号，工资" class="headerlink" title="1. 员工的名字，部门编号，工资"></a>1. 员工的名字，部门编号，工资</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> ename, deptno, sal</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+--------+---------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> deptno <span class="operator">|</span> sal     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+--------+---------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span>  <span class="number">800.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">1600.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">2975.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">1250.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">2850.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> <span class="number">2450.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> <span class="number">5000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> <span class="number">1500.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">1100.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span>  <span class="number">950.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> <span class="number">3000.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> <span class="number">1300.00</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+--------+---------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-工资和工资等级"><a href="#2-工资和工资等级" class="headerlink" title="2. 工资和工资等级"></a>2. 工资和工资等级</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> salgrade;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------+-------+</span></span><br><span class="line"><span class="operator">|</span> GRADE <span class="operator">|</span> LOSAL <span class="operator">|</span> HISAL <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------+-------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span>   <span class="number">700</span> <span class="operator">|</span>  <span class="number">1200</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span>  <span class="number">1201</span> <span class="operator">|</span>  <span class="number">1400</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span>  <span class="number">1401</span> <span class="operator">|</span>  <span class="number">2000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span>  <span class="number">2001</span> <span class="operator">|</span>  <span class="number">3000</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">5</span> <span class="operator">|</span>  <span class="number">3001</span> <span class="operator">|</span>  <span class="number">9999</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+-------+-------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-部门编号和部门"><a href="#3-部门编号和部门" class="headerlink" title="3. 部门编号和部门"></a>3. 部门编号和部门</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> deptno, dname <span class="keyword">from</span> dept;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+</span></span><br><span class="line"><span class="operator">|</span> deptno <span class="operator">|</span> dname      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> ACCOUNTING <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-最后查询"><a href="#4-最后查询" class="headerlink" title="4. 最后查询"></a>4. 最后查询</h3><p>以下表示 A 和 B 先连接，连接的结果为 A，之后 A 继续和 C 连接  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">A </span><br><span class="line"><span class="keyword">join</span> B </span><br><span class="line"><span class="keyword">on</span> ...</span><br><span class="line"><span class="keyword">join</span> C </span><br><span class="line"><span class="keyword">on</span> ...</span><br><span class="line">... </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> e.ename, d.dname, s.grade</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp e <span class="keyword">left</span> <span class="keyword">join</span> dept d</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e.deptno <span class="operator">=</span> d.deptno</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">left</span> <span class="keyword">join</span> salgrade s</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e.sal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> dname      <span class="operator">|</span> grade <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">5</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找每个员工部门名称和工资等级和上级领导"><a href="#查找每个员工部门名称和工资等级和上级领导" class="headerlink" title="查找每个员工部门名称和工资等级和上级领导"></a>查找每个员工部门名称和工资等级和上级领导</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> e1.ename, d.dname, s.grade, e2.ename</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">from</span> emp e1</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">left</span> <span class="keyword">join</span> dept d</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e1.deptno <span class="operator">=</span> d.deptno</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">left</span> <span class="keyword">join</span> salgrade s</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e1.sal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">left</span> <span class="keyword">join</span> emp e2</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> e1.mgr <span class="operator">=</span> e2.empno;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+-------+</span></span><br><span class="line"><span class="operator">|</span> ename  <span class="operator">|</span> dname      <span class="operator">|</span> grade <span class="operator">|</span> ename <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+-------+</span></span><br><span class="line"><span class="operator">|</span> SMITH  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span> FORD  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ALLEN  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> WARD   <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JONES  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MARTIN <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> BLAKE  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> CLARK  <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span> KING  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SCOTT  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> KING   <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">5</span> <span class="operator">|</span> <span class="keyword">NULL</span>  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> TURNER <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">3</span> <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ADAMS  <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span> SCOTT <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> JAMES  <span class="operator">|</span> SALES      <span class="operator">|</span>     <span class="number">1</span> <span class="operator">|</span> BLAKE <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> FORD   <span class="operator">|</span> RESEARCH   <span class="operator">|</span>     <span class="number">4</span> <span class="operator">|</span> JONES <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MILLER <span class="operator">|</span> ACCOUNTING <span class="operator">|</span>     <span class="number">2</span> <span class="operator">|</span> CLARK <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+-------+-------+</span></span><br><span class="line"><span class="number">14</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/10/MySQL/%E3%80%9020-27%E3%80%91%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-02-11 10:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySQL/" title="MySQL">
+                        <b>#</b> MySQL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/02/11/MySQL/%E3%80%9036-36%E3%80%91navicat%E5%B7%A5%E5%85%B7/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-text">什么是连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">连接查询的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%AF%AD%E6%B3%95%E5%87%BA%E7%8E%B0%E7%9A%84%E5%B9%B4%E4%BB%A3%E6%9D%A5%E5%88%92%E5%88%86"><span class="toc-text">根据语法出现的年代来划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%A1%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F%E6%9D%A5%E5%88%92%E5%88%86"><span class="toc-text">根据表的连接方式来划分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%8E%B0%E8%B1%A1"><span class="toc-text">笛卡尔积现象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E7%9A%84%E9%83%A8%E9%97%A8%E5%90%8D%E7%A7%B0%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%91%98%E5%B7%A5%E5%90%8D%E5%92%8C%E9%83%A8%E9%97%A8%E5%90%8D"><span class="toc-text">查询每个员工的部门名称，显示员工名和部门名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-gt-select-from-emp"><span class="toc-text">mysql&gt; select * from emp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-gt-select-from-dept"><span class="toc-text">mysql&gt; select * from dept;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-gt-select-ename-dname-from-emp-dept"><span class="toc-text">mysql&gt; select ename, dname from emp, dept;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d-where-e-deptno-d-deptno"><span class="toc-text">mysql&gt; select e.ename, d.dname from emp e, dept d where e.deptno &#x3D; d.deptno;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-gt-select-e-ename-d-dname-from-emp-e-inner-join-dept-d-on-e-deptno-d-deptno"><span class="toc-text">mysql&gt; select e.ename, d.dname from emp e inner join dept d on e.deptno &#x3D; d.deptno;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%A1%A8%E7%9A%84%E5%88%AB%E5%90%8D"><span class="toc-text">关于表的别名</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql-gt-select-e-ename-d-dname-from-emp-e-dept-d"><span class="toc-text">mysql&gt; select e.ename, d.dname from emp e, dept d;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="toc-text">内连接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E7%9A%84%E9%83%A8%E9%97%A8%E5%90%8D%E7%A7%B0%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%91%98%E5%B7%A5%E5%90%8D%E5%92%8C%E9%83%A8%E9%97%A8%E5%90%8D-1"><span class="toc-text">查询每个员工的部门名称，显示员工名和部门名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">非等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E7%9A%84%E5%B7%A5%E8%B5%84%E7%AD%89%E7%BA%A7%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%91%98%E5%B7%A5%E5%90%8D%E3%80%81%E5%B7%A5%E8%B5%84%E3%80%81%E5%B7%A5%E8%B5%84%E7%AD%89%E7%BA%A7"><span class="toc-text">找出每个员工的工资等级，显示员工名、工资、工资等级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="toc-text">自连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E7%9A%84%E6%9D%80%E9%82%A3%E4%B8%AA%E5%8F%8A%E9%A2%86%E5%AF%BC%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%91%98%E5%B7%A5%E5%90%8D%E5%92%8C%E9%A2%86%E5%AF%BC%E5%90%8D"><span class="toc-text">找出每个员工的杀那个及领导，显示员工名和领导名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">外连接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%86%85%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">外连接和内连接的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">外连接的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E4%B8%8A%E7%BA%A7%E9%A2%86%E5%AF%BC"><span class="toc-text">找出每个员工上级领导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">左外连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">右外连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E5%93%AA%E4%B8%AA%E9%83%A8%E9%97%A8%E6%B2%A1%E6%9C%89%E5%91%98%E5%B7%A5"><span class="toc-text">找出哪个部门没有员工</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="toc-text">全连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E5%BC%A0%E8%A1%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-text">三张表的连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E9%83%A8%E9%97%A8%E5%90%8D%E7%A7%B0%E5%92%8C%E5%B7%A5%E8%B5%84%E7%AD%89%E7%BA%A7"><span class="toc-text">查找每个员工部门名称和工资等级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%91%98%E5%B7%A5%E7%9A%84%E5%90%8D%E5%AD%97%EF%BC%8C%E9%83%A8%E9%97%A8%E7%BC%96%E5%8F%B7%EF%BC%8C%E5%B7%A5%E8%B5%84"><span class="toc-text">1. 员工的名字，部门编号，工资</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B7%A5%E8%B5%84%E5%92%8C%E5%B7%A5%E8%B5%84%E7%AD%89%E7%BA%A7"><span class="toc-text">2. 工资和工资等级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%83%A8%E9%97%A8%E7%BC%96%E5%8F%B7%E5%92%8C%E9%83%A8%E9%97%A8"><span class="toc-text">3. 部门编号和部门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%80%E5%90%8E%E6%9F%A5%E8%AF%A2"><span class="toc-text">4. 最后查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%AF%8F%E4%B8%AA%E5%91%98%E5%B7%A5%E9%83%A8%E9%97%A8%E5%90%8D%E7%A7%B0%E5%92%8C%E5%B7%A5%E8%B5%84%E7%AD%89%E7%BA%A7%E5%92%8C%E4%B8%8A%E7%BA%A7%E9%A2%86%E5%AF%BC"><span class="toc-text">查找每个员工部门名称和工资等级和上级领导</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

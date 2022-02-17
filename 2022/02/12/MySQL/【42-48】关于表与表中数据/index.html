@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      【42-48】关于表 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【42-48】关于表</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-02-12 15:25:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySQL/" title="MySQL">
+                    <b>#</b> MySQL
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol>
+<li>在数据库中表名一般以：’t_表名’或者’tbl_表名’开始  </li>
+<li>增删改查：CRUD操作  </li>
+</ol>
+<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表明&#123;</span><br><span class="line">    字段名<span class="number">1</span> 数据类型,</span><br><span class="line">    字段名<span class="number">2</span> 数据类型,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MySQL当中字段的数据类型"><a href="#MySQL当中字段的数据类型" class="headerlink" title="MySQL当中字段的数据类型"></a>MySQL当中字段的数据类型</h2><ol>
+<li>int 整数型  </li>
+<li>bigint 长整型(long)  </li>
+<li>float 浮点型（Java中的float 和 double）  </li>
+<li>char 定长字符串（String）  </li>
+<li>varchar 可变长字符串（StringBuilder和StringBuffer）  </li>
+<li>date 日期类型 （对应java.sql.Date类型）  </li>
+<li>BLOB 二进制大对象（存图片、视频等流媒体信息）Binary Large OBject    </li>
+<li>CLOB 字符大对象（存储较大文本，比如可以存储4G的字符串）Character Large OBject   </li>
+<li>……</li>
+</ol>
+<h2 id="char-和-varchar-如何选择"><a href="#char-和-varchar-如何选择" class="headerlink" title="char 和 varchar 如何选择"></a>char 和 varchar 如何选择</h2><p>比如性别、生日等采用char<br>比如简介、姓名等采用varchar   </p>
+<h2 id="创建学生表"><a href="#创建学生表" class="headerlink" title="创建学生表"></a>创建学生表</h2><h3 id="信息简要"><a href="#信息简要" class="headerlink" title="信息简要"></a>信息简要</h3><p>学生信息包括：</p>
+<ol>
+<li>学号：bigint  </li>
+<li>姓名：varchar   </li>
+<li>性别：char  </li>
+<li>班级编号：varchar  </li>
+<li>生日：char/date  </li>
+</ol>
+<h3 id="sql语句"><a href="#sql语句" class="headerlink" title="sql语句"></a>sql语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> t_student(</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>     <span class="keyword">no</span> <span class="type">bigint</span>,</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>     name <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>     sex <span class="type">char</span>(<span class="number">1</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>     classno <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>     birth <span class="type">char</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> );</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.04</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> tables;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> Tables_in_sunlie <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> dept             <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> emp              <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> salgrade         <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> t_student        <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> t_user           <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">desc</span> t_student;</span><br><span class="line"><span class="operator">+</span><span class="comment">---------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> Field   <span class="operator">|</span> Type         <span class="operator">|</span> <span class="keyword">Null</span> <span class="operator">|</span> Key <span class="operator">|</span> <span class="keyword">Default</span> <span class="operator">|</span> Extra <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">no</span>      <span class="operator">|</span> <span class="type">bigint</span>       <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> name    <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">255</span>) <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sex     <span class="operator">|</span> <span class="type">char</span>(<span class="number">1</span>)      <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> classno <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">255</span>) <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> birth   <span class="operator">|</span> <span class="type">char</span>(<span class="number">10</span>)     <span class="operator">|</span> YES  <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">---------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于默认"><a href="#关于默认" class="headerlink" title="关于默认"></a>关于默认</h3><ol>
+<li>在建表的时候没有指定默认值，则默认为NULL   </li>
+<li>格式：(字段名 数据类型 default 数据,)    </li>
+</ol>
+<h1 id="向表中插入数据"><a href="#向表中插入数据" class="headerlink" title="向表中插入数据"></a>向表中插入数据</h1><h2 id="语法格式-1"><a href="#语法格式-1" class="headerlink" title="语法格式"></a>语法格式</h2><p>字段名和值的数量相同，数据类型相同   </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名(字段名<span class="number">1</span>,字段名<span class="number">2</span>,字段名<span class="number">3</span>, ...) <span class="keyword">values</span>(值<span class="number">1</span>, 值<span class="number">2</span>, 值<span class="number">3</span>, ...);</span><br></pre></td></tr></table></figure>
+
+<h2 id="向-t-student-表中插入数据"><a href="#向-t-student-表中插入数据" class="headerlink" title="向 t_student 表中插入数据"></a>向 t_student 表中插入数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_student(<span class="keyword">no</span>,name,sex,classno,birth) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">&#x27;zhangsan&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;gaosan1ban&#x27;</span>,<span class="string">&#x27;1950-10-12&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_student;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">no</span>   <span class="operator">|</span> name     <span class="operator">|</span> sex  <span class="operator">|</span> classno    <span class="operator">|</span> birth      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> zhangsan <span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span> gaosan1ban <span class="operator">|</span> <span class="number">1950</span><span class="number">-10</span><span class="number">-12</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> t_student后的字段名可以省去  </span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_student <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">&#x27;zhangsan&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;gaosan1ban&#x27;</span>,<span class="string">&#x27;1950-10-12&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_student;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">no</span>   <span class="operator">|</span> name     <span class="operator">|</span> sex  <span class="operator">|</span> classno    <span class="operator">|</span> birth      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> zhangsan <span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span> gaosan1ban <span class="operator">|</span> <span class="number">1950</span><span class="number">-10</span><span class="number">-12</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="一行插入多条数据"><a href="#一行插入多条数据" class="headerlink" title="一行插入多条数据"></a>一行插入多条数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> t_student</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">values</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> (<span class="number">1</span>,<span class="string">&#x27;zhangsan&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;gaosan1ban&#x27;</span>,<span class="string">&#x27;1950-10-12&#x27;</span>),</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> (<span class="number">2</span>,<span class="string">&#x27;lisi&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;gaosan1ban&#x27;</span>,<span class="string">&#x27;1950-10-13&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">2</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">Records: <span class="number">2</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_student;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">no</span>   <span class="operator">|</span> name     <span class="operator">|</span> sex  <span class="operator">|</span> classno    <span class="operator">|</span> birth      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> zhangsan <span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span> gaosan1ban <span class="operator">|</span> <span class="number">1950</span><span class="number">-10</span><span class="number">-12</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> lisi     <span class="operator">|</span> <span class="number">1</span>    <span class="operator">|</span> gaosan1ban <span class="operator">|</span> <span class="number">1950</span><span class="number">-10</span><span class="number">-13</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+----------+------+------------+------------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="复制表"><a href="#复制表" class="headerlink" title="复制表"></a>复制表</h1><h2 id="语法格式-2"><a href="#语法格式-2" class="headerlink" title="语法格式"></a>语法格式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名 <span class="keyword">as</span> (<span class="keyword">select</span>语句);  </span><br></pre></td></tr></table></figure>
+
+<h2 id="复制emp表"><a href="#复制emp表" class="headerlink" title="复制emp表"></a>复制emp表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> emp1 <span class="keyword">as</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp);</span><br><span class="line">Query OK, <span class="number">14</span> <span class="keyword">rows</span> affected, <span class="number">2</span> warnings (<span class="number">0.02</span> sec)</span><br><span class="line">Records: <span class="number">14</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将查询结果复制入表"><a href="#将查询结果复制入表" class="headerlink" title="将查询结果复制入表"></a>将查询结果复制入表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> dept1 <span class="keyword">as</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept);</span><br><span class="line">Query OK, <span class="number">4</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line">Records: <span class="number">4</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept1;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> DEPTNO <span class="operator">|</span> DNAME      <span class="operator">|</span> LOC      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> ACCOUNTING <span class="operator">|</span> <span class="keyword">NEW</span> YORK <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> dept1 (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept);</span><br><span class="line">Query OK, <span class="number">4</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line">Records: <span class="number">4</span>  Duplicates: <span class="number">0</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept1;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> DEPTNO <span class="operator">|</span> DNAME      <span class="operator">|</span> LOC      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> ACCOUNTING <span class="operator">|</span> <span class="keyword">NEW</span> YORK <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> ACCOUNTING <span class="operator">|</span> <span class="keyword">NEW</span> YORK <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="number">8</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改表中数据"><a href="#修改表中数据" class="headerlink" title="修改表中数据"></a>修改表中数据</h1><h2 id="语法格式-3"><a href="#语法格式-3" class="headerlink" title="语法格式"></a>语法格式</h2><p>更新所有数据不加条件即可  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 <span class="keyword">set</span> 字段名<span class="number">1</span><span class="operator">=</span>值<span class="number">1</span>, 字段名<span class="number">2</span><span class="operator">=</span>值<span class="number">2</span> <span class="keyword">where</span> 条件;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改部门10的LOC改为’SHANGHAI’，部门名称修改为’RENSHIBU’"><a href="#修改部门10的LOC改为’SHANGHAI’，部门名称修改为’RENSHIBU’" class="headerlink" title="修改部门10的LOC改为’SHANGHAI’，部门名称修改为’RENSHIBU’"></a>修改部门10的LOC改为’SHANGHAI’，部门名称修改为’RENSHIBU’</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> update dept1 <span class="keyword">set</span> loc <span class="operator">=</span> <span class="string">&#x27;SHANGHAI&#x27;</span>, dname <span class="operator">=</span> <span class="string">&#x27;RENSHIBU&#x27;</span> <span class="keyword">where</span> deptno <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">Query OK, <span class="number">2</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line"><span class="keyword">Rows</span> matched: <span class="number">2</span>  Changed: <span class="number">2</span>  Warnings: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept1;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span> DEPTNO <span class="operator">|</span> DNAME      <span class="operator">|</span> LOC      <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> RENSHIBU   <span class="operator">|</span> SHANGHAI <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">10</span> <span class="operator">|</span> RENSHIBU   <span class="operator">|</span> SHANGHAI <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+----------+</span></span><br><span class="line"><span class="number">8</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h1><p>表设计好后很少更改，在实际开发中很少用到…  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="删除表中的数据"><a href="#删除表中的数据" class="headerlink" title="删除表中的数据"></a>删除表中的数据</h1><h2 id="语法格式-4"><a href="#语法格式-4" class="headerlink" title="语法格式"></a>语法格式</h2><p>没有条件全部删除</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除10部门的数据"><a href="#删除10部门的数据" class="headerlink" title="删除10部门的数据"></a>删除10部门的数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">delete</span> <span class="keyword">from</span> dept1 <span class="keyword">where</span> deptno <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">Query OK, <span class="number">2</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> dept1;</span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+---------+</span></span><br><span class="line"><span class="operator">|</span> DEPTNO <span class="operator">|</span> DNAME      <span class="operator">|</span> LOC     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+---------+</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">20</span> <span class="operator">|</span> RESEARCH   <span class="operator">|</span> DALLAS  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">30</span> <span class="operator">|</span> SALES      <span class="operator">|</span> CHICAGO <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>     <span class="number">40</span> <span class="operator">|</span> OPERATIONS <span class="operator">|</span> BOSTON  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------+------------+---------+</span></span><br><span class="line"><span class="number">6</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除大表（重点）"><a href="#删除大表（重点）" class="headerlink" title="删除大表（重点）"></a>删除大表（重点）</h2><p>删前再三确认…<br>不可回滚 永久丢失<br>把表的字段啥的都给剪掉了…  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">truncate</span> <span class="keyword">table</span> emp1;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.03</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp1;</span><br><span class="line"><span class="keyword">Empty</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h1><h2 id="语法格式-5"><a href="#语法格式-5" class="headerlink" title="语法格式"></a>语法格式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名; </span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> 表名;   <span class="operator">/</span><span class="operator">/</span>oracle 不支持</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除-t-student-表"><a href="#删除-t-student-表" class="headerlink" title="删除 t_student 表"></a>删除 t_student 表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> t_student;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.02</span> sec)</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/02/12/MySQL/%E3%80%9041-41%E3%80%91limit%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-02-12 15:25:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySQL/" title="MySQL">
+                        <b>#</b> MySQL
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/02/13/leecode/6007.%20%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8E%E5%92%8C/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-text">创建表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%BD%93%E4%B8%AD%E5%AD%97%E6%AE%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">MySQL当中字段的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#char-%E5%92%8C-varchar-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="toc-text">char 和 varchar 如何选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%A6%E7%94%9F%E8%A1%A8"><span class="toc-text">创建学生表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%AE%80%E8%A6%81"><span class="toc-text">信息简要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql%E8%AF%AD%E5%8F%A5"><span class="toc-text">sql语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E9%BB%98%E8%AE%A4"><span class="toc-text">关于默认</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%91%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">向表中插入数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F-1"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91-t-student-%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">向 t_student 表中插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%A1%8C%E6%8F%92%E5%85%A5%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="toc-text">一行插入多条数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E8%A1%A8"><span class="toc-text">复制表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F-2"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6emp%E8%A1%A8"><span class="toc-text">复制emp表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%A4%8D%E5%88%B6%E5%85%A5%E8%A1%A8"><span class="toc-text">将查询结果复制入表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E4%B8%AD%E6%95%B0%E6%8D%AE"><span class="toc-text">修改表中数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F-3"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%83%A8%E9%97%A810%E7%9A%84LOC%E6%94%B9%E4%B8%BA%E2%80%99SHANGHAI%E2%80%99%EF%BC%8C%E9%83%A8%E9%97%A8%E5%90%8D%E7%A7%B0%E4%BF%AE%E6%94%B9%E4%B8%BA%E2%80%99RENSHIBU%E2%80%99"><span class="toc-text">修改部门10的LOC改为’SHANGHAI’，部门名称修改为’RENSHIBU’</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-text">修改表结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">删除表中的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F-4"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A410%E9%83%A8%E9%97%A8%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">删除10部门的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%A4%A7%E8%A1%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-text">删除大表（重点）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="toc-text">删除表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F-5"><span class="toc-text">语法格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4-t-student-%E8%A1%A8"><span class="toc-text">删除 t_student 表</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
