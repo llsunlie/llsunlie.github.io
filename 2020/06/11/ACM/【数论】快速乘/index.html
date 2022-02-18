@@ -88,10 +88,6 @@
           <a href="/categories/">Categories</a>
         </li>
       
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
         <li class="nav-item" data-path="/friends/">
           <a href="/friends/">Friends</a>
         </li>
@@ -152,17 +148,6 @@ MathJax = {
                 
               </span>
           
-              <span class="post-tags">
-                <i class="iconfont icon-tags" title="Tags"></i>
-                
-                <span class="span--tag">
-                  <a href="/tags/%E6%95%B0%E8%AE%BA/" title="数论">
-                    <b>#</b> 数论
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="function">LL <span class="title">qmul</span><span class="params">(LL a,LL b,LL mod)</span></span>&#123;</span><br><span class="line">	LL ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans = (ans+a)%mod;</span><br><span class="line">		a = a*<span class="number">2</span>%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -189,17 +174,6 @@ MathJax = {
                     <span class="span--category">
                       <a href="/categories/ACM/" title="ACM">
                         <b>#</b> ACM
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags" title="Tags"></i>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/%E6%95%B0%E8%AE%BA/" title="数论">
-                        <b>#</b> 数论
                       </a>
                     </span>
                     

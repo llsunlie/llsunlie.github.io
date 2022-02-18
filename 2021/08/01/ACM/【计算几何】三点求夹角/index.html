@@ -88,10 +88,6 @@
           <a href="/categories/">Categories</a>
         </li>
       
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
         <li class="nav-item" data-path="/friends/">
           <a href="/friends/">Friends</a>
         </li>
@@ -152,17 +148,6 @@ MathJax = {
                 
               </span>
           
-              <span class="post-tags">
-                <i class="iconfont icon-tags" title="Tags"></i>
-                
-                <span class="span--tag">
-                  <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                    <b>#</b> 计算几何
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M_PI acos(-1.0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">get angle ACB, point C is the center point</span></span><br><span class="line"><span class="comment">A(x1,y1)</span></span><br><span class="line"><span class="comment">B(x2,y2)</span></span><br><span class="line"><span class="comment">C(x3,y3)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">get_angle</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2, <span class="keyword">double</span> x3, <span class="keyword">double</span> y3)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> theta = <span class="built_in">atan2</span>(x1 - x3, y1 - y3) - <span class="built_in">atan2</span>(x2 - x3, y2 - y3);</span><br><span class="line">	<span class="keyword">if</span> (theta &gt; M_PI)</span><br><span class="line">		theta -= <span class="number">2</span> * M_PI;</span><br><span class="line">	<span class="keyword">if</span> (theta &lt; -M_PI)</span><br><span class="line">		theta += <span class="number">2</span> * M_PI;</span><br><span class="line"></span><br><span class="line">	theta = <span class="built_in">abs</span>(theta * <span class="number">180.0</span> / M_PI);</span><br><span class="line">	<span class="keyword">return</span> theta;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> y1 = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">double</span> x2 = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">double</span> y2 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> x3 = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">double</span> y3 = <span class="number">-2</span>;</span><br><span class="line">	<span class="keyword">double</span> angle1 = <span class="built_in">get_angle</span>(x3, y3, x1, y1, x2, y2);</span><br><span class="line">	<span class="keyword">double</span> angle2 = <span class="built_in">get_angle</span>(x1, y1, x2, y2, x3, y3);</span><br><span class="line">	<span class="keyword">double</span> angle3 = <span class="built_in">get_angle</span>(x2, y2, x3, y3, x1, y1);</span><br><span class="line">	cout &lt;&lt; angle2 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; angle3 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; angle1 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -189,17 +174,6 @@ MathJax = {
                     <span class="span--category">
                       <a href="/categories/ACM/" title="ACM">
                         <b>#</b> ACM
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags" title="Tags"></i>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                        <b>#</b> 计算几何
                       </a>
                     </span>
                     

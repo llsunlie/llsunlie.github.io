@@ -88,10 +88,6 @@
           <a href="/categories/">Categories</a>
         </li>
       
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
         <li class="nav-item" data-path="/friends/">
           <a href="/friends/">Friends</a>
         </li>
@@ -152,17 +148,6 @@ MathJax = {
                 
               </span>
           
-              <span class="post-tags">
-                <i class="iconfont icon-tags" title="Tags"></i>
-                
-                <span class="span--tag">
-                  <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                    <b>#</b> 计算几何
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point2d</span>&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//计算任意多边形的面积，顶点按照顺时针或者逆时针方向排列</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ComputePolygonArea</span><span class="params">(<span class="keyword">const</span> vector&lt;Point2d&gt; &amp;points)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> point_num = points.<span class="built_in">size</span>();</span><br><span class="line">	<span class="keyword">if</span>(point_num &lt; <span class="number">3</span>)<span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">	<span class="keyword">double</span> s = points[<span class="number">0</span>].y * (points[point_num<span class="number">-1</span>].x - points[<span class="number">1</span>].x);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; point_num; ++i)</span><br><span class="line">		s += points[i].y * (points[i<span class="number">-1</span>].x - points[(i+<span class="number">1</span>)%point_num].x);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">fabs</span>(s/<span class="number">2.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -189,17 +174,6 @@ MathJax = {
                     <span class="span--category">
                       <a href="/categories/ACM/" title="ACM">
                         <b>#</b> ACM
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags" title="Tags"></i>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                        <b>#</b> 计算几何
                       </a>
                     </span>
                     

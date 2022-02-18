@@ -88,10 +88,6 @@
           <a href="/categories/">Categories</a>
         </li>
       
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
         <li class="nav-item" data-path="/friends/">
           <a href="/friends/">Friends</a>
         </li>
@@ -152,17 +148,6 @@ MathJax = {
                 
               </span>
           
-              <span class="post-tags">
-                <i class="iconfont icon-tags" title="Tags"></i>
-                
-                <span class="span--tag">
-                  <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                    <b>#</b> 计算几何
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
         <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> x,y;</span><br><span class="line">&#125; p[MS];</span><br><span class="line"></span><br><span class="line"><span class="function">node <span class="title">get_center</span><span class="params">(<span class="keyword">double</span> x1,<span class="keyword">double</span> y1,<span class="keyword">double</span> x2,<span class="keyword">double</span> y2,<span class="keyword">double</span> x3,<span class="keyword">double</span> y3)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> A,B,C,D,x,y,r;</span><br><span class="line">	<span class="keyword">double</span> x1x1 = x1*x1;</span><br><span class="line">	<span class="keyword">double</span> y1y1 = y1*y1;</span><br><span class="line">	<span class="keyword">double</span> x2x2 = x2*x2;</span><br><span class="line">	<span class="keyword">double</span> y2y2 = y2*y2;</span><br><span class="line">	<span class="keyword">double</span> x3x3 = x3*x3;</span><br><span class="line">	<span class="keyword">double</span> y3y3 = y3*y3;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x2y3 = x2*y3;</span><br><span class="line">	<span class="keyword">double</span> x3y2 = x3*y2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x2_x3 = x2-x3;</span><br><span class="line">	<span class="keyword">double</span> y2_y3 = y2-y3;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x1x1py1y1 = x1x1 + y1y1;</span><br><span class="line">	<span class="keyword">double</span> x2x2py2y2 = x2x2 + y2y2;</span><br><span class="line">	<span class="keyword">double</span> x3x3py3y3 = x3x3 + y3y3;</span><br><span class="line"></span><br><span class="line">	A = x1 * y2_y3 - y1 * x2_x3 + x2y3 - x3y2;</span><br><span class="line">	B = x1x1py1y1 * (-y2_y3) + x2x2py2y2 * (y1-y3) + x3x3py3y3 * (y2-y1);</span><br><span class="line">	C = x1x1py1y1 * x2_x3 + x2x2py2y2 * (x3 - x1) + x3x3py3y3 * (x1-x2);</span><br><span class="line">	D = x1x1py1y1 * (x3y2 - x2y3) + x2x2py2y2 * (x1*y3 - x3*y1) + x3x3py3y3 * (x2*y1-x1*y2);</span><br><span class="line"></span><br><span class="line">	x=-B/(<span class="number">2</span>*A);</span><br><span class="line">	y=-C/(<span class="number">2</span>*A);</span><br><span class="line">	r=<span class="built_in">sqrt</span>((B*B+C*C<span class="number">-4</span>*A*D)/(<span class="number">4</span>*A*A));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 三点一线，不存在圆</span></span><br><span class="line">	<span class="keyword">if</span>(!A) <span class="keyword">return</span> &#123;MAXN,MAXN&#125;;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> &#123;x,y&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -190,17 +175,6 @@ MathJax = {
                     <span class="span--category">
                       <a href="/categories/ACM/" title="ACM">
                         <b>#</b> ACM
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags" title="Tags"></i>
-                    
-                    <span class="span--tag">
-                      <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">
-                        <b>#</b> 计算几何
                       </a>
                     </span>
                     
