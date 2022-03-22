@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      深信服C++面经 
+      
+      
+      |
+    
+     棉被sunlie
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/head.png">
+    <link rel="icon" href="/images/head.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="棉被sunlie" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/head.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">棉被sunlie</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">深信服C++面经</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-03-22 10:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E9%9D%A2%E7%BB%8F/" title="面经">
+                    <b>#</b> 面经
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="问题来自"><a href="#问题来自" class="headerlink" title="问题来自"></a>问题来自</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/circle/discuss/wKrAfK/">https://leetcode-cn.com/circle/discuss/wKrAfK/</a></p>
+<h1 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h1><ol>
+<li><p><strong>strcpy 函数有什么缺陷，如何优化</strong></p>
+<ul>
+<li>函数原型：char *strcpy(char *dest,const char *src);</li>
+<li>函数说明：strcpy 函数会将参数 src 字符串拷贝至参数 dest 所指的地址。</li>
+<li>如果参数dest所指的内存空间不够大，可能会造成缓冲溢出的错误情况</li>
+<li>优化：使用strncpy</li>
+<li>函数原型：char *strncpy(char *dest,const char *src ,size_t n);</li>
+<li>函数说明：strncpy会将参数src字符串拷贝前n个字符至参数dest所指的地址。</li>
+<li>需要手工末尾填’\0’，当dest长度远大于src时，由于strncpy会对多余的每个字节填0，会有很大的性能损失。</li>
+</ul>
+</li>
+<li><p><strong>指针和引用区别</strong></p>
+<ul>
+<li>定义：指针是变量，存储地址，引用是原变量的一个别名，实际上是一个东西</li>
+<li>指针可以是多级，引用只能是一级</li>
+<li>指针在定义的时候可以不初始化，引用必须初始化</li>
+<li>指针可以指向NULL，引用不行</li>
+</ul>
+</li>
+<li><p><strong>c++ 内存分区</strong></p>
+<ul>
+<li>栈：编译器在需要的时候分配，不需要就自动清除的变量所在区域，栈是向低地址生长的连续区域</li>
+<li>堆：堆的分配由程序员控制，是不连续的，地址向高地址生长</li>
+<li>静态存储区：存放全局变量和静态变量的区域</li>
+<li>常量存储区：存放常量字符串的存储区，只能读不能写。const修饰的局部变量存储在常量区，const修饰的局部变量在栈区</li>
+<li>程序代码区：存放源程序二进制代码</li>
+</ul>
+</li>
+<li><p><strong>结构体字节对齐</strong></p>
+<ul>
+<li>与结构体中定义的数据类型的顺序有关</li>
+<li>先取结构体中占用最长的数据类型的字节长度记为 m</li>
+<li>所有成员在分配内存时都是紧接在前一个变量后面依次填充的</li>
+<li>如果一行中剩下的空间不足以填充某成员变量，就另起一行，未被利用的空间随机填充</li>
+</ul>
+</li>
+<li><p><strong>未初始化的全局变量放在哪里，编译后在二进制文件中有它的位置吗</strong></p>
+<ul>
+<li>已初始化的全局变量和局部静态变量都在__data段中</li>
+<li>未初始化的全局变量在__common段中</li>
+<li>未初始化的局部静态变量在__bss段中</li>
+<li>初始化为 0 也算未初始化</li>
+<li>一个程序本质上都是由 bss段、data段、text段三个组成的</li>
+<li>bss段（bss segment）通常是指用来存放程序中未初始化的全局变量的一块内存区域</li>
+<li>数据段（data segment）通常是指用来存放程序中已初始化的全局变量的一块内存区域</li>
+<li>代码段（code segment/text segment）通常是指用来存放程序执行代码的一块内存区域</li>
+<li>text和data段都在可执行文件中，由系统从可执行文件中加载</li>
+<li>bss段不在可执行文件中，由系统初始化</li>
+</ul>
+</li>
+<li><p><strong>什么是野指针，怎么检测</strong></p>
+<ul>
+<li>野指针主要是指对象释放后，指针未置空导致的野指针</li>
+<li>规避：初始化指针的时候将其置为nullptr，之后对其操作，释放指针的时候将其置为nullptr。</li>
+<li>检测：通过NSZombieEnabled</li>
+</ul>
+</li>
+<li><p><em>智能指针有哪些，实现原理，如何防止循环引用</em></p>
+<ul>
+<li>shared_ptr、weak_ptr和unique_ptr</li>
+</ul>
+</li>
+<li><p><strong>能够使用 memcmp 判断两个结构体存的东西是一样的吗</strong></p>
+<ul>
+<li>memcmp就是将两个变量在底层按字节进行比较，相等返回0</li>
+<li>有些能有些不能，和字节对齐有关</li>
+<li>字节对齐后没有被随机填充的字节就可以memcpy</li>
+</ul>
+</li>
+<li><p><strong>sizeof 和 strlen 的区别</strong></p>
+<ul>
+<li>sizeof是一个操作符，而strlen是库函数</li>
+<li>sizeof的参数可以是数据的类型，也可以是变量，而strlen只能以结尾为’\0’的字符串作参数</li>
+<li>编译器在编译时就计算出了sizeof的结果，而strlen必须在运行时才能计算出来</li>
+<li>sizeof计算数据类型占内存的大小，strlen计算字符串实际长度</li>
+</ul>
+</li>
+<li><p><strong>用宏实现比较大小</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a,b) (((a)-(b)&lt;=0)?(b):(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN(a,b) (((a)-(b)&lt;=0)?(a):(b))</span></span><br><span class="line"><span class="comment">// 负数是用补码表示的，最高位是符号位，所以判断a-b的最高位是不是1就可以知道a-b是不是负数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a,b) ( (((a)-(b)) &amp; (1<span class="meta-string">&lt;&lt;31) )&gt;</span>&gt;31 ? (b):(a) ) </span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>new 和 malloc 区别，如何判断是否申请到内存</strong></p>
+<ul>
+<li>申请的内存位置：new从自由存储区上申请，malloc从堆上申请</li>
+<li>返回类型安全：new 返回对象类型的指针，malloc 返回是 void*，需要强制转换</li>
+<li>内存分配失败的返回值：new会抛出bad_alloc异常，需要try_catch，malloc失败会返回NULL  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C</span></span><br><span class="line"><span class="keyword">int</span> * a = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>();<span class="keyword">if</span>(<span class="literal">NULL</span> == a)&#123; ...&#125;<span class="keyword">else</span>&#123; ...&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++</span></span><br><span class="line"><span class="keyword">try</span>&#123; </span><br><span class="line">    <span class="keyword">int</span> *a = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>();</span><br><span class="line">&#125;<span class="built_in"><span class="keyword">catch</span></span> (bad_alloc)&#123; </span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>指定内存大小：new无需指定内存大小，malloc需要指定  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">A * ptr = <span class="keyword">new</span> A;</span><br><span class="line">A * ptr = (A *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(A));</span><br></pre></td></tr></table></figure></li>
+<li>是否调用构造函数/析构函数：new会经历分配空间，构造函数，返回对象的指针，delete的时候会调用析构函数，释放内存。malloc则不会。</li>
+<li>是否可以相互调用：new和delete的实现基于malloc和free，malloc和free的实现不可以调用new和delete</li>
+<li>是否可以被重载：new和delete可以，malloc和free不行</li>
+<li>是否能重新分配内存：malloc可以通过realloc来重新扩容，如果有连续的空间就原地扩容，否则另找一片复制过去。new则不行。</li>
+</ul>
+</li>
+<li><p><strong>函数模板与类模板的区别</strong></p>
+<ul>
+<li>类模板没有自动类型推导的使用方式</li>
+<li>类模板的函数声明和实现都得在头文件中实现，不能像普通类一样.h中定义，在.cpp中实现</li>
+<li>函数模板允许隐式调用和显式调用而类模板只能显示调用</li>
+</ul>
+</li>
+<li><p><strong>c++ 如何使用c实现的函数</strong></p>
+<ul>
+<li>比如有这样的目录结构<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- calc</span><br><span class="line">| |-- calc.c</span><br><span class="line">| `-- calc.h</span><br><span class="line">`-- main.cpp</span><br></pre></td></tr></table></figure></li>
+<li>方案一：把calc.c改成calc.cpp</li>
+<li>方案二：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus </span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> arg1)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2</span><span class="params">(<span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun3</span><span class="params">(<span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2, <span class="keyword">int</span> arg3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></li>
+<li>方案三：若别人已经写好的头文件，我们无法修改，怎么办？重写一个专门被c++用的头文件即可</li>
+<li>编写头文件 cpp_calc.h<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;calc.h&quot;</span>; </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>多态的原理</strong></p>
+<ul>
+<li>当类中存在虚函数时，编译器会生成一个虚函数表，用于存储类中虚函数指针</li>
+<li>当父类型指针指向子类型对象的时候，在程序运行时，查找虚函数表，调用虚函数表里对应的函数，在表现上来看是多态</li>
+</ul>
+</li>
+<li><p><strong>虚函数的实现原理</strong></p>
+<ul>
+<li>要点是要答出虚函数表和虚函数表指针的作用。C++中虚函数使用虚函数表和 虚函数表指针实现，虚函数表是一个类的虚函数的地址表，用于索引类本身以及父类的虚函数的地 址，假如子类的虚函数重写了父类的虚函数，则对应在虚函数表中会把对应的虚函数替换为子类的 虚函数的地址；虚函数表指针存在于每个对象中（通常出于效率考虑，会放在对象的开始地址处）， 它指向对象所在类的虚函数表的地址；在多继承环境下，会存在多个虚函数表指针，分别指向对应 不同基类的虚函数表。</li>
+</ul>
+</li>
+<li><p><strong>纯虚函数</strong></p>
+<ul>
+<li>在函数原型后面加上 “= 0”</li>
+<li>含有纯虚拟函数的类称为抽象类，它不能生成对象，目的在于，使派生类仅仅只是继承函数的接口</li>
+</ul>
+</li>
+<li><p><strong>析构函数可以是虚函数吗，构造函数呢</strong></p>
+<ul>
+<li>构造函数不能是虚函数，析构函数可以是虚函数且推荐最好设置为虚函数</li>
+</ul>
+</li>
+<li><p><strong>拷贝构造函数取引用的原因</strong></p>
+<ul>
+<li>拷贝构造函数的const date d会对传入的d1进行实例化，调用自身，但被调用后又实例化，再次调用拷贝构造函数，形成无限递归，所以只能引用</li>
+</ul>
+</li>
+<li><p><strong>如何减少构造函数的开销</strong></p>
+<ul>
+<li>成员初始化列表：在类构造函数中，不在函数体内对变量赋值，而在参数列表后，跟一个冒号和初始化列表。</li>
+<li>问：为什么成员初始化列表效率更高？</li>
+<li>答：因为对于非内置类型，少了一次调用默认构造函数的过程。</li>
+<li>利用std::move()转为右值<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Student</span><span class="params">(std::string name)</span></span></span><br><span class="line"><span class="function">            : _name(std::move(name)) &#123;</span>&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string _name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>static、const的作用</strong></p>
+<ul>
+<li>static关键字的作用<ul>
+<li>函数体内static变量的作用范围为该函数体，不同于auto变量，该变量的内存只被分配一次，因此其值在下次调用时仍维持上次的值</li>
+<li>在模块内的static全局变量可以被模块内所用函数访问，但不能被模块外其它函数访问</li>
+<li>在模块内的static函数只可被这一模块内的其它函数调用，这个函数的使用范围被限制在声明它的模块内</li>
+<li>在类中的static成员变量属于整个类所拥有，对类的所有对象只有一份拷贝</li>
+<li>在类中的static成员函数属于整个类所拥有，这个函数不接收this指针，因而只能访问类的static成员变量</li>
+</ul>
+</li>
+<li>const关键字至少有下列n个作用<ul>
+<li>欲阻止一个变量被改变，可以使用const关键字。在定义该const变量时，通常需要对它进行初始化，因为以后就没有机会再去改变它了</li>
+<li>对指针来说，可以指定指针本身为const，也可以指定指针所指的数据为const，或二者同时指定为const</li>
+<li>在一个函数声明中，const可以修饰形参，表明它是一个输入参数，在函数内部不能改变其值</li>
+<li>对于类的成员函数，若指定其为const类型，则表明其是一个常函数，不能修改类的 成员变量</li>
+<li>对于类的成员函数，有时候必须指定其返回值为const类型，以使得其返回值不为“左值”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>静态局部变量和局部变量的区别</strong></p>
+<ul>
+<li>静态局部变量在静态存储区分配空间，在程序整个运行期间都不释放，局部变量占用动态存储区的空间，函数调用结束后自动释放</li>
+<li>静态局部变量在编译的时候赋初值，并且只赋值一次，每次运行函数使用的是上一次调用结束的值，局部变量在每次调用的时候重新赋值</li>
+<li>虽然静态局部变量在函数调用后仍然存在，但是作用范围以外的区域不能使用</li>
+</ul>
+</li>
+<li><p><strong>auto 类型推导的实现原理</strong></p>
+<ul>
+<li>auto变量的规则是”做函数模板需要做的事情”</li>
+<li>auto被一个虚构的模板类型参数T替代，然后进行推断，即相当于把变量设为一个函数参数，将其传递给模板并推断为实参，auto相当于利用了其中进行的实参推断，承担了模板参数T的作用</li>
+<li>auto在编译的时候确定</li>
+</ul>
+</li>
+<li><p><strong>如何判断结构体是否相等</strong></p>
+<ul>
+<li>重载运算符 “==”</li>
+</ul>
+</li>
+<li><p><strong>C++11 特性</strong></p>
+<ul>
+<li>auto/decltype</li>
+<li>右值引用和转移语义</li>
+<li>智能指针</li>
+<li>基于范围的for循环</li>
+<li>委托构造函数：允许在同一个类中一个构造函数调用另外一个构造函数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    <span class="built_in">A</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> a) &#123; a_ = a; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) : <span class="built_in">A</span>(a) &#123; b_ = b; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) : <span class="built_in">A</span>(a, b) &#123; c_ = c; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a_;</span><br><span class="line">    <span class="keyword">int</span> b_;</span><br><span class="line">    <span class="keyword">int</span> c_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>继承构造函数：可以让派生类直接使用基类的构造函数，如果有一个派生类，我们希望派生类采用和基类一样的构造方式，可以直接使用基类的构造函数，而不是再重新写一遍构造函数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Base</span> &#123;</span></span><br><span class="line">    <span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">Base</span>(<span class="keyword">int</span> a) &#123; a_ = a; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Base</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) : <span class="built_in">Base</span>(a) &#123; b_ = b; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Base</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) : <span class="built_in">Base</span>(a, b) &#123; c_ = c; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a_;</span><br><span class="line">    <span class="keyword">int</span> b_;</span><br><span class="line">    <span class="keyword">int</span> c_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Derived</span> :</span> Base &#123;</span><br><span class="line">    <span class="keyword">using</span> Base::Base;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Derived <span class="title">a</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>nullptr：nullptr是c++11用来表示空指针新引入的常量值，在c++中如果表示空指针语义时建议使用nullptr而不要使用NULL，因为NULL本质上是个int型的0，其实不是个指针。</li>
+<li>final：用于修饰一个类，表示禁止该类进一步派生和虚函数的进一步重载<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Base</span> <span class="keyword">final</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;base&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Derived</span> :</span> <span class="keyword">public</span> Base&#123; <span class="comment">// 编译失败，final修饰的类不可以被继承</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;derived&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>override：用于修饰派生类中的成员函数，标明该函数重写了基类函数，如果一个函数声明了override但父类却没有这个虚函数，编译报错，使用override关键字可以避免开发者在重写基类函数时无意产生的错误<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Base</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;base&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Derived</span> :</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; <span class="comment">// 确保func被重写</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;derived&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fu</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; <span class="comment">// error，基类没有fu()，不可以被重写</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>内存对齐</li>
+<li>正则表达式：c++11引入了regex库更好的支持正则表达式</li>
+</ul>
+</li>
+<li><p><strong>函数指针和指针函数的区别</strong></p>
+<ul>
+<li>指针函数是指带指针的函数，即本质是一个函数，函数返回类型是某一类型的指针<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> *<span class="title">fun</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">float</span> *p;</span><br><span class="line">p = <span class="built_in">fun</span>(a);</span><br></pre></td></tr></table></figure></li>
+<li>函数指针是指向函数的指针变量，即本质是一个指针变量<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in"><span class="keyword">void</span></span> (*funcp1)(<span class="keyword">int</span> a, <span class="keyword">int</span> b);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FileFunc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="built_in"><span class="keyword">void</span></span> (*funcp2)();</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EditFunc</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    funcp1 = FileFunc;</span><br><span class="line">    (*funcp1)(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    funcp2 = EditFunc;</span><br><span class="line">    (*funcp2)();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FileFunc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;FileFunc\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a + b = %d\n&quot;</span>, a + b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EditFunc</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;EditFunc\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>隐藏、重载、重写的区别</strong></p>
+<ul>
+<li>重载：是指同一可访问区内被声明的几个具有不同参数列（参数的类型，个数，顺序不同）的同名函数，根据参数列表确定调用哪个函数，重载不关心函数返回类型。</li>
+<li>隐藏：是指派生类的函数屏蔽了与其同名的基类函数，注意只要同名函数，不管参数列表是否相同，基类函数都会被隐藏。</li>
+<li>重写(覆盖)：是指派生类中存在重新定义的函数。其函数名，参数列表，返回值类型，所有都必须同基类中被重写的函数一致。只有函数体不同（花括号内），派生类调用时会调用派生类的重写函数，不会调用被重写函数。重写的基类中被重写的函数必须有virtual修饰。</li>
+</ul>
+</li>
+<li><p><strong>C++ 的程序编译过程</strong></p>
+<ul>
+<li>预处理-&gt;编译-&gt;汇编-&gt;链接</li>
+<li>源代码（source coprede）→预处理器（processor）→编译器（compiler）→汇编程序（assembler）→目标程序（object code）→链接器（Linker）→可执行程序（executables）</li>
+<li>编译预处理：处理以 # 开头的指令；</li>
+<li>编译优化：将源码.cpp翻译为.s汇编代码</li>
+<li>汇编：将.s翻译成机器指令.o文件</li>
+<li>链接：汇编程序生成的目标文件，即.o文件，并不会立即执行，因为可能会出现：.cpp 文件中的函数引用了另一个.cpp<br>文件中定义的符号或者调用了某个库文件中的函数。那链接的目的就是将这些文件对应的目标文件连接成一个整体，从而生成可执行的程序 .exe 文件。</li>
+</ul>
+</li>
+</ol>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><ol>
+<li><p><strong>OSI 七层模型</strong></p>
+<ul>
+<li>应用层：协议有：HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</li>
+<li>表示层：数据的表示、安全、压缩。格式有，JPEG、ASCll、DECOIC、加密格式等</li>
+<li>会话层：建立、管理、终止会话。对应主机进程，指本地主机与远程主机正在进行的会话</li>
+<li>传输层：定义传输数据的协议端口号，以及流控和差错校验。协议有：TCP UDP，数据包一旦离开网卡即进入网络传输层</li>
+<li>网络层：进行逻辑地址寻址，实现不同网络之间的路径选择。协议有：ICMP IGMP IP（IPV4 IPV6） ARP RARP</li>
+<li>数据链路层：建立逻辑连接、进行硬件地址寻址、差错校验等功能。将比特组合成字节进而组合成帧，用MAC地址访问介质，错误发现但不能纠正。</li>
+<li>物理层：建立、维护、断开物理连接。</li>
+</ul>
+</li>
+<li><p><strong>三次握手和四次挥手</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zzjdbk/p/13028290.html">https://www.cnblogs.com/zzjdbk/p/13028290.html</a></li>
+</ul>
+</li>
+<li><p><strong>三次握手中的 time_wait 的作用</strong></p>
+<ul>
+<li>保证客户端发送的最后一个ack报文段能够到达服务器</li>
+<li>经过2msl的时间足以让本次连接产生的所有报文段都从网络中消失，这样下一次新的连接中就肯定不会出现旧连接的报文段了</li>
+</ul>
+</li>
+<li><p><strong>TCP 与 UDP 的区别</strong></p>
+<ul>
+<li>基于连接与无连接</li>
+<li>对系统资源的要求（TCP较多，UDP少）</li>
+<li>UDP程序结构较简单</li>
+<li>流模式与数据报模式</li>
+<li>TCP保证数据正确性，UDP可能丢包</li>
+<li>TCP保证数据顺序，UDP不保证</li>
+</ul>
+</li>
+<li><p><strong>TCP 如何保证可靠传输</strong></p>
+<ul>
+<li>校验和</li>
+<li>确认应答和序列号</li>
+<li>超时重传</li>
+<li>连接管理（三握四挥）</li>
+<li>流量控制（根据接收端对数据的处理能力，决定发送端的发送速度）</li>
+<li>拥塞控制（慢开始、拥塞避免、快重传、快恢复。）</li>
+</ul>
+</li>
+<li><p><strong>TCP 超时重传的原理</strong></p>
+<ul>
+<li>原理是在发送某一个数据以后就开启一个计时器，在一定时间内如果没有得到发送的数据报的ACK报文，那么就重新发送数据，直到发送成功为止。超过次数会直接resetTCP连接。</li>
+</ul>
+</li>
+<li><p><strong>如何基于 udp 实现可靠原理</strong></p>
+<ul>
+<li>UDP本身不可靠，所以得在它上层实现可靠</li>
+<li>对UDP报文进行封装，增加TAG，SEQ，ACK等字段</li>
+<li>面向连接，模仿三次握手，通过设定TAG的值来实现</li>
+<li>确认应答，通过SEQ，ACK的值来实现</li>
+<li>滑动窗口，服务端和客户端共同维护一个缓冲区</li>
+<li>超时重传，双方设定计时器</li>
+<li>差错检测，通过校验和实现</li>
+<li>拥塞控制，Reno算法（慢启动，拥塞避免，快重传，快恢复）</li>
+</ul>
+</li>
+<li><p><strong>NAT 的原理</strong></p>
+<ul>
+<li>NAT英文全称是“Network Address Translation”，中文意思是“网络地址转换”</li>
+<li>NAT就是在局域网中使用内部地址，而当内部节点要与外部网络进行通讯时，就在网关处，将内部地址替换成公用地址，从而在外部公网（internet）上正常使用</li>
+<li>静态NAT：内部地址和外部地址一对一</li>
+<li>动态NAT：是指不建立内部地址和全局地址的一对一的固定对应关系。而通过共享NAT地址池的IP地址动态建立NAT的映射关系。当内网主机需要进行NAT地址转换时，路由器会在NAT地址池中选择空闲的全局地址进行映射，每条映射记录是动态建立的，在连接终止时也被收回。</li>
+<li>网络地址端口转换NAPT：网络地址端口转换NAPT（Network Address Port Translation）则是把内部地址映射到外部网络的一个IP地址的不同端口上。它可以将中小型的网络隐藏在一个合法的IP地址后面。NAPT与 动态地址NAT不同，它将内部连接映射到外部网络中的一个单独的IP地址上，同时在该地址上加上一个由NAT设备选定的端口号。</li>
+</ul>
+</li>
+<li><p><strong>get/post 区别</strong></p>
+<ul>
+<li>get提交的数据大小有限制，因为不同浏览器对URL的长度有不同的限制</li>
+<li>get只允许ASCII字符，post没有这样的限制</li>
+<li>get会保存在浏览器历史记录中，post不会。这点也能感受到</li>
+<li>post有可能分开发请求头和请求体，也不是必然的</li>
+</ul>
+</li>
+<li><p><strong>IP 协议的作用</strong></p>
+<ul>
+<li>设定报文生存时间</li>
+<li>分段与重组： IP数据报通过不同类型的通信网络发送，IP数据报的大小会受到这些网络所规定的最大传输单元(MTU)的限制。将IP数据报拆分成一个个能够适合下层技术传输的小数据报，被分段后的IP数据报可以独立地在网络中进行转发，在到达目的主机后被重组，恢复成原来的IP数据报。</li>
+</ul>
+</li>
+<li><p><strong>路由器和二层交换机的区别</strong></p>
+<ul>
+<li>在OSI七层网络结构中，交换机工作在第二层数据链路层，路由器工作在第三层网络层，也就导致了二层交换机利用我们的MAC地址即每个设备唯一的物理地址来寻址，路由器则通过IP地址来寻址。</li>
+<li>交换机是将不同IP地址的电脑连在一起，共享一根网线；路由器是将同一个IP给不同的电脑使用，就像一条大路分成很多条小路。也就是路由器是接外网的，交换机是接内网的，也可以说是交换机是用来构建局域网的，路由器是用来上网的。</li>
+<li>交换机是根据MAC地址转发数据帧，而路由器则是根据IP地址来转发IP数据报/分组。</li>
+<li>交换机分割冲突域，但是不分割广播域，而路由器分割冲突域还分割广播域。</li>
+<li>路由器具有防火墙的功能，能够对一些网络数据包选择性过滤防止广播风暴，而交换机就没有这个功能。</li>
+</ul>
+</li>
+<li><p><strong>arp 协议的功能</strong></p>
+<ul>
+<li>地址解析协议，根据IP地址获取物理地址的一个TCP/IP协议</li>
+<li>主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。</li>
+<li>地址解析协议是建立在网络中各个主机互相信任的基础上的，局域网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。</li>
+</ul>
+</li>
+<li><p><strong>http 连接的全过程</strong></p>
+<ul>
+<li>建立TCP连接</li>
+<li>浏览器向服务器发送请求命令 get/post</li>
+<li>浏览器向服务器发送请求头信息 user-agent, host</li>
+<li>服务器应答 版本号和状态码</li>
+<li>服务器发送应答头信息 发送被请求的文档 最后发送一个空行表示结束</li>
+<li>服务器发送和Content-type应答头信息相符的格式数据</li>
+<li>关闭连接</li>
+</ul>
+</li>
+<li><p><strong>dns 为什么用 udp</strong></p>
+<ul>
+<li>为了让响应时间越短越好，体验更好，TCP得话还需要加上建立连接的时间，相比之下UDP有时间上的优势</li>
+<li>若客户端事先知道 DNS 响应报文的长度会大于 512 字节，则应当直接使用 TCP 建立连接</li>
+<li>若客户端事先不知道 DNS 响应报文的长度，一般会先使用 UDP 协议发送 DNS 查询报文，若 DNS 服务器发现 DNS 响应报文的长度大于 512 字节，则多出来的部分会被 UDP 抛弃（截断 TrunCation），那么服务器会把这个部分被抛弃的 DNS 报文首部中的 TC 标志位置为 1，以通知客户端该 DNS 报文已经被截断。客户端收到之后会重新发起一次 TCP 请求，从而使得它将来能够从 DNS 服务器收到完整的响应报文。</li>
+<li>DNS 在域名解析的过程中，会根据 DNS 响应报文的大小选择使用 TCP 还是 UDP。但是一般情况下，返回的 DNS 响应报文都不会超过 512 字节，所以事实上，很多 DNS 服务器进行配置的时候，也仅支持 UDP 查询包</li>
+</ul>
+</li>
+<li><p><strong>浏览器输入 url 到显示网页的过程</strong></p>
+<ul>
+<li>DNS解析——解析域名，获取对应的ip地址</li>
+<li>TCP连接——TCP三次握手</li>
+<li>浏览器发送http请求</li>
+<li>服务器处理请求并返回http报文</li>
+<li>浏览器解析返回的数据并渲染页面</li>
+<li>断开连接：TCP四次挥手</li>
+</ul>
+</li>
+<li><p><strong>ping 的过程</strong></p>
+<ul>
+<li>首先假设A ping B</li>
+<li>ping通知系统建立一个固定格式的ICMP请求数据包。</li>
+<li>ICMP协议打包这个数据包和B的IP地址转交给IP协议层</li>
+<li>IP层协议将机器B的IP地址为目的地址，本机的IP地址为源地址，加上一些头部必要的控制信息，构建一个IP数据包</li>
+<li>获取B的MAC地址，做这个操作首先机器A会判断B是否在同一网段内，若IP层协议通过B的IP地址和自己的子网掩码，发现它跟自己属于同一网络，就直接在本网络查找这台机器的MAC，否则则通过路由器进行类似查找。</li>
+<li>接下来是ARP协议根据IP地址查找MAC地址的过程:<ul>
+<li>若两台机器之前有过通信，在机器A的ARP缓存表里应该存有B的IP与其MAC地址的映射关系。</li>
+<li>若没有，则通过发送ARP请求广播，得到回应的B机器MAC地址，并交给数据链路层</li>
+</ul>
+</li>
+<li>数据链路层构建一个数据帧，目的地址是IP层传过来的MAC地址，源地址是本机的MAC地址，再附加一些必要的控制信息，依据以太网的介质访问规则将他们传送出去</li>
+<li>机器B收到这个数据帧后，先检查目的地址，和本机MAC地址对比：<ul>
+<li>符合，接受。接收后检查该数据帧。将IP数据包从帧中提取出来，交给本机的的IP地址协议层协议，IP协议层检查之后，将有用的信息提取给ICMP协议，后者处理，马上构建一个ICMP应答包，发送给A，其过程和主机A发送ICMP请求包到B的过程类似，但不用ARP广播收取A的信息，因为请求包中已经有足够的信息用于B回应A。</li>
+<li>若不符合，丢弃。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>如何解决 tcp 粘包问题</strong></p>
+<ul>
+<li>固定包长的数据包：格式简单但灵活性差。如果包内容不足指定的字节数，剩余的空间需要填充特殊的信息，如 \0；如果包内容超过指定字节数，又得分包分片，需要增加额外处理逻辑——在发送端进行分包分片，在接收端重新组装包片。</li>
+<li>以指定字符（串）为包的结束标志：例如，我们熟悉的 FTP协议，发邮件的 SMTP 协议，一个命令或者一段数据后面加上”\r\n”表示一个包的结束。对端收到后，每遇到一个”\r\n“就把之前的数据当做一个数据包。</li>
+<li>包头 + 包体格式：报头中注明每次发送的数据包大小。接收方每次接收时先以报头的size进行数据读取，这必然只能读到一个报头的数据，从报头中得到该数据包的数据大小，然后再按照此大小进行再次读取，就能读到数据的内容了。</li>
+</ul>
+</li>
+<li><p><strong>流量控制和拥塞控制的区别</strong></p>
+<ul>
+<li>流量控制解决的是发送方和接收方速率不匹配的问题，发送方发送过快接收方就来不及接收和处理。采用的机制是滑动窗口的机制。</li>
+<li>拥塞控制解决的是避免网络资源被耗尽的问题，通过大家自律的采取避让的措施，来避免网络有限资源被耗尽。当出现丢包时，控制发送的速率达到降低网络负载的目的。</li>
+</ul>
+</li>
+</ol>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><ol>
+<li><strong>stl 有哪些容器</strong></li>
+<li><strong>set 与 map 底层实现</strong></li>
+<li><strong>二叉搜索树，平衡二叉树，红黑树的区别</strong></li>
+<li><strong>什么是哈希表，怎么解决冲突</strong></li>
+<li><strong>一个哈希表只有 32 个槽如何存放几千个数据</strong></li>
+<li><strong>vector 和 list 区别</strong></li>
+<li><strong>vector 的扩容机制</strong></li>
+</ol>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ol>
+<li><strong>select，poll，epoll 的区别</strong></li>
+<li><strong>epoll 高效的原因</strong></li>
+<li><strong>水平触发和边缘触发的应用场景</strong></li>
+<li><strong>同步和异步 IO 的区别</strong></li>
+<li><strong>什么是僵尸进程，孤儿进程，怎么回收</strong></li>
+<li><strong>什么是守护进程，如何创建</strong></li>
+<li><strong>什么是虚拟内存</strong></li>
+<li><strong>物理内存和虚拟内存的区别</strong></li>
+<li><strong>1G 的物理内存可以读取 2G 的数据吗</strong></li>
+<li><strong>阻塞和非阻塞区别</strong></li>
+<li><strong>Linux 进程调度算法主要有哪些</strong></li>
+<li><strong>进程与线程区别</strong></li>
+<li><strong>内核线程了解吗，它和用户线程什么区别</strong></li>
+<li><strong>进程间的通讯方式</strong></li>
+<li><strong>互斥锁和自旋锁</strong></li>
+<li><strong>大小端的区别</strong></li>
+<li><strong>软链接，硬链接</strong></li>
+<li><strong>fork 子进程继承父进程什么资源</strong></li>
+<li><strong>操作系统的加载过程</strong></li>
+<li><strong>进程切换发生了什么</strong></li>
+</ol>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ol>
+<li><strong>大样本统计</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/statistics-from-a-large-sample/">https://leetcode-cn.com/problems/statistics-from-a-large-sample/</a></li>
+</ul>
+</li>
+<li><strong>反转链表</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/">https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/</a></li>
+</ul>
+</li>
+<li><strong>删除链表中的节点</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-node-in-a-linked-list/">https://leetcode-cn.com/problems/delete-node-in-a-linked-list/</a></li>
+</ul>
+</li>
+<li><strong>二叉树的遍历方式及实现</strong></li>
+<li><strong>假设 4 个人过河，每个人的过桥时间为1，2，5，8。只有一个手电筒，一次最多过两个，怎么过桥速度最快</strong></li>
+<li><strong>快速排序的思想</strong></li>
+<li><strong>前k个高频元素</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/top-k-frequent-elements/">https://leetcode-cn.com/problems/top-k-frequent-elements/</a></li>
+</ul>
+</li>
+<li><strong>网格中的最短路径</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/">https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/</a></li>
+</ul>
+</li>
+<li><strong>二叉树的最近公共祖先</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/">https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/</a></li>
+</ul>
+</li>
+<li><strong>环形链表</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">https://leetcode-cn.com/problems/linked-list-cycle/</a></li>
+</ul>
+</li>
+<li><strong>环形链表II</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">https://leetcode-cn.com/problems/linked-list-cycle-ii/</a></li>
+</ul>
+</li>
+<li><strong>寻找两个正序数组的中位数</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/">https://leetcode-cn.com/problems/median-of-two-sorted-arrays/</a></li>
+</ul>
+</li>
+<li><strong>二分查找</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search/">https://leetcode-cn.com/problems/binary-search/</a></li>
+</ul>
+</li>
+<li><strong>实现strStr()</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-strstr/">https://leetcode-cn.com/problems/implement-strstr/</a></li>
+</ul>
+</li>
+<li><strong>奇偶树</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/even-odd-tree/">https://leetcode-cn.com/problems/even-odd-tree/</a></li>
+</ul>
+</li>
+<li><strong>二叉树中和为某一值的路径</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/">https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/</a></li>
+</ul>
+</li>
+<li><strong>二叉树的中序遍历</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">https://leetcode-cn.com/problems/binary-tree-inorder-traversal/</a></li>
+</ul>
+</li>
+<li><strong>首个公共祖先</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/first-common-ancestor-lcci/">https://leetcode-cn.com/problems/first-common-ancestor-lcci/</a></li>
+</ul>
+</li>
+<li><strong>统计词频</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-frequency/">https://leetcode-cn.com/problems/word-frequency/</a></li>
+</ul>
+</li>
+<li><em>二叉树的深度</em><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/">https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/</a></li>
+</ul>
+</li>
+<li><strong>合并k个升序链表</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">https://leetcode-cn.com/problems/merge-k-sorted-lists/</a></li>
+</ul>
+</li>
+<li><strong>栈排序</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-of-stacks-lcci/">https://leetcode-cn.com/problems/sort-of-stacks-lcci/</a></li>
+</ul>
+</li>
+<li><strong>最长公共子序列</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-common-subsequence/">https://leetcode-cn.com/problems/longest-common-subsequence/</a></li>
+</ul>
+</li>
+<li><strong>二叉搜索树的第k大节点</strong><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/">https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/</a></li>
+</ul>
+</li>
+</ol>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/03/21/%E9%9D%A2%E7%BB%8F/Overseas%20Rabbit%20%E5%AD%97%E8%8A%82%E9%9D%A2%E7%BB%8F/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-03-22 10:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E9%9D%A2%E7%BB%8F/" title="面经">
+                        <b>#</b> 面经
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%9D%A5%E8%87%AA"><span class="toc-text">问题来自</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-text">语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-text">算法</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/llsunlie">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" target="_blank" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=l6aioK_lpqamoqbX5ua59Pj6">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" target="_blank" rel="noopener" href="https://llsunlie.github.io/images/wechat.png">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
+        
+    </div>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+      </div>
+    </div>
+  <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
