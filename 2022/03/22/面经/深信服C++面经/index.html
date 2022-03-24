@@ -209,9 +209,14 @@ MathJax = {
 <li>检测：通过NSZombieEnabled</li>
 </ul>
 </li>
-<li><p><em>智能指针有哪些，实现原理，如何防止循环引用</em></p>
+<li><p><strong>智能指针有哪些，实现原理，如何防止循环引用</strong></p>
 <ul>
-<li>shared_ptr、weak_ptr和unique_ptr</li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7898.html">shared_ptr</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7909.html">unique_ptr</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7918.html">weak_ptr</a></li>
+<li>循环引用<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span> <span class="comment">// 前置声明</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    shared_ptr&lt;B&gt; ptr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    shared_ptr&lt;A&gt; ptr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="function">shared_ptr&lt;A&gt; <span class="title">pa</span><span class="params">(<span class="keyword">new</span> A())</span></span>;</span><br><span class="line">        <span class="function">shared_ptr&lt;B&gt; <span class="title">pb</span><span class="params">(<span class="keyword">new</span> B())</span></span>;</span><br><span class="line">        pa -&gt; ptr = pb;</span><br><span class="line">        pb -&gt; ptr = pa;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>class A和class B的对象各自被两个智能指针管理，也就是A object和B object引用计数都为2,在main函数中一个while循环结束的时候，pa和pb的析构函数被调用，但是class A对象和class B对象仍然被一个智能指针管理，A object和B object引用计数变成1，于是这两个对象的内存无法被释放，造成内存泄漏。</li>
+<li>用weak_ptr可以解决循环引用问题</li>
 </ul>
 </li>
 <li><p><strong>能够使用 memcmp 判断两个结构体存的东西是一样的吗</strong></p>
@@ -636,26 +641,249 @@ MathJax = {
 </li>
 </ol>
 <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ol>
-<li><strong>select，poll，epoll 的区别</strong></li>
-<li><strong>epoll 高效的原因</strong></li>
-<li><strong>水平触发和边缘触发的应用场景</strong></li>
-<li><strong>同步和异步 IO 的区别</strong></li>
-<li><strong>什么是僵尸进程，孤儿进程，怎么回收</strong></li>
-<li><strong>什么是守护进程，如何创建</strong></li>
-<li><strong>什么是虚拟内存</strong></li>
-<li><strong>物理内存和虚拟内存的区别</strong></li>
-<li><strong>1G 的物理内存可以读取 2G 的数据吗</strong></li>
-<li><strong>阻塞和非阻塞区别</strong></li>
-<li><strong>Linux 进程调度算法主要有哪些</strong></li>
-<li><strong>进程与线程区别</strong></li>
-<li><strong>内核线程了解吗，它和用户线程什么区别</strong></li>
-<li><strong>进程间的通讯方式</strong></li>
-<li><strong>互斥锁和自旋锁</strong></li>
-<li><strong>大小端的区别</strong></li>
-<li><strong>软链接，硬链接</strong></li>
-<li><strong>fork 子进程继承父进程什么资源</strong></li>
-<li><strong>操作系统的加载过程</strong></li>
-<li><strong>进程切换发生了什么</strong></li>
+<li><p><strong>select，poll，epoll 的区别</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272891398">https://zhuanlan.zhihu.com/p/272891398</a></li>
+</ul>
+</li>
+<li><p><strong>epoll 高效的原因</strong></p>
+</li>
+<li><p><strong>水平触发和边缘触发的应用场景</strong></p>
+</li>
+<li><p><strong>同步和异步 IO 的区别</strong></p>
+<ul>
+<li>同步：所谓同步，就是在发出一个功能调用时，在没有得到结果之前，该调用就不返回。也就是必须一件一件事做,等前一件做完了才能做下一件事。<ul>
+<li>例如普通B/S模式（同步）：提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事</li>
+</ul>
+</li>
+<li>异步：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<ul>
+<li>例如 ajax请求（异步）: 请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕</li>
+</ul>
+</li>
+<li>阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起（线程进入非可执行状态，在这个状态下，cpu不会给线程分配时间片，即线程暂停运行）。函数只有在得到结果之后才会返回。<ul>
+<li>有人也许会把阻塞调用和同步调用等同起来，实际上他是不同的。对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回,它还会抢占cpu去执行其他逻辑，也会主动检测io是否准备好。</li>
+</ul>
+</li>
+<li>非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</li>
+<li>再简单点理解就是：<ul>
+<li><ol>
+<li>同步，就是我调用一个功能，该功能没有结束前，我死等结果。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>异步，就是我调用一个功能，不需要知道该功能结果，该功能有结果后通知我（回调通知）。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>阻塞，就是调用我（函数），我（函数）没有接收完数据或者没有得到结果之前，我不会返回。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>非阻塞，就是调用我（函数），我（函数）立即返回，通过select通知调用者     </li>
+</ol>
+</li>
+</ul>
+</li>
+<li>同步IO和异步IO的区别就在于： 数据拷贝的时候进程是否阻塞</li>
+<li>阻塞IO和非阻塞IO的区别就在于： 应用程序的调用是否立即返回</li>
+</ul>
+</li>
+<li><p><strong>什么是僵尸进程，孤儿进程，怎么回收</strong></p>
+<ul>
+<li>孤儿进程：一个父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</li>
+<li>僵尸进程：一个进程使用fork创建子进程，如果子进程退出，而父进程并没有调用wait或waitpid获取子进程的状态信息，那么子进程的进程描述符仍然保存在系统中。这种进程称之为僵死进程。</li>
+<li>如何查看linux系统上的僵尸进程，如何统计有多少僵尸进程？#ps -ef | grep defunct</li>
+<li>方法一：父进程通过wait或者wait_pid方式回收子进程</li>
+<li>方法二：信号处理signal</li>
+</ul>
+</li>
+<li><p><strong>什么是守护进程，如何创建</strong></p>
+<ul>
+<li>Linux Daemon（守护进程）是运行在后台的一种特殊进程。它独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。它不需要用户输入就能运行而且提供某种服务，不是对整个系统就是对某个用户程序提供服务。常见的守护进程包括系统日志进程syslogd、 web服务器httpd、邮件服务器sendmail和数据库服务器mysqld等。</li>
+<li>利用库函数daemon()创建守护进程</li>
+</ul>
+</li>
+<li><p><strong>什么是虚拟内存</strong></p>
+<ul>
+<li>虚拟内存是计算机系统内存管理的一种技术。它使得应用程序认为它拥有连续的可用的内存（一个连续完整的地址空间），而实际上，它通常是被分隔成多个物理内存碎片，还有部分暂时存储在外部磁盘存储器上，在需要时进行数据交换。</li>
+</ul>
+</li>
+<li><p><strong>物理内存和虚拟内存的区别</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/682507">https://cloud.tencent.com/developer/news/682507</a></li>
+</ul>
+</li>
+<li><p><strong>1G 的物理内存可以读取 2G 的数据吗</strong></p>
+<ul>
+<li>malloc能够申请的空间大小与物理内存的大小没有直接关系，仅与程序的虚拟地址空间相关。程序运行时，堆空间只是程序向操作系统申请划出来的一大块虚拟地址空间。应用程序通过malloc申请空间，得到的是在虚拟地址空间中的地址，之后程序运行所提供的物理内存是由操作系统完成的。</li>
+</ul>
+</li>
+<li><p><strong>阻塞和非阻塞区别</strong></p>
+<ul>
+<li>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.</li>
+<li>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。</li>
+<li>非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
+</ul>
+</li>
+<li><p><strong>Linux 进程调度算法主要有哪些</strong></p>
+<ul>
+<li>先来先服务调度算法</li>
+<li>短作业(进程)优先调度算法</li>
+<li>高优先权优先调度算法（非抢占式/抢占式）</li>
+<li>高响应比优先调度算法：在批处理系统中，短作业优先算法是一种比较好的算法，其主要的不足之处是长作业的运行得不到保证。如果我们能为每个作业引入前面所述的动态优先权，并使作业的优先级随着等待时间的增加而以速率a 提高，则长作业在等待一定的时间后，必然有机会分配到处理机。</li>
+<li>时间片轮转法</li>
+<li>多级反馈队列调度算法:<ul>
+<li>(1) 应设置多个就绪队列，并为各个队列赋予不同的优先级。第一个队列的优先级最高，第二个队列次之，其余各队列的优先权逐个降低。该算法赋予各个队列中进程执行时间片的大小也各不相同，在优先权愈高的队列中，为每个进程所规定的执行时间片就愈小。例如，第二个队列的时间片要比第一个队列的时间片长一倍，……，第i+1个队列的时间片要比第i个队列的时间片长一倍。</li>
+<li>(2)当一个新进程进入内存后，首先将它放入第一队列的末尾，按FCFS原则排队等待调度。当轮到该进程执行时，如它能在该时间片内完成，便可准备撤离系统；如果它在一个时间片结束时尚未完成，调度程序便将该进程转入第二队列的末尾，再同样地按FCFS原则等待调度执行；如果它在第二队列中运行一个时间片后仍未完成，再依次将它放入第三队列，……，如此下去，当一个长作业(进程)从第一队列依次降到第n队列后，在第n 队列便采取按时间片轮转的方式运行。</li>
+<li>(3) 仅当第一队列空闲时，调度程序才调度第二队列中的进程运行；仅当第1～(i-1)队列均空时，才会调度第i队列中的进程运行。如果处理机正在第i队列中为某进程服务时，又有新进程进入优先权较高的队列(第1～(i-1)中的任何一个队列)，则此时新进程将抢占正在运行进程的处理机，即由调度程序把正在运行的进程放回到第i队列的末尾，把处理机分配给新到的高优先权进程。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>进程与线程区别</strong></p>
+<ul>
+<li>线程是处理器调度的基本单位，进程是资源调度的基本单位。</li>
+<li>地址空间：线程共享本进程的地址空间，而进程之间是独立的地址空间。</li>
+<li>资源：线程共享本进程的资源如内存、I/O、cpu等，不利于资源的管理和保护，而进程之间的资源是独立的，能很好的进行资源管理和保护。</li>
+<li>切换时：进程切换时，消耗的资源大，效率高。所以涉及到频繁的切换时，使用线程要好于进程。同样如果要求同时进行并且又要共享某些变量的并发操作，只能用线程不能用进程。</li>
+</ul>
+</li>
+<li><p><strong>内核线程了解吗，它和用户线程什么区别</strong></p>
+<ul>
+<li>用户线程</li>
+<li>不需要内核支持而在用户程序中实现的线程，其不依赖于操作系统核心，应用进程利用线程库提供创建、同步、调度和管理线程的函数来控制用户线程。不需要用户态/核心态切换，速度快，操作系统内核不知道多线程的存在，因此一个线程阻塞将使得整个进程（包括它的所有线程）阻塞。由于这里的处理器时间片分配是以进程为基本单位，所以每个线程执行的时间相对减少。</li>
+<li>系统线程</li>
+<li>由操作系统内核创建和撤销。内核维护进程及线程的上下文信息以及线程切换。一个内核线程由于I/O操作而阻塞，不会影响其它线程的运行。</li>
+</ul>
+</li>
+<li><p><strong>进程间的通讯方式</strong></p>
+<ul>
+<li>管道，通常指无名管道，是 UNIX 系统IPC最古老的形式。<ul>
+<li>它是半双工的（即数据只能在一个方向上流动），具有固定的读端和写端。</li>
+<li>它只能用于具有亲缘关系的进程之间的通信（也是父子进程或者兄弟进程之间）。</li>
+<li>它可以看成是一种特殊的文件，对于它的读写也可以使用普通的read、write 等函数。但是它不是普通的文件，并不属于其他任何文件系统，并且只存在于内存中。</li>
+</ul>
+</li>
+<li>FIFO，也称为命名管道，它是一种文件类型。<ul>
+<li>FIFO可以在无关的进程之间交换数据，与无名管道不同。</li>
+<li>FIFO有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统中。</li>
+</ul>
+</li>
+<li>消息队列，是消息的链接表，存放在内核中。一个消息队列由一个标识符（即队列ID）来标识。<ul>
+<li>消息队列是面向记录的，其中的消息具有特定的格式以及特定的优先级。</li>
+<li>消息队列独立于发送与接收进程。进程终止时，消息队列及其内容并不会被删除。</li>
+<li>消息队列可以实现消息的随机查询,消息不一定要以先进先出的次序读取,也可以按消息的类型读取。</li>
+</ul>
+</li>
+<li>信号量（semaphore），它是一个计数器。信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据。<ul>
+<li>信号量用于进程间同步，若要在进程间传递数据需要结合共享内存。</li>
+<li>信号量基于操作系统的 PV 操作，程序对信号量的操作都是原子操作。</li>
+<li>每次对信号量的 PV 操作不仅限于对信号量值加 1 或减 1，而且可以加减任意正整数。</li>
+<li>支持信号量组。</li>
+</ul>
+</li>
+<li>共享内存（Shared Memory），指两个或多个进程共享一个给定的存储区。<ul>
+<li>共享内存是最快的一种 IPC，因为进程是直接对内存进行存取。</li>
+<li>因为多个进程可以同时操作，所以需要进行同步。</li>
+<li>信号量+共享内存通常结合在一起使用，信号量用来同步对共享内存的访问。</li>
+</ul>
+</li>
+<li>总结<ul>
+<li>1.管道：速度慢，容量有限，只有父子进程能通讯    </li>
+<li>2.FIFO：任何进程间都能通讯，但速度慢    </li>
+<li>3.消息队列：容量受到系统限制，且要注意第一次读的时候，要考虑上一次没有读完数据的问题    </li>
+<li>4.信号量：不能传递复杂消息，只能用来同步    </li>
+<li>5.共享内存区：能够很容易控制容量，速度快，但要保持同步，比如一个进程在写的时候，另一个进程要注意读写的问题，相当于线程中的线程安全，当然，共享内存区同样可以用作线程间通讯，不过没这个必要，线程间本来就已经共享了同一进程内的一块内存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>互斥锁和自旋锁</strong></p>
+<ul>
+<li>互斥锁加锁失败后，线程会释放 CPU ，给其他线程；</li>
+<li>自旋锁加锁失败后，线程会忙等待，直到它拿到锁；</li>
+</ul>
+</li>
+<li><p><strong>大小端的区别</strong></p>
+<ul>
+<li>32bit宽的数0x12345678在Little-endian模式CPU内存中的存放方式（假设从地址0x4000开始存放）为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">内存地址    0x4000  0x4001  0x4002  0x4003</span><br><span class="line">存放内容    0x78    0x56    0x34    0x12</span><br></pre></td></tr></table></figure></li>
+<li>而在Big-endian模式CPU内存中的存放方式则为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">内存地址    0x4000  0x4001  0x4002  0x4003</span><br><span class="line">存放内容    0x12    0x34    0x56    0x78</span><br></pre></td></tr></table></figure></li>
+<li>如何测试编译器是大端还是小端<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdafx.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdlib.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  x;</span><br><span class="line"><span class="keyword">char</span> x0, x1,x2,x3;</span><br><span class="line">x = <span class="number">0x12345678</span>;</span><br><span class="line">x0 = ((<span class="keyword">char</span> *)&amp;x)[<span class="number">0</span>];  <span class="comment">//低地址单元</span></span><br><span class="line">x1 = ((<span class="keyword">char</span> *)&amp;x)[<span class="number">1</span>];  <span class="comment">//高地址单元</span></span><br><span class="line">x2 = ((<span class="keyword">char</span> *)&amp;x)[<span class="number">2</span>];</span><br><span class="line">x3 = ((<span class="keyword">char</span> *)&amp;x)[<span class="number">3</span>];</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;x0=0x%x,x1=0x%x,x2=0x%x,x3=0x%x&quot;</span>, x0, x1 ,x2, x3); </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>软链接，硬链接</strong></p>
+<ul>
+<li>硬链接是指通过索引节点来进行链接。在Linux的文件系统中，保存在磁盘分区中的文件不管是什么类型都会给它分配一个编号，这个编号被称为索引节点编号Inode，它是文件或者目录在一个文件系统中的唯一标识，文件的实际数据放置在数据区域（data block），它存储着文件重要参数信息，也就是元数据 （metadata），比如创建时间、修改时间、文件大小、属主、归属的用户组、读写权限、数据所在block号等。在Linux系统中，多个文件名指向同一索引节点(Inode)是正常且允许的。一般这种链接就称为硬链接。硬链接的作用之一是允许一个文件拥有多个有效路径名，这样用户就可以建立硬链接到重要的文件，以防止“误删”源数据(很多硬件，如netapp存储中的快照功能就应用了这个原理，增加一个快照就多了一个硬链接》。不过硬链接只能在同一文件系统中的文件之间进行链接，不能对目录进行创建。之所以文件建立了硬链接就会防止数据误删，是因为文件系统的原理是，只要文件的索引节点还有一个以上的链接（仅删除了该文件的指向），只删除其中一个链接并不影响索引节点本身和其他的链接（数据的实体并未删除），只有当最后一个链接被删除后，此时如果有新数据要存储到磁盘上，被删除的文件的数据块及目录的链接才会被释放，空间被新数据暂用覆盖。</li>
+<li> 软链接（也叫符号链接），类似于windows系统中的快捷方式，与硬链接不同，软链接就是一个普通文件，只是数据块内容有点特殊，文件用户数据块中存放的内容是另一文件的路径名的指向，通过这个方式可以快速定位到软连接所指向的源文件实体。软链接可对文件或目录创建。删除软链接并不影响被指向的文件，但若被指向的原文件被删除，则相关软连接就变成了死链接。</li>
+<li>linux系统可以用ln命令来创建链接文件。ln命令格式：ln [参数] [源文件或目录] [目标文件或目录]</li>
+</ul>
+</li>
+<li><p><strong>fork 子进程继承父进程什么资源</strong></p>
+<ul>
+<li>使用fork函数得到的子进程从父进程的继承了整个进程的地址空间，包括：进程上下文、进程堆栈、内存信息、打开的文件描述符、信号控制设置、进程优先级、进程组号、当前工作目录、根目录、资源限制、控制终端等。</li>
+</ul>
+</li>
+<li><p><strong>操作系统的加载过程</strong></p>
+<ul>
+<li><ol>
+<li>BIOS加电自检，寻找显卡和执行BIOS。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将bootloader加载到内存中。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>bootloader找到硬盘的起始扇区，将操作系统代码和数据从硬盘读取到内存中。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>进程切换发生了什么</strong></p>
+<ul>
+<li>进程切换<ul>
+<li>进程切换指从正在运行的进程中收回处理器，让待运行进程来占有处理器运行。</li>
+<li>实质上就是被中断运行进程与待运行进程的上下文切换。</li>
+</ul>
+</li>
+<li>模式切换<ul>
+<li>进程切换必须在操作系统内核模式下完成，这就需要模式切换。</li>
+<li>模式切换又称处理器切换，即用户模式和内核模式的互相切换。</li>
+</ul>
+</li>
+<li>进程切换的工作过程<ul>
+<li>1、（中断／异常等触发）正向模式切换并压入PSW／PC 。 （Program Status Word 程序状态字。program counter 程序计数器。指向下一条要执行的指令）</li>
+<li>2、保存被中断进程的现场信息。</li>
+<li>3、处理具体中断、异常。</li>
+<li>4、把被中断进程的系统堆栈指针SP值保存到PCB。（Stack Pointer 栈指针。Process Control Block 进程控制块。）</li>
+<li>5、调整被中断进程的PCB信息，如进程状态）。</li>
+<li>6、把被中断进程的PCB加入相关队列。</li>
+<li>7、选择下一个占用CPU运行的进程。</li>
+<li>8、修改被选中进程的PCB信息，如进程状态。</li>
+<li>9、设置被选中进程的地址空间，恢复存储管理信息。</li>
+<li>10、恢复被选中进程的SP值到处理器寄存器SP。</li>
+<li>11、恢复被选中进程的现场信息进入处理器。</li>
+<li>12、（中断返回指令触发）逆向模式转换并弹出PSW／PC。</li>
+</ul>
+</li>
+<li>进程切换何时发生<ul>
+<li>1、阻塞式系统调用、虚拟地址异常。导致被中断进程进入等待态。</li>
+<li>2、时间片中断、I/O中断后发现更改优先级进程。导致被中断进程进入就绪态。</li>
+<li>3、终止用系统调用、不能继续执行的异常。导致被中断进程进入终止态。</li>
+</ul>
+</li>
+<li>但是并不意味着所有的中断／异常都会引起进程切换<ul>
+<li>有一些中断／异常不会引起进程状态转换，不会引起进程切换，只是在处理完成后把控制权交还给被中断进程。</li>
+<li>以下是处理流程：</li>
+<li>1、（中断／异常等触发）正向模式切换并压入PSW／PC 。 </li>
+<li>2、保存被中断进程的现场信息。</li>
+<li>3、处理具体中断、异常。</li>
+<li>4、恢复被中断进程的现场信息。</li>
+<li>5、（中断返回指令触发）逆向模式转换并弹出PSW／PC。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ol>
 <li><strong>大样本统计</strong><ul>
